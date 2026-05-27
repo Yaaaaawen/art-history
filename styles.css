@@ -329,11 +329,26 @@ select:focus {
   line-height: 1.7;
 }
 
+.relation-grid,
 .info-columns {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin: 16px 0;
+}
+
+.relation-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.info-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.relation-grid div {
+  border: 1px solid rgba(216, 205, 187, 0.8);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.62);
+  padding: 12px;
 }
 
 .info-columns div,
@@ -348,8 +363,8 @@ h3 {
   font-size: 14px;
 }
 
-.movement,
-.legacy {
+.relation-grid p,
+.info-columns p {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 14px;
@@ -402,9 +417,38 @@ h3 {
 }
 
 .art-card span {
+  display: block;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.45;
+}
+
+.art-facts {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+}
+
+.art-facts div {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.art-facts dt,
+.art-facts dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.art-facts dt {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.art-facts dd {
+  color: #453f36;
 }
 
 .people-list {
@@ -420,6 +464,12 @@ h3 {
   padding: 7px 10px;
   color: #244c47;
   font-size: 13px;
+}
+
+.relation-chip {
+  border-color: rgba(176, 122, 34, 0.34);
+  background: rgba(176, 122, 34, 0.1);
+  color: #6d4a13;
 }
 
 .compare-panel {
@@ -485,6 +535,10 @@ h3 {
   .cards-grid {
     grid-template-columns: 1fr;
   }
+
+  .relation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -522,6 +576,7 @@ h3 {
   .view-tabs,
   .stat-grid,
   .artwork-strip,
+  .relation-grid,
   .info-columns,
   .compare-row {
     grid-template-columns: 1fr;
