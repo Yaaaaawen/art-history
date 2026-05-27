@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>中外艺术史时间轴</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Art History Atlas</p>
+        <h1>中外艺术史时间轴</h1>
+      </div>
+      <nav class="view-tabs" aria-label="视图切换">
+        <button class="tab-button active" data-view="all" type="button">总览</button>
+        <button class="tab-button" data-view="china" type="button">中国线</button>
+        <button class="tab-button" data-view="world" type="button">世界线</button>
+        <button class="tab-button" data-view="compare" type="button">中外对照</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p>从石器时代到近现代，用一条时间轴看清艺术风格如何诞生、延续、碰撞与转向。</p>
+          <div class="search-row">
+            <label class="search-box">
+              <span>搜索</span>
+              <input id="searchInput" type="search" placeholder="例如：唐代、文艺复兴、梵高、山水画" />
+            </label>
+            <label class="select-box">
+              <span>阶段</span>
+              <select id="periodSelect">
+                <option value="all">全部时期</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="stat-grid" aria-label="内容概览">
+          <div>
+            <strong id="periodCount">0</strong>
+            <span>历史阶段</span>
+          </div>
+          <div>
+            <strong id="artistCount">0</strong>
+            <span>代表人物</span>
+          </div>
+          <div>
+            <strong id="movementCount">0</strong>
+            <span>流派运动</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="timeline-shell" aria-label="时期导航">
+          <div class="section-title">
+            <h2>时间线</h2>
+            <button id="resetButton" type="button">重置</button>
+          </div>
+          <div id="timelineNav" class="timeline-nav"></div>
+        </aside>
+
+        <section class="content-area">
+          <div id="cardsGrid" class="cards-grid"></div>
+          <section id="comparePanel" class="compare-panel" hidden>
+            <div class="section-title">
+              <h2>中外时间轴对比</h2>
+            </div>
+            <div id="compareGrid" class="compare-grid"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <template id="eraTemplate">
+      <article class="era-card">
+        <div class="era-card-header">
+          <div>
+            <p class="era-kicker"></p>
+            <h2></h2>
+          </div>
+          <span class="region-pill"></span>
+        </div>
+        <p class="context"></p>
+        <div class="info-columns">
+          <div>
+            <h3>流派与风格</h3>
+            <p class="movement"></p>
+          </div>
+          <div>
+            <h3>承上启下</h3>
+            <p class="legacy"></p>
+          </div>
+        </div>
+        <div class="artwork-strip"></div>
+        <div class="people-block">
+          <h3>代表人物与关系</h3>
+          <div class="people-list"></div>
+        </div>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
