@@ -369,6 +369,77 @@ const eras = [
   },
 ];
 
+const extraArtworks = {
+  "中国新石器艺术": [
+    art("马家窑彩陶罐", "新石器时代彩陶", "约前3300-前2000年", "克利夫兰艺术博物馆等有藏", filePath("CMOC Treasures of Ancient China exhibit - painted jar.jpg")),
+    art("良渚玉璧", "良渚文化，玉礼器", "约前3300-前2300年", "多馆有藏", filePath("Liangzhu Jade Bi Disc (10434502846).jpg")),
+  ],
+  "史前图像与巨石文化": [
+    art("阿尔塔米拉野牛", "旧石器洞穴壁画", "约前15000-前12000年", "西班牙阿尔塔米拉洞穴", filePath("Altamira, bison.jpg")),
+    art("肖韦洞穴马群", "旧石器洞穴壁画", "约前30000年", "法国肖韦洞穴", filePath("Chauvet´s cave horses.jpg")),
+  ],
+  "古埃及艺术": [
+    art("吉萨金字塔群", "古王国纪念性建筑", "约前26世纪", "埃及吉萨原址", filePath("All Gizah Pyramids.jpg")),
+    art("纳芙蒂蒂胸像", "新王国阿玛尔纳艺术", "约前1345年", "柏林新博物馆", filePath("Nefertiti 30-01-2006.jpg")),
+  ],
+  "商周青铜礼制": [
+    art("三星堆青铜人头像", "青铜面具与人像", "约前12-前11世纪", "三星堆博物馆", filePath("Bronze head from Sanxingdui.JPG")),
+    art("大克鼎", "西周青铜礼器", "约前10-前9世纪", "上海博物馆", filePath("Da Ke ding.jpg")),
+  ],
+  "古希腊艺术": [
+    art("掷铁饼者", "古典人体雕塑罗马摹本", "原作约前460-前450年", "罗马国立博物馆等有藏", filePath("Discobolus in National Roman Museum Palazzo Massimo alle Terme.JPG")),
+    art("狄俄尼索斯航海杯", "黑绘陶杯", "约前530年", "慕尼黑国家古代艺术博物馆", filePath("Exekias Dionysos Staatliche Antikensammlungen 2044.jpg")),
+  ],
+  "古罗马艺术": [
+    art("提图斯凯旋门浮雕", "罗马历史浮雕", "约公元81年", "意大利罗马原址", filePath("Arch of Titus Menorah.png")),
+    art("万神殿", "罗马穹顶建筑", "约公元118-125年", "意大利罗马原址", filePath("Pantheon Rome 2005may.jpg")),
+  ],
+  "秦汉帝国与墓葬艺术": [
+    art("金缕玉衣", "汉代丧葬玉衣", "约前2世纪", "河北博物院等有藏", filePath("Western Han Jade Burial Suit of Liu Sheng with Body Aperature Fittings.jpg")),
+    art("西汉鎏金铜灯", "西汉青铜灯具", "约前2世纪", "弗利尔美术馆等有藏", filePath("Western Han gilt bronze lamp.jpg")),
+  ],
+  "拜占庭艺术": [
+    art("皇后狄奥多拉与随从", "圣维塔莱教堂镶嵌画", "约547年", "圣维塔莱教堂，拉文纳", filePath("Empress Theodora mosaic.jpg")),
+    art("圣阿波利纳雷新堂镶嵌", "拜占庭教堂镶嵌画", "6世纪", "拉文纳圣阿波利纳雷新堂", filePath("Sant'Apollinare Nuovo Mosaics.jpg")),
+  ],
+  "魏晋南北朝至隋唐": [
+    art("云冈石窟大佛", "北魏石窟造像", "5世纪", "山西大同云冈石窟原址", filePath("Yungang Grottoes 02.jpg")),
+    art("唐三彩骆驼载乐俑", "唐代陶俑", "8世纪", "中国国家博物馆等有藏", filePath("Tang dynasty sancai camel and musicians.jpg")),
+  ],
+  "罗曼式与哥特艺术": [
+    art("圣礼拜堂彩色玻璃", "法国哥特式彩窗", "1240年代", "巴黎圣礼拜堂原址", filePath("Sainte Chapelle Interior Stained Glass.jpg")),
+    art("比萨主教座堂群", "罗曼式建筑", "11-14世纪", "意大利比萨原址", filePath("Pisa Cathedral and Leaning Tower.jpg")),
+  ],
+  "宋元文人画": [
+    art("千里江山图", "北宋青绿山水", "1113年", "故宫博物院，北京", filePath("Wang Ximeng - A Thousand Li of Rivers and Mountains.jpg")),
+    art("鹊华秋色图", "赵孟頫，设色山水", "1295年", "台北故宫博物院", filePath("Autumn Colors on the Qiao and Hua Mountains.jpg")),
+  ],
+  "文艺复兴": [
+    art("维纳斯的诞生", "波提切利，蛋彩画", "约1484-1486年", "乌菲齐美术馆，佛罗伦萨", filePath("Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg")),
+    art("阿尔诺芬尼夫妇像", "扬·凡·艾克，油画", "1434年", "英国国家美术馆，伦敦", filePath("Van Eyck - Arnolfini Portrait.jpg")),
+  ],
+  "明清与城市画派": [
+    art("清明上河图仇英本", "明代城市风俗长卷", "16世纪", "辽宁省博物馆等有藏", filePath("Qiu Ying - Spring Festival on the River.jpg")),
+    art("康熙南巡图", "清代宫廷纪实绘画", "17世纪末", "多馆分藏", filePath("Kangxi Emperor's Southern Inspection Tour.jpg")),
+  ],
+  "巴洛克与洛可可": [
+    art("宫娥", "委拉斯开兹，宫廷绘画", "1656年", "普拉多博物馆，马德里", filePath("Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg")),
+    art("秋千", "弗拉戈纳尔，洛可可绘画", "约1767年", "华莱士收藏馆，伦敦", filePath("Fragonard, The Swing.jpg")),
+  ],
+  "现代主义裂变": [
+    art("亚维农少女", "毕加索，立体主义前奏", "1907年", "现代艺术博物馆，纽约", filePath("Les Demoiselles d'Avignon.jpg")),
+    art("记忆的永恒", "达利，超现实主义", "1931年", "现代艺术博物馆，纽约", filePath("The Persistence of Memory.jpg")),
+  ],
+  "近现代中国美术": [
+    art("父亲", "罗中立，现实主义油画", "1980年", "中国美术馆，北京", filePath("Luo Zhongli Father.jpg")),
+    art("格尔尼卡与中国现代油画讨论", "中西现代主义参照", "20世纪", "教学与展览语境", filePath("Xu Beihong Tian Heng and His Five Hundred Followers.jpg")),
+  ],
+  "全球当代艺术": [
+    art("泉", "杜尚，现成品艺术", "1917年原作", "多馆有复制版本", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg")),
+    art("电视佛", "白南准，录像装置", "1974年", "多馆有版本", filePath("Nam June Paik TV Buddha.jpg")),
+  ],
+};
+
 const compareRows = [
   {
     time: "前3000年前后",
@@ -555,10 +626,25 @@ function profile(name, era, field, bio, works, tags) {
   return { name, era, field, bio, works, tags };
 }
 
+function nodeInfo(name) {
+  const artist = artistProfiles.find((item) => item.name === name);
+  const era = eras.find((item) => item.period === name || item.artists.includes(name));
+  return {
+    name,
+    group: era?.region || (artist?.era === "当代" || artist?.era === "现代主义" || artist?.era === "文艺复兴" || artist?.era === "巴洛克" ? "world" : "china"),
+    era: artist?.era || era?.period || "艺术史节点",
+    field: artist?.field || era?.title || "艺术线索",
+    bio: artist?.bio || era?.context || "这个节点用于连接艺术形式、人物和时代之间的影响关系。",
+    work: artist?.works?.[0] || era?.artworks?.[0] || null,
+  };
+}
+
 const state = {
   view: "all",
   period: "all",
   query: "",
+  activeNetworkNode: "",
+  networkFilter: "all",
 };
 
 const cardsGrid = document.querySelector("#cardsGrid");
@@ -572,9 +658,18 @@ const timelineNav = document.querySelector("#timelineNav");
 const searchInput = document.querySelector("#searchInput");
 const periodSelect = document.querySelector("#periodSelect");
 const resetButton = document.querySelector("#resetButton");
+const imageDialog = document.querySelector("#imageDialog");
+const dialogImage = document.querySelector("#dialogImage");
+const dialogTitle = document.querySelector("#dialogTitle");
+const dialogMeta = document.querySelector("#dialogMeta");
+const dialogFacts = document.querySelector("#dialogFacts");
 
 function regionLabel(region) {
   return region === "china" ? "中国" : "世界";
+}
+
+function artworksForEra(era) {
+  return [...era.artworks, ...(extraArtworks[era.period] || [])];
 }
 
 function matchesEra(era) {
@@ -598,7 +693,7 @@ function matchesEra(era) {
     era.legacy,
     era.relations,
     ...era.artists,
-    ...era.artworks.flatMap((item) => [
+    ...artworksForEra(era).flatMap((item) => [
       item.title,
       item.meta,
       item.date,
@@ -667,6 +762,10 @@ function renderArtwork(artwork) {
   card.className = "art-card";
 
   const figure = document.createElement("figure");
+  const preview = document.createElement("button");
+  preview.className = "art-preview";
+  preview.type = "button";
+  preview.setAttribute("aria-label", `放大查看${artwork.title}`);
   const image = document.createElement("img");
   image.className = "art-image";
   image.alt = artwork.title;
@@ -683,6 +782,8 @@ function renderArtwork(artwork) {
     if (!image.complete) useFallback();
   }, 2400);
   image.src = artwork.image;
+  preview.addEventListener("click", () => openImageDialog(artwork, image.src));
+  preview.append(image);
 
   const caption = document.createElement("figcaption");
   caption.innerHTML = `
@@ -693,9 +794,18 @@ function renderArtwork(artwork) {
       <div><dt>现收藏地</dt><dd>${artwork.location}</dd></div>
     </dl>
   `;
-  figure.append(image, caption);
+  figure.append(preview, caption);
   card.append(figure);
   return card;
+}
+
+function openImageDialog(artwork, imageSrc = artwork.image) {
+  dialogImage.src = imageSrc;
+  dialogImage.alt = artwork.title;
+  dialogTitle.textContent = artwork.title;
+  dialogMeta.textContent = artwork.meta;
+  dialogFacts.textContent = `${artwork.date} · ${artwork.location}`;
+  imageDialog.showModal();
 }
 
 function makeInfoBlock(title, text) {
@@ -736,7 +846,7 @@ function renderEraCard(era) {
     }),
   );
 
-  card.querySelector(".artwork-strip").replaceChildren(...era.artworks.map(renderArtwork));
+  card.querySelector(".artwork-strip").replaceChildren(...artworksForEra(era).map(renderArtwork));
 
   const peopleList = card.querySelector(".people-list");
   const chips = era.artists.map((artistName) => {
@@ -775,22 +885,29 @@ function renderCompare() {
   compareGrid.replaceChildren();
   if (comparePanel.hidden) return;
 
-  const chinaColumn = document.createElement("section");
-  const bridgeColumn = document.createElement("section");
-  const worldColumn = document.createElement("section");
-  chinaColumn.className = "parallel-column china-column";
-  bridgeColumn.className = "parallel-column bridge-column";
-  worldColumn.className = "parallel-column world-column";
-  chinaColumn.innerHTML = "<h3>中国艺术线</h3>";
-  bridgeColumn.innerHTML = "<h3>对照观察</h3>";
-  worldColumn.innerHTML = "<h3>世界艺术线</h3>";
+  const heading = document.createElement("div");
+  heading.className = "axis-head";
+  heading.innerHTML = "<strong>中国艺术线</strong><span>时间轴</span><strong>世界艺术线</strong>";
+  compareGrid.append(heading);
 
-  for (const row of compareRows) {
-    chinaColumn.append(compareItem(row.time, row.china));
-    bridgeColumn.append(compareItem(row.time, row.bridge));
-    worldColumn.append(compareItem(row.time, row.world));
-  }
-  compareGrid.append(chinaColumn, bridgeColumn, worldColumn);
+  compareRows.forEach((row, index) => {
+    const item = document.createElement("article");
+    item.className = "axis-row";
+    item.style.setProperty("--row-delay", `${index * 45}ms`);
+    item.innerHTML = `
+      <div class="axis-card china-side">${compareItem(row.time, row.china).innerHTML}</div>
+      <div class="axis-marker">
+        <span>${row.time}</span>
+        <button type="button" aria-label="展开${row.time}中外对照">对照</button>
+      </div>
+      <div class="axis-card world-side">${compareItem(row.time, row.world).innerHTML}</div>
+      <p class="axis-bridge">${row.bridge}</p>
+    `;
+    item.querySelector(".axis-marker button").addEventListener("click", () => {
+      item.classList.toggle("expanded");
+    });
+    compareGrid.append(item);
+  });
 }
 
 function compareItem(time, text) {
@@ -822,15 +939,15 @@ function renderArtists() {
 function renderArtistCard(artist) {
   const card = document.createElement("article");
   card.className = "artist-card";
-  const works = artist.works.map((work) => `
-    <div class="artist-work">
+  const works = artist.works.map((work, index) => `
+    <button class="artist-work" type="button" data-work-index="${index}">
       <img src="${work.image}" alt="${work.title}" loading="lazy" />
       <div>
         <strong>${work.title}</strong>
         <span>${work.meta}</span>
         <small>${work.date} · ${work.location}</small>
       </div>
-    </div>
+    </button>
   `).join("");
   const tags = artist.tags.map((tag) => `<span>${tag}</span>`).join("");
   card.innerHTML = `
@@ -849,6 +966,11 @@ function renderArtistCard(artist) {
       image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(fallbackSvg({ title: image.alt, date: "经典作品" }))}`;
     });
   });
+  card.querySelectorAll(".artist-work").forEach((button) => {
+    button.addEventListener("click", () => {
+      openImageDialog(artist.works[Number(button.dataset.workIndex)], button.querySelector("img").src);
+    });
+  });
   return card;
 }
 
@@ -857,53 +979,139 @@ function renderNetwork() {
   networkCanvas.replaceChildren();
   if (networkPanel.hidden) return;
 
+  const filteredNodes = networkNodes.filter((node) => state.networkFilter === "all" || nodeInfo(node.name).group === state.networkFilter);
+  const visibleNames = new Set(filteredNodes.map((node) => node.name));
+  const visibleEdges = networkEdges.filter(([from, to]) => visibleNames.has(from) && visibleNames.has(to));
+  if (!state.activeNetworkNode || !visibleNames.has(state.activeNetworkNode)) {
+    state.activeNetworkNode = filteredNodes[0]?.name || "";
+  }
+  const activeName = state.activeNetworkNode;
+  const activeEdges = visibleEdges.filter(([from, to]) => from === activeName || to === activeName);
+  const relatedNames = new Set(activeEdges.flatMap(([from, to]) => [from, to]));
+
+  const controls = document.createElement("div");
+  controls.className = "network-controls";
+  [
+    ["all", "全部"],
+    ["china", "中国线"],
+    ["world", "世界线"],
+  ].forEach(([value, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = state.networkFilter === value ? "active" : "";
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      state.networkFilter = value;
+      state.activeNetworkNode = "";
+      renderNetwork();
+    });
+    controls.append(button);
+  });
+
+  const graph = document.createElement("div");
+  graph.className = "network-graph";
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0 0 100 100");
   svg.setAttribute("class", "network-svg");
-  const nodeMap = new Map(networkNodes.map((node) => [node.name, node]));
+  const nodeMap = new Map(filteredNodes.map((node) => [node.name, node]));
 
-  for (const [from, to, label] of networkEdges) {
+  for (const [from, to, label] of visibleEdges) {
     const a = nodeMap.get(from);
     const b = nodeMap.get(to);
     if (!a || !b) continue;
+    const isActive = from === activeName || to === activeName;
     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
     line.setAttribute("x1", a.x);
     line.setAttribute("y1", a.y);
     line.setAttribute("x2", b.x);
     line.setAttribute("y2", b.y);
-    line.setAttribute("class", "network-line");
+    line.setAttribute("class", `network-line${isActive ? " active" : ""}`);
     svg.append(line);
 
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.setAttribute("x", (a.x + b.x) / 2);
     text.setAttribute("y", (a.y + b.y) / 2 - 1);
-    text.setAttribute("class", "network-label");
+    text.setAttribute("class", `network-label${isActive ? " active" : ""}`);
     text.textContent = label;
     svg.append(text);
   }
 
-  for (const node of networkNodes) {
+  for (const node of filteredNodes) {
+    const info = nodeInfo(node.name);
+    const isActive = node.name === activeName;
+    const isRelated = relatedNames.has(node.name);
     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    group.setAttribute("class", "network-node");
+    group.setAttribute("class", `network-node ${info.group}${isActive ? " active" : ""}${isRelated ? " related" : ""}`);
+    group.setAttribute("tabindex", "0");
+    group.setAttribute("role", "button");
+    group.setAttribute("aria-label", `查看${node.name}关系`);
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("cx", node.x);
     circle.setAttribute("cy", node.y);
-    circle.setAttribute("r", 2.2);
+    circle.setAttribute("r", isActive ? 3.2 : 2.35);
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.setAttribute("x", node.x);
     text.setAttribute("y", node.y - 3.4);
     text.textContent = node.name;
+    const selectNode = () => {
+      state.activeNetworkNode = node.name;
+      renderNetwork();
+    };
+    group.addEventListener("click", selectNode);
+    group.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        selectNode();
+      }
+    });
     group.append(circle, text);
     svg.append(group);
   }
+  graph.append(svg);
 
-  const list = document.createElement("div");
-  list.className = "network-list";
-  list.innerHTML = networkEdges
-    .map(([from, to, label]) => `<div><strong>${from}</strong><span>${label}</span><strong>${to}</strong></div>`)
+  const detail = document.createElement("aside");
+  detail.className = "network-detail";
+  const activeInfo = nodeInfo(activeName);
+  const workMarkup = activeInfo.work
+    ? `<button class="network-work" type="button"><img src="${activeInfo.work.image}" alt="${activeInfo.work.title}" /><span>${activeInfo.work.title}</span></button>`
+    : "";
+  detail.innerHTML = `
+    <p>${activeInfo.era} · ${activeInfo.field}</p>
+    <h3>${activeInfo.name}</h3>
+    <p>${activeInfo.bio}</p>
+    ${workMarkup}
+    <h4>相关关系</h4>
+  `;
+  const relationList = document.createElement("div");
+  relationList.className = "network-list";
+  relationList.innerHTML = (activeEdges.length ? activeEdges : visibleEdges)
+    .map(([from, to, label]) => `<button type="button" data-from="${from}" data-to="${to}"><strong>${from}</strong><span>${label}</span><strong>${to}</strong></button>`)
     .join("");
-  networkCanvas.append(svg, list);
+  relationList.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeNetworkNode = button.dataset.to === activeName ? button.dataset.from : button.dataset.to;
+      renderNetwork();
+    });
+  });
+  detail.append(relationList);
+  const workButton = detail.querySelector(".network-work");
+  if (workButton && activeInfo.work) {
+    workButton.addEventListener("click", () => openImageDialog(activeInfo.work));
+  }
+
+  graph.append(detail);
+  networkCanvas.append(controls, graph);
 }
+
+function closeImageDialog() {
+  imageDialog.close();
+  dialogImage.removeAttribute("src");
+}
+
+imageDialog.querySelector(".dialog-close").addEventListener("click", closeImageDialog);
+imageDialog.addEventListener("click", (event) => {
+  if (event.target === imageDialog) closeImageDialog();
+});
 
 function renderTabs() {
   document.querySelectorAll(".tab-button").forEach((button) => {

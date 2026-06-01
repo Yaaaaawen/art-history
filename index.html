@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>中外艺术史时间轴</title>
-    <link rel="stylesheet" href="./styles.css?v=20260602-depth" />
+    <link rel="stylesheet" href="./styles.css?v=20260602-interactive" />
   </head>
   <body>
     <header class="topbar">
@@ -88,6 +88,18 @@
       </section>
     </main>
 
+    <dialog id="imageDialog" class="image-dialog" aria-label="作品大图">
+      <button class="dialog-close" type="button" aria-label="关闭大图">×</button>
+      <figure>
+        <img id="dialogImage" alt="" />
+        <figcaption>
+          <strong id="dialogTitle"></strong>
+          <span id="dialogMeta"></span>
+          <small id="dialogFacts"></small>
+        </figcaption>
+      </figure>
+    </dialog>
+
     <template id="eraTemplate">
       <article class="era-card">
         <div class="era-card-header">
@@ -115,6 +127,6 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aa7cfef2388c47c08c2b725b2efc7fac"}'></script>
     <!-- End Cloudflare Web Analytics -->
-    <script src="./script.js?v=20260602-depth"></script>
+    <script src="./script.js?v=20260602-interactive"></script>
   </body>
 </html>
