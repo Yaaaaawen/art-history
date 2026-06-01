@@ -373,44 +373,187 @@ const compareRows = [
   {
     time: "前3000年前后",
     china: "新石器晚期玉礼器和聚落礼仪成熟，良渚等文化把权力和宇宙观放进玉器。",
+    bridge: "中国以玉礼器和聚落仪式建立早期礼制，埃及则以纪念性建筑和陵墓体系回应王权与来世。",
     world: "埃及统一王权出现，尼罗河地理和来世观推动金字塔、陵墓和正面律。",
   },
   {
     time: "前1600-前200",
     china: "商周青铜礼制到战国乐器和铭文系统，艺术服务祖先祭祀与王权秩序。",
+    bridge: "一边是青铜器和铭文构成宗法礼制，一边是城邦公共艺术把人体、神庙和公民精神联系起来。",
     world: "希腊城邦发展人体理想和神庙柱式，艺术以理性比例和公共生活为核心。",
   },
   {
     time: "前221-220",
     china: "秦汉帝国把军阵、墓葬、升仙图像和厚葬制度结合，强调生死连续。",
+    bridge: "秦汉与罗马都服务帝国秩序：中国偏向地下宇宙与丧葬图像，罗马偏向公共工程和政治纪念。",
     world: "罗马把希腊形式转为帝国工程、肖像和公共纪念碑。",
   },
   {
     time: "330-900",
     china: "佛教经丝路进入中国，石窟造像和壁画在云冈、龙门、敦煌本土化。",
+    bridge: "丝路让佛教图像向东传播；拜占庭在地中海东部把基督教神学转化为金底圣像和穹顶空间。",
     world: "拜占庭以金底镶嵌、圣像和穹顶空间表现神圣秩序。",
   },
   {
     time: "1000-1400",
     china: "宋元山水从宇宙秩序转向文人心性，笔墨成为人格语言。",
+    bridge: "宋元文人画更关注观看者的修养与心境，西欧哥特艺术则把城市、教会和光线组织成公共宗教经验。",
     world: "西欧罗曼式和哥特式教堂发展，城市、行会和彩色玻璃塑造神学空间。",
   },
   {
     time: "1400-1750",
     china: "明清文人画在复古、收藏和城市市场中扩展，吴门、四王、扬州八怪并存。",
+    bridge: "中国画在复古、题跋和市场中分化；欧洲从文艺复兴理性空间转向巴洛克戏剧光影和王权展示。",
     world: "文艺复兴透视与人体理想之后，巴洛克用光影和运动回应宗教与王权。",
   },
   {
     time: "1750-1945",
     china: "晚清民国的新式教育、留学和城市出版推动中国美术现代转型。",
+    bridge: "现代化压力在中外同时出现：中国面对传统笔墨与西画制度的转换，欧洲则被工业、摄影和战争推向现代主义。",
     world: "工业革命、摄影和战争推动印象派、后印象派、立体主义等现代主义裂变。",
   },
   {
     time: "1945-至今",
     china: "现代水墨、油画民族化和当代艺术进入全球展览网络。",
+    bridge: "战后艺术共同进入全球展览和媒介网络，差别在于中国更常处理本土传统、政治历史与全球当代之间的张力。",
     world: "抽象表现主义、波普、观念和数字艺术让艺术从物件转向过程与语境。",
   },
 ];
+
+const artFormDetails = {
+  "中国新石器艺术": [
+    ["彩陶", "以旋涡纹、人面鱼纹、几何纹记录聚落身份和自然崇拜，常见于仰韶、马家窑等文化。"],
+    ["玉礼器", "玉琮、玉璧、玉龙不只是装饰品，而是祭祀权力、天地观念和精英身份的象征。"],
+    ["早期雕塑", "红山玉龙、陶塑人像体现动物崇拜、祖先观念和身体想象。"],
+  ],
+  "史前图像与巨石文化": [
+    ["洞穴壁画", "拉斯科、阿尔塔米拉等洞穴以动物为核心，强调速度、轮廓和狩猎仪式。"],
+    ["小型雕像", "女性小像常与生育、身体和仪式有关，体量小但象征强。"],
+    ["巨石空间", "巨石阵把天象、纪念和集体劳动组织成可进入的空间。"],
+  ],
+  "古埃及艺术": [
+    ["陵墓壁画", "用连续图像保障逝者来世生活，人物大小和姿态服从身份等级。"],
+    ["法老雕像", "强调正面、静止和永恒，把王权塑造成神圣秩序。"],
+    ["丧葬器物", "木乃伊棺、面具、亡灵书共同服务灵魂复生和来世审判。"],
+  ],
+  "商周青铜礼制": [
+    ["青铜礼器", "鼎、尊、卣、簋承载祭祀、宴飨和宗法等级。"],
+    ["纹样系统", "饕餮、夔龙、云雷纹让器物表面具有神秘威慑力。"],
+    ["铭文书法", "青铜铭文记录册命、战争、赏赐和家族记忆，是书法与历史文献的早期交汇。"],
+  ],
+  "古希腊艺术": [
+    ["神庙建筑", "柱式、比例和山花雕塑共同表达城邦秩序。"],
+    ["人体雕塑", "从古风到古典再到希腊化，人体逐渐从程式走向理想与情绪。"],
+    ["瓶画", "黑绘、红绘瓶画记录神话、竞技和日常生活。"],
+  ],
+  "古罗马艺术": [
+    ["公共建筑", "拱券、穹顶、混凝土和道路系统把艺术变成帝国治理的一部分。"],
+    ["肖像雕塑", "共和国写实肖像强调家族和公民德性，帝国肖像强调政治合法性。"],
+    ["壁画与马赛克", "庞贝壁画把建筑幻象、神话和室内装饰结合。"],
+  ],
+  "秦汉帝国与墓葬艺术": [
+    ["地下军阵", "兵马俑把帝国军政秩序带入陵墓，延续死后权力。"],
+    ["帛画与升仙图", "马王堆T形帛画连接天界、人间、地下，体现汉代生死连续观。"],
+    ["画像石画像砖", "把历史故事、神仙瑞兽、车马出行和日常生活放入墓室叙事。"],
+  ],
+  "拜占庭艺术": [
+    ["镶嵌画", "金底和玻璃材质让光成为神圣媒介。"],
+    ["圣像画", "正面人物和固定图式强调敬拜对象的神圣在场。"],
+    ["穹顶教堂", "圣索菲亚式空间把帝国权力和天国想象压缩在穹顶下。"],
+  ],
+  "魏晋南北朝至隋唐": [
+    ["石窟造像", "云冈、龙门、敦煌把印度、中亚和中国图像语言融合。"],
+    ["人物画", "从顾恺之的传神到唐代宫廷人物，线描成为核心。"],
+    ["书法与壁画", "书法表现士人气质，敦煌壁画呈现宗教叙事和丝路交流。"],
+  ],
+  "罗曼式与哥特艺术": [
+    ["教堂建筑", "罗曼式厚重封闭，哥特式高耸明亮，结构技术服务神学体验。"],
+    ["彩色玻璃", "把圣经故事、光和色彩变成面向城市公众的图像教育。"],
+    ["手抄本与祭坛画", "精细装饰、金色背景和日课图像连接贵族生活与信仰。"],
+  ],
+  "宋元文人画": [
+    ["全景山水", "北宋山水强调山川秩序、宇宙结构和人的渺小。"],
+    ["边角山水", "南宋构图更诗意，留白和局部景物加强情绪。"],
+    ["文人笔墨", "元代文人画重书法性和人格表达，不以逼真为唯一目标。"],
+  ],
+  "文艺复兴": [
+    ["透视绘画", "单点透视让空间具有数学秩序，体现人文主义理性。"],
+    ["人体与解剖", "人体成为知识、神性和美的共同尺度。"],
+    ["肖像与祭坛画", "赞助人、宗教主题和个人身份在画面中并置。"],
+  ],
+  "明清与城市画派": [
+    ["文人山水", "复古不是复制，而是通过笔墨谱系确认身份和修养。"],
+    ["扬州八怪", "个性化题材、书法化笔墨和市场需求相互推动。"],
+    ["海上画派", "上海城市商业、出版和外来视觉经验改变传统绘画口味。"],
+  ],
+  "巴洛克与洛可可": [
+    ["宗教戏剧画", "强烈明暗和瞬间动作让观众像进入现场。"],
+    ["宫廷艺术", "天顶画、雕塑和建筑共同服务王权展示。"],
+    ["市民绘画", "荷兰静物、风景和群像体现商业社会和市民身份。"],
+  ],
+  "现代主义裂变": [
+    ["印象派", "关注光色瞬间和现代城市观看。"],
+    ["后印象派", "梵高强化情感，塞尚重建结构，高更转向象征和异域想象。"],
+    ["立体主义与超现实", "立体主义拆解视点，超现实主义把梦境和潜意识引入图像。"],
+  ],
+  "近现代中国美术": [
+    ["新国画", "以写实、素描、透视或形式构成重新解释传统笔墨。"],
+    ["木刻与公共图像", "新兴木刻承担启蒙、宣传和社会批判功能。"],
+    ["当代水墨与装置", "传统媒介进入全球当代语境，与影像、行为、装置交叉。"],
+  ],
+  "全球当代艺术": [
+    ["抽象表现主义", "用身体行动、尺度和色域制造现代崇高。"],
+    ["波普与消费图像", "广告、明星和商品成为艺术材料。"],
+    ["观念与数字艺术", "作品可以是语言、过程、数据、互动或制度批判。"],
+  ],
+};
+
+const artistProfiles = [
+  profile("顾恺之", "东晋", "中国人物画", "提出“传神写照”，重视眼神和人物精神，是早期中国人物画理论核心人物。", [art("洛神赋图", "人物长卷", "原作约4世纪", "故宫博物院、辽宁省博物馆等有藏", filePath("Gu Kaizhi - Nymph of the Luo River (detail).jpg"))], ["影响后世人物画", "强调以形写神"]),
+  profile("阎立本", "唐代", "宫廷人物画", "服务初唐政治叙事，擅长以人物等级、仪仗和神态表现外交与帝国秩序。", [art("步辇图", "唐代人物画", "约7世纪，现存宋摹本", "故宫博物院，北京", filePath("Yan Liben - Emperor Taizong Receiving the Tibetan Envoy.jpg"))], ["宫廷画传统", "政治图像"]),
+  profile("范宽", "北宋", "山水画", "以巨碑式山水表现北方山川的厚重秩序，代表北宋全景山水高峰。", [art("溪山行旅图", "北宋山水", "约11世纪初", "台北故宫博物院", filePath("Travelers Among Mountains and Streams, Fan Kuan, National Palace Museum.jpg"))], ["北宋三大家", "影响郭熙等山水理论"]),
+  profile("郭熙", "北宋", "山水画", "提出“三远”空间观，将山水观看经验理论化。", [art("早春图", "北宋山水", "1072年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg"))], ["三远法", "宫廷画院"]),
+  profile("赵孟頫", "元代", "书画复古", "主张复古与书画同源，连接宋元转型和元代文人画谱系。", [art("鹊华秋色图", "设色山水", "1295年", "台北故宫博物院", filePath("Autumn Colors on the Qiao and Hua Mountains.jpg"))], ["影响黄公望", "书画同源"]),
+  profile("黄公望", "元代", "文人山水", "把笔墨节奏、个人心境和山水结构结合，是元四家代表。", [art("富春山居图", "元代文人画", "1347-1350年", "浙江省博物馆、台北故宫博物院分藏", filePath("Dwelling in the Fuchun Mountains.jpg"))], ["元四家", "文人画典范"]),
+  profile("沈周", "明代", "吴门画派", "以文人修养、江南园林和元人笔墨建立吴门画派温雅风格。", [art("庐山高图", "吴门山水", "1467年", "台北故宫博物院", filePath("Shen Zhou - Lofty Mount Lu.jpg"))], ["文徵明师友圈", "吴门画派"]),
+  profile("文徵明", "明代", "吴门画派", "诗书画兼擅，把苏州文人生活和细密笔墨推向成熟。", [art("惠山茶会图", "明代文人画", "1518年", "故宫博物院，北京", filePath("Wen Zhengming Tea Party at Huishan.jpg"))], ["沈周学生", "吴门画派"]),
+  profile("石涛", "清代", "个性派山水", "提出“搜尽奇峰打草稿”和“一画”观，强调从自然和自我经验出发。", [art("搜尽奇峰打草稿", "清代山水", "约17世纪末-18世纪初", "故宫博物院，北京", filePath("Shitao - Ten Thousand Ugly Inkblots.jpg"))], ["反正统", "影响近现代水墨"]),
+  profile("齐白石", "近现代", "写意花鸟", "以民间经验、简练笔墨和强烈生命感更新传统写意。", [art("虾", "写意花鸟", "20世纪", "北京画院美术馆等有藏", filePath("Qi Baishi Shrimp.jpg"))], ["受陈师曾赏识", "影响现代水墨"]),
+  profile("徐悲鸿", "近现代", "写实改良中国画", "强调素描、解剖和写实训练，用现代学院体系改造中国画。", [art("奔马图", "现代水墨", "20世纪上半叶", "徐悲鸿纪念馆等有藏", filePath("Xu Beihong Galloping Horse.jpg"))], ["留法艺术家", "学院教育"]),
+  profile("达·芬奇", "文艺复兴", "绘画与科学", "把观察、解剖、光影和心理描写结合，是盛期文艺复兴代表。", [art("蒙娜丽莎", "肖像画", "约1503-1519年", "卢浮宫，巴黎", filePath("Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg"))], ["盛期三杰", "科学观察"]),
+  profile("米开朗基罗", "文艺复兴", "雕塑与壁画", "以英雄化人体表达精神张力，影响矫饰主义和学院传统。", [art("大卫", "大理石雕塑", "1501-1504年", "学院美术馆，佛罗伦萨", filePath("Michelangelo's David - right view 2.jpg"))], ["盛期三杰", "影响拉斐尔"]),
+  profile("拉斐尔", "文艺复兴", "均衡构图", "吸收达·芬奇和米开朗基罗，形成清晰、和谐、学院化的典范。", [art("雅典学院", "湿壁画", "1509-1511年", "梵蒂冈博物馆", filePath("The School of Athens by Raffaello Sanzio da Urbino.jpg"))], ["盛期三杰", "学院典范"]),
+  profile("卡拉瓦乔", "巴洛克", "强烈明暗法", "用现实人物、剧场光和瞬间动作重塑宗教绘画。", [art("圣马太蒙召", "巴洛克绘画", "1599-1600年", "圣路易吉·德伊·弗朗切西教堂，罗马", filePath("The Calling of Saint Matthew-Caravaggo (1599-1600).jpg"))], ["影响伦勃朗", "卡拉瓦乔主义"]),
+  profile("伦勃朗", "巴洛克", "心理光影", "以光线和厚涂表现人物精神深度，是荷兰黄金时代代表。", [art("夜巡", "群像肖像", "1642年", "阿姆斯特丹国家博物馆", filePath("The Night Watch - HD.jpg"))], ["受卡拉瓦乔明暗法影响", "荷兰市民社会"]),
+  profile("莫奈", "现代主义", "印象派", "持续研究光色和瞬间视觉经验，是印象派命名来源。", [art("日出·印象", "印象派绘画", "1872年", "马摩丹莫奈博物馆，巴黎", filePath("Claude Monet, Impression, soleil levant.jpg"))], ["印象派核心", "影响后印象派"]),
+  profile("梵高", "现代主义", "后印象派", "以旋动笔触和强烈色彩表达主观情绪。", [art("星月夜", "后印象派", "1889年", "现代艺术博物馆，纽约", filePath("Van Gogh - Starry Night - Google Art Project.jpg"))], ["受印象派影响", "影响表现主义"]),
+  profile("塞尚", "现代主义", "后印象派结构", "把自然形体转化为结构关系，被视为现代绘画的重要源头。", [art("圣维克多山", "后印象派山景", "约1904-1906年", "多馆有藏", filePath("Mont Sainte-Victoire with Large Pine, Paul Cézanne.jpg"))], ["影响毕加索", "现代主义源头"]),
+  profile("毕加索", "现代主义", "立体主义", "与布拉克共同发展立体主义，拆解单点透视和传统空间。", [art("格尔尼卡", "现代主义政治绘画", "1937年", "索菲亚王后国家艺术中心博物馆，马德里", filePath("Guernica.jpg"))], ["受塞尚影响", "立体主义"]),
+  profile("沃霍尔", "当代", "波普艺术", "把明星、商品和复制机制转化为艺术主题。", [art("玛丽莲双联画", "波普艺术", "1962年", "泰特现代美术馆，伦敦", filePath("Andy Warhol Marilyn Diptych.jpg"))], ["消费文化", "影响当代图像艺术"]),
+];
+
+const networkNodes = [
+  ["顾恺之", 9, 16], ["阎立本", 18, 22], ["吴道子", 27, 18],
+  ["敦煌莫高窟壁画", 35, 12],
+  ["范宽", 12, 45], ["郭熙", 23, 48], ["赵孟頫", 34, 56], ["黄公望", 45, 52],
+  ["沈周", 55, 63], ["文徵明", 66, 66], ["石涛", 76, 59], ["齐白石", 88, 68], ["徐悲鸿", 82, 82], ["近现代中国美术", 92, 86],
+  ["达·芬奇", 16, 78], ["米开朗基罗", 28, 84], ["拉斐尔", 39, 80],
+  ["卡拉瓦乔", 53, 82], ["伦勃朗", 66, 84], ["莫奈", 74, 34], ["梵高", 86, 30], ["塞尚", 63, 28], ["毕加索", 50, 34], ["沃霍尔", 41, 17],
+].map(([name, x, y]) => ({ name, x, y }));
+
+const networkEdges = [
+  ["顾恺之", "阎立本", "人物画传统"], ["吴道子", "敦煌莫高窟壁画", "宗教壁画影响"],
+  ["范宽", "郭熙", "北宋山水范式"], ["赵孟頫", "黄公望", "文人画影响"],
+  ["沈周", "文徵明", "师生/吴门"], ["石涛", "齐白石", "个性笔墨启发"], ["徐悲鸿", "近现代中国美术", "学院改革"],
+  ["达·芬奇", "拉斐尔", "构图与明暗影响"], ["米开朗基罗", "拉斐尔", "人体与宏大构图影响"],
+  ["卡拉瓦乔", "伦勃朗", "明暗法影响"], ["莫奈", "梵高", "色彩与现代观看影响"],
+  ["塞尚", "毕加索", "结构影响"], ["毕加索", "沃霍尔", "现代到当代图像转向"],
+  ["齐白石", "徐悲鸿", "现代中国画讨论"], ["莫奈", "塞尚", "印象派到后印象派"],
+];
+
+function profile(name, era, field, bio, works, tags) {
+  return { name, era, field, bio, works, tags };
+}
 
 const state = {
   view: "all",
@@ -421,6 +564,10 @@ const state = {
 const cardsGrid = document.querySelector("#cardsGrid");
 const comparePanel = document.querySelector("#comparePanel");
 const compareGrid = document.querySelector("#compareGrid");
+const artistsPanel = document.querySelector("#artistsPanel");
+const artistsGrid = document.querySelector("#artistsGrid");
+const networkPanel = document.querySelector("#networkPanel");
+const networkCanvas = document.querySelector("#networkCanvas");
 const timelineNav = document.querySelector("#timelineNav");
 const searchInput = document.querySelector("#searchInput");
 const periodSelect = document.querySelector("#periodSelect");
@@ -434,6 +581,8 @@ function matchesEra(era) {
   const viewMatch =
     state.view === "all" ||
     state.view === "compare" ||
+    state.view === "artists" ||
+    state.view === "network" ||
     era.region === state.view;
   const periodMatch = state.period === "all" || era.period === state.period;
   const haystack = [
@@ -463,7 +612,7 @@ function matchesEra(era) {
 }
 
 function renderStats() {
-  const visible = eras.filter((era) => state.view === "all" || state.view === "compare" || era.region === state.view);
+  const visible = eras.filter((era) => ["all", "compare", "artists", "network"].includes(state.view) || era.region === state.view);
   document.querySelector("#periodCount").textContent = visible.length;
   document.querySelector("#artistCount").textContent = new Set(visible.flatMap((era) => era.artists)).size;
   document.querySelector("#movementCount").textContent = new Set(visible.flatMap((era) => era.product.split("、"))).size;
@@ -577,6 +726,16 @@ function renderEraCard(era) {
     makeInfoBlock("承上启下", era.legacy),
   );
 
+  const forms = artFormDetails[era.period] || era.product.split("、").map((name) => [name, "这一形式是该时期艺术发展的关键线索。"]);
+  card.querySelector(".forms-list").replaceChildren(
+    ...forms.map(([name, detail]) => {
+      const item = document.createElement("article");
+      item.className = "form-card";
+      item.innerHTML = `<strong>${name}</strong><p>${detail}</p>`;
+      return item;
+    }),
+  );
+
   card.querySelector(".artwork-strip").replaceChildren(...era.artworks.map(renderArtwork));
 
   const peopleList = card.querySelector(".people-list");
@@ -594,6 +753,11 @@ function renderEraCard(era) {
 }
 
 function renderCards() {
+  cardsGrid.hidden = state.view === "compare" || state.view === "artists" || state.view === "network";
+  if (cardsGrid.hidden) {
+    cardsGrid.replaceChildren();
+    return;
+  }
   const visible = eras.filter(matchesEra);
   cardsGrid.replaceChildren();
   if (!visible.length) {
@@ -609,16 +773,136 @@ function renderCards() {
 function renderCompare() {
   comparePanel.hidden = state.view !== "compare";
   compareGrid.replaceChildren();
+  if (comparePanel.hidden) return;
+
+  const chinaColumn = document.createElement("section");
+  const bridgeColumn = document.createElement("section");
+  const worldColumn = document.createElement("section");
+  chinaColumn.className = "parallel-column china-column";
+  bridgeColumn.className = "parallel-column bridge-column";
+  worldColumn.className = "parallel-column world-column";
+  chinaColumn.innerHTML = "<h3>中国艺术线</h3>";
+  bridgeColumn.innerHTML = "<h3>对照观察</h3>";
+  worldColumn.innerHTML = "<h3>世界艺术线</h3>";
+
   for (const row of compareRows) {
-    const element = document.createElement("article");
-    element.className = "compare-row";
-    element.innerHTML = `
-      <div class="compare-cell time">${row.time}</div>
-      <div class="compare-cell"><strong>中国</strong><p>${row.china}</p></div>
-      <div class="compare-cell"><strong>世界</strong><p>${row.world}</p></div>
-    `;
-    compareGrid.append(element);
+    chinaColumn.append(compareItem(row.time, row.china));
+    bridgeColumn.append(compareItem(row.time, row.bridge));
+    worldColumn.append(compareItem(row.time, row.world));
   }
+  compareGrid.append(chinaColumn, bridgeColumn, worldColumn);
+}
+
+function compareItem(time, text) {
+  const item = document.createElement("article");
+  item.className = "parallel-item";
+  item.innerHTML = `<strong>${time}</strong><p>${text}</p>`;
+  return item;
+}
+
+function renderArtists() {
+  artistsPanel.hidden = state.view !== "artists";
+  artistsGrid.replaceChildren();
+  if (artistsPanel.hidden) return;
+  const query = state.query.toLowerCase();
+  const visible = artistProfiles.filter((artist) => {
+    const haystack = [
+      artist.name,
+      artist.era,
+      artist.field,
+      artist.bio,
+      ...artist.tags,
+      ...artist.works.flatMap((work) => [work.title, work.meta, work.date, work.location]),
+    ].join(" ").toLowerCase();
+    return !query || haystack.includes(query);
+  });
+  artistsGrid.append(...visible.map(renderArtistCard));
+}
+
+function renderArtistCard(artist) {
+  const card = document.createElement("article");
+  card.className = "artist-card";
+  const works = artist.works.map((work) => `
+    <div class="artist-work">
+      <img src="${work.image}" alt="${work.title}" loading="lazy" />
+      <div>
+        <strong>${work.title}</strong>
+        <span>${work.meta}</span>
+        <small>${work.date} · ${work.location}</small>
+      </div>
+    </div>
+  `).join("");
+  const tags = artist.tags.map((tag) => `<span>${tag}</span>`).join("");
+  card.innerHTML = `
+    <div class="artist-head">
+      <div>
+        <p>${artist.era} · ${artist.field}</p>
+        <h3>${artist.name}</h3>
+      </div>
+    </div>
+    <p class="artist-bio">${artist.bio}</p>
+    <div class="artist-tags">${tags}</div>
+    <div class="artist-works">${works}</div>
+  `;
+  card.querySelectorAll("img").forEach((image) => {
+    image.addEventListener("error", () => {
+      image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(fallbackSvg({ title: image.alt, date: "经典作品" }))}`;
+    });
+  });
+  return card;
+}
+
+function renderNetwork() {
+  networkPanel.hidden = state.view !== "network";
+  networkCanvas.replaceChildren();
+  if (networkPanel.hidden) return;
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 100 100");
+  svg.setAttribute("class", "network-svg");
+  const nodeMap = new Map(networkNodes.map((node) => [node.name, node]));
+
+  for (const [from, to, label] of networkEdges) {
+    const a = nodeMap.get(from);
+    const b = nodeMap.get(to);
+    if (!a || !b) continue;
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", a.x);
+    line.setAttribute("y1", a.y);
+    line.setAttribute("x2", b.x);
+    line.setAttribute("y2", b.y);
+    line.setAttribute("class", "network-line");
+    svg.append(line);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", (a.x + b.x) / 2);
+    text.setAttribute("y", (a.y + b.y) / 2 - 1);
+    text.setAttribute("class", "network-label");
+    text.textContent = label;
+    svg.append(text);
+  }
+
+  for (const node of networkNodes) {
+    const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    group.setAttribute("class", "network-node");
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", node.x);
+    circle.setAttribute("cy", node.y);
+    circle.setAttribute("r", 2.2);
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", node.x);
+    text.setAttribute("y", node.y - 3.4);
+    text.textContent = node.name;
+    group.append(circle, text);
+    svg.append(group);
+  }
+
+  const list = document.createElement("div");
+  list.className = "network-list";
+  list.innerHTML = networkEdges
+    .map(([from, to, label]) => `<div><strong>${from}</strong><span>${label}</span><strong>${to}</strong></div>`)
+    .join("");
+  networkCanvas.append(svg, list);
 }
 
 function renderTabs() {
@@ -633,6 +917,8 @@ function render() {
   renderTimeline();
   renderCards();
   renderCompare();
+  renderArtists();
+  renderNetwork();
 }
 
 document.querySelectorAll(".tab-button").forEach((button) => {

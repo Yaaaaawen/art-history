@@ -352,7 +352,8 @@ select:focus {
 }
 
 .info-columns div,
-.people-block {
+.people-block,
+.forms-block {
   border-top: 1px solid var(--line);
   padding-top: 12px;
 }
@@ -364,11 +365,33 @@ h3 {
 }
 
 .relation-grid p,
-.info-columns p {
+.info-columns p,
+.forms-list p,
+.artist-bio {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.65;
+}
+
+.forms-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.form-card {
+  border: 1px solid rgba(216, 205, 187, 0.9);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 12px;
+}
+
+.form-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--jade);
+  font-size: 14px;
 }
 
 .artwork-strip {
@@ -480,9 +503,58 @@ h3 {
   padding: 18px;
 }
 
-.compare-grid {
+.compare-grid,
+.parallel-timeline {
   display: grid;
   gap: 12px;
+}
+
+.parallel-timeline {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.parallel-column {
+  display: grid;
+  gap: 10px;
+}
+
+.parallel-column h3 {
+  position: sticky;
+  top: 86px;
+  z-index: 1;
+  margin-bottom: 2px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffaf1;
+  padding: 10px 12px;
+}
+
+.parallel-item {
+  min-height: 132px;
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 13px;
+}
+
+.parallel-item strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+}
+
+.parallel-item p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.bridge-column .parallel-item {
+  background: rgba(47, 117, 108, 0.07);
 }
 
 .compare-row {
@@ -531,6 +603,147 @@ h3 {
   text-align: center;
 }
 
+.artists-panel,
+.network-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.82);
+  padding: 18px;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.artist-card {
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 16px;
+}
+
+.artist-head p {
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.artist-head h3 {
+  margin-bottom: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.artist-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0;
+}
+
+.artist-tags span {
+  border: 1px solid rgba(49, 95, 133, 0.25);
+  border-radius: 999px;
+  background: rgba(49, 95, 133, 0.08);
+  color: var(--blue);
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.artist-work {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.artist-work img {
+  width: 92px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #efe8da;
+}
+
+.artist-work strong,
+.artist-work span,
+.artist-work small {
+  display: block;
+}
+
+.artist-work span,
+.artist-work small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.network-canvas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 18px;
+}
+
+.network-svg {
+  width: 100%;
+  min-height: 560px;
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background: #fffdf8;
+}
+
+.network-line {
+  stroke: rgba(111, 102, 90, 0.36);
+  stroke-width: 0.35;
+}
+
+.network-label {
+  fill: var(--muted);
+  font-size: 2.2px;
+  text-anchor: middle;
+}
+
+.network-node circle {
+  fill: var(--red);
+  stroke: #fffaf1;
+  stroke-width: 0.8;
+}
+
+.network-node text {
+  fill: var(--ink);
+  font-size: 2.5px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.network-list {
+  display: grid;
+  gap: 8px;
+}
+
+.network-list div {
+  display: grid;
+  grid-template-columns: minmax(70px, auto) 1fr minmax(70px, auto);
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 9px;
+  font-size: 13px;
+}
+
+.network-list span {
+  color: var(--muted);
+  text-align: center;
+}
+
 @media (max-width: 1120px) {
   .cards-grid {
     grid-template-columns: 1fr;
@@ -538,6 +751,13 @@ h3 {
 
   .relation-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .forms-list,
+  .artists-grid,
+  .parallel-timeline,
+  .network-canvas {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -577,6 +797,7 @@ h3 {
   .stat-grid,
   .artwork-strip,
   .relation-grid,
+  .forms-list,
   .info-columns,
   .compare-row {
     grid-template-columns: 1fr;

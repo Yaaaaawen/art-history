@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>中外艺术史时间轴</title>
-    <link rel="stylesheet" href="./styles.css?v=20260527-geo" />
+    <link rel="stylesheet" href="./styles.css?v=20260602-depth" />
   </head>
   <body>
     <header class="topbar">
@@ -17,6 +17,8 @@
         <button class="tab-button" data-view="china" type="button">中国线</button>
         <button class="tab-button" data-view="world" type="button">世界线</button>
         <button class="tab-button" data-view="compare" type="button">中外对照</button>
+        <button class="tab-button" data-view="artists" type="button">艺术家</button>
+        <button class="tab-button" data-view="network" type="button">关系网</button>
       </nav>
     </header>
 
@@ -68,7 +70,19 @@
             <div class="section-title">
               <h2>中外时间轴对比</h2>
             </div>
-            <div id="compareGrid" class="compare-grid"></div>
+            <div id="compareGrid" class="parallel-timeline"></div>
+          </section>
+          <section id="artistsPanel" class="artists-panel" hidden>
+            <div class="section-title">
+              <h2>艺术家与经典作品</h2>
+            </div>
+            <div id="artistsGrid" class="artists-grid"></div>
+          </section>
+          <section id="networkPanel" class="network-panel" hidden>
+            <div class="section-title">
+              <h2>人物关系拓扑网</h2>
+            </div>
+            <div id="networkCanvas" class="network-canvas"></div>
           </section>
         </section>
       </section>
@@ -86,6 +100,10 @@
         <p class="context"></p>
         <div class="relation-grid"></div>
         <div class="info-columns"></div>
+        <div class="forms-block">
+          <h3>艺术形式细分</h3>
+          <div class="forms-list"></div>
+        </div>
         <div class="artwork-strip"></div>
         <div class="people-block">
           <h3>代表人物与关系</h3>
@@ -97,6 +115,6 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aa7cfef2388c47c08c2b725b2efc7fac"}'></script>
     <!-- End Cloudflare Web Analytics -->
-    <script src="./script.js?v=20260527-geo"></script>
+    <script src="./script.js?v=20260602-depth"></script>
   </body>
 </html>
