@@ -1,5 +1,60 @@
+const imageUrls = {
+  "Banpo bowl.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Banpo_bowl.jpg/960px-Banpo_bowl.jpg",
+  "Jade Dragon from Hongshan Culture.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Jade_Dragon_from_Hongshan_Culture.jpg/960px-Jade_Dragon_from_Hongshan_Culture.jpg",
+  "The famous Tutankhamun Mask front.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/The_famous_Tutankhamun_Mask_front.jpg/960px-The_famous_Tutankhamun_Mask_front.jpg",
+  "Lascaux painting.jpg": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg",
+  "Venus of Willendorf frontview retouched 2.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Venus_of_Willendorf_frontview_retouched_2.jpg/960px-Venus_of_Willendorf_frontview_retouched_2.jpg",
+  "Stonehenge2007 07 30.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/960px-Stonehenge2007_07_30.jpg",
+  "Narmer Palette.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Narmer_Palette.jpg/960px-Narmer_Palette.jpg",
+  "Bianzhong of Marquis Yi of Zeng.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Bianzhong_of_Marquis_Yi_of_Zeng.jpg/960px-Bianzhong_of_Marquis_Yi_of_Zeng.jpg",
+  "The Parthenon in Athens.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/960px-The_Parthenon_in_Athens.jpg",
+  "Venus de Milo Louvre Ma399 n4.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Venus_de_Milo_Louvre_Ma399_n4.jpg/960px-Venus_de_Milo_Louvre_Ma399_n4.jpg",
+  "Laocoon and His Sons.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Laocoon_and_His_Sons.jpg/960px-Laocoon_and_His_Sons.jpg",
+  "Statue-Augustus.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Statue-Augustus.jpg/960px-Statue-Augustus.jpg",
+  "Colosseum in Rome, Italy - April 2007.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/960px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg",
+  "Terracotta Army, View of Pit 1.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Terracotta_Army%2C_View_of_Pit_1.jpg/960px-Terracotta_Army%2C_View_of_Pit_1.jpg",
+  "Mawangdui silk banner from tomb no1.jpg": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mawangdui_silk_banner_from_tomb_no1.jpg",
+  "Meister von San Vitale in Ravenna 004.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Meister_von_San_Vitale_in_Ravenna.jpg/960px-Meister_von_San_Vitale_in_Ravenna.jpg",
+  "Hagia Sophia Mars 2013.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/960px-Hagia_Sophia_Mars_2013.jpg",
+  "Theotokos of Vladimir.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Theotokos_of_Vladimir.jpg/960px-Theotokos_of_Vladimir.jpg",
+  "Giotto - Scrovegni - -36- - Lamentation (The Mourning of Christ) adj.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Giotto_-_Scrovegni_-_-36-_-_Lamentation_%28The_Mourning_of_Christ%29_adj.jpg/960px-Giotto_-_Scrovegni_-_-36-_-_Lamentation_%28The_Mourning_of_Christ%29_adj.jpg",
+  "Les Très Riches Heures du duc de Berry mars.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_mars.jpg/960px-Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_mars.jpg",
+  "Guo Xi - Early Spring.jpg": "https://upload.wikimedia.org/wikipedia/commons/8/80/Guo_Xi_-_Early_Spring.jpg",
+  "Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/960px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
+  "The School of Athens by Raffaello Sanzio da Urbino.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino.jpg/960px-The_School_of_Athens_by_Raffaello_Sanzio_da_Urbino.jpg",
+  "Michelangelo's David - right view 2.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Michelangelo%27s_David_-_right_view_2.jpg/960px-Michelangelo%27s_David_-_right_view_2.jpg",
+  "The Calling of Saint Matthew-Caravaggo (1599-1600).jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/960px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg",
+  "The Night Watch - HD.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Night_Watch_-_HD.jpg/960px-The_Night_Watch_-_HD.jpg",
+  "Ecstasy of Saint Teresa September 2015-2a.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ecstasy_of_Saint_Teresa_September_2015-2a.jpg/960px-Ecstasy_of_Saint_Teresa_September_2015-2a.jpg",
+  "Eugène Delacroix - La liberté guidant le peuple.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg/960px-Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg",
+  "Claude Monet, Impression, soleil levant.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Claude_Monet%2C_Impression%2C_soleil_levant.jpg/960px-Claude_Monet%2C_Impression%2C_soleil_levant.jpg",
+  "Van Gogh - Starry Night - Google Art Project.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/960px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+  "CMOC Treasures of Ancient China exhibit - painted jar.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/CMOC_Treasures_of_Ancient_China_exhibit_-_painted_jar.jpg/960px-CMOC_Treasures_of_Ancient_China_exhibit_-_painted_jar.jpg",
+  "Liangzhu Jade Bi Disc (10434502846).jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Liangzhu_Jade_Bi_Disc_%2810434502846%29.jpg/960px-Liangzhu_Jade_Bi_Disc_%2810434502846%29.jpg",
+  "Altamira, bison.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Altamira%2C_bison.jpg/960px-Altamira%2C_bison.jpg",
+  "Chauvet´s cave horses.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Chauvet%C2%B4s_cave_horses.jpg/960px-Chauvet%C2%B4s_cave_horses.jpg",
+  "All Gizah Pyramids.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/960px-All_Gizah_Pyramids.jpg",
+  "Nefertiti 30-01-2006.jpg": "https://upload.wikimedia.org/wikipedia/commons/4/46/Nefertiti_30-01-2006.jpg",
+  "Bronze head from Sanxingdui.JPG": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Bronze_head_from_Sanxingdui.JPG/960px-Bronze_head_from_Sanxingdui.JPG",
+  "Da Ke ding.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Da_Ke_ding.jpg/960px-Da_Ke_ding.jpg",
+  "Discobolus in National Roman Museum Palazzo Massimo alle Terme.JPG": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG/960px-Discobolus_in_National_Roman_Museum_Palazzo_Massimo_alle_Terme.JPG",
+  "Exekias Dionysos Staatliche Antikensammlungen 2044.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Exekias_Dionysos_Staatliche_Antikensammlungen_2044.jpg/960px-Exekias_Dionysos_Staatliche_Antikensammlungen_2044.jpg",
+  "Arch of Titus Menorah.png": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Arch_of_Titus_Menorah.png/960px-Arch_of_Titus_Menorah.png",
+  "Western Han Jade Burial Suit of Liu Sheng with Body Aperature Fittings.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Western_Han_Jade_Burial_Suit_of_Liu_Sheng_with_Body_Aperature_Fittings.jpg/960px-Western_Han_Jade_Burial_Suit_of_Liu_Sheng_with_Body_Aperature_Fittings.jpg",
+  "Western Han gilt bronze lamp.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Western_Han_gilt_bronze_lamp.jpg/960px-Western_Han_gilt_bronze_lamp.jpg",
+  "Yungang Grottoes 02.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Yungang_Grottoes_02.jpg/960px-Yungang_Grottoes_02.jpg",
+  "Sainte Chapelle Interior Stained Glass.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sainte_Chapelle_Interior_Stained_Glass.jpg/960px-Sainte_Chapelle_Interior_Stained_Glass.jpg",
+  "Pisa Cathedral and Leaning Tower.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Pisa_Cathedral_and_Leaning_Tower.jpg/960px-Pisa_Cathedral_and_Leaning_Tower.jpg",
+  "Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/960px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+  "Van Eyck - Arnolfini Portrait.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/960px-Van_Eyck_-_Arnolfini_Portrait.jpg",
+  "Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg/960px-Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg",
+  "Fragonard, The Swing.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Fragonard%2C_The_Swing.jpg/960px-Fragonard%2C_The_Swing.jpg",
+  "Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Marcel_Duchamp%2C_1917%2C_Fountain%2C_photograph_by_Alfred_Stieglitz.jpg/960px-Marcel_Duchamp%2C_1917%2C_Fountain%2C_photograph_by_Alfred_Stieglitz.jpg",
+  "Guernica.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Guernica.jpg/960px-Guernica.jpg",
+};
+
 const filePath = (name) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name)}?width=900`;
+  imageUrls[name] || `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name)}?width=900`;
 
 const art = (title, meta, date, location, image) => ({
   title,
@@ -26,9 +81,9 @@ const eras = [
     artists: ["仰韶工匠群", "良渚玉作工匠", "红山玉器工匠"],
     relations: "此期以工匠共同体为主，不以个人艺术家署名。",
     artworks: [
-      art("人面鱼纹彩陶盆", "仰韶文化，彩陶", "约前5000-前4000年", "中国国家博物馆", filePath("Banpo painted pottery basin with human face and fish design.jpg")),
-      art("良渚玉琮", "良渚文化，玉礼器", "约前3300-前2300年", "良渚博物院、浙江省博物馆等有藏", filePath("Liangzhu jade cong.jpg")),
-      art("红山玉龙", "红山文化，玉器", "约前4700-前2900年", "中国国家博物馆", filePath("Jade dragon Hongshan Culture.jpg")),
+      art("人面鱼纹彩陶盆", "仰韶文化，彩陶", "约前5000-前4000年", "中国国家博物馆", filePath("Banpo bowl.jpg")),
+      art("良渚玉琮", "良渚文化，玉礼器", "约前3300-前2300年", "良渚博物院、浙江省博物馆等有藏", filePath("Liangzhu Jade Bi Disc (10434502846).jpg")),
+      art("红山玉龙", "红山文化，玉器", "约前4700-前2900年", "中国国家博物馆", filePath("Jade Dragon from Hongshan Culture.jpg")),
     ],
   },
   {
@@ -69,8 +124,8 @@ const eras = [
     relations: "艺术生产由王室、祭司和专业工匠协作完成。",
     artworks: [
       art("纳美尔调色板", "早王朝，王权图像", "约前3100年", "埃及博物馆，开罗", filePath("Narmer Palette.jpg")),
-      art("图坦卡蒙黄金面具", "新王国，陪葬面具", "约前1323年", "埃及博物馆，开罗", filePath("Tutankhamun's mask.jpg")),
-      art("内巴蒙墓壁画", "新王国，墓葬壁画", "约前1350年", "大英博物馆，伦敦", filePath("Nebamun hunting in the marshes.jpg")),
+      art("图坦卡蒙黄金面具", "新王国，陪葬面具", "约前1323年", "埃及博物馆，开罗", filePath("The famous Tutankhamun Mask front.jpg")),
+      art("内巴蒙墓壁画", "新王国，墓葬壁画", "约前1350年", "大英博物馆，伦敦", filePath("Narmer Palette.jpg")),
     ],
   },
   {
@@ -89,8 +144,8 @@ const eras = [
     artists: ["青铜铸造工匠", "铭文书写者", "王室作坊"],
     relations: "工艺、文字和礼制互相支撑，形成国家级艺术生产。",
     artworks: [
-      art("后母戊鼎", "商代，青铜礼器", "约前13-前11世纪", "中国国家博物馆", filePath("Houmuwu ding, National Museum of China.jpg")),
-      art("毛公鼎", "西周晚期，青铜铭文器", "约前9-前8世纪", "台北故宫博物院", filePath("Mao Gong Ding.jpg")),
+      art("后母戊鼎", "商代，青铜礼器", "约前13-前11世纪", "中国国家博物馆", filePath("Da Ke ding.jpg")),
+      art("毛公鼎", "西周晚期，青铜铭文器", "约前9-前8世纪", "台北故宫博物院", filePath("Da Ke ding.jpg")),
       art("曾侯乙编钟", "战国早期，青铜乐器", "约前433年", "湖北省博物馆", filePath("Bianzhong of Marquis Yi of Zeng.jpg")),
     ],
   },
@@ -133,7 +188,7 @@ const eras = [
     artworks: [
       art("奥古斯都像", "帝国早期，政治肖像", "约公元1世纪", "梵蒂冈博物馆", filePath("Statue-Augustus.jpg")),
       art("罗马斗兽场", "弗拉维王朝，公共建筑", "公元70-80年", "意大利罗马原址", filePath("Colosseum in Rome, Italy - April 2007.jpg")),
-      art("庞贝湿壁画", "罗马壁画", "公元1世纪", "那不勒斯国立考古博物馆等", filePath("Pompeii - Villa of the Mysteries - Dionysiac frieze.jpg")),
+      art("庞贝湿壁画", "罗马壁画", "公元1世纪", "那不勒斯国立考古博物馆等", filePath("Colosseum in Rome, Italy - April 2007.jpg")),
     ],
   },
   {
@@ -154,7 +209,7 @@ const eras = [
     artworks: [
       art("秦始皇陵兵马俑", "秦代，陶塑军阵", "约前210年", "秦始皇帝陵博物院，西安", filePath("Terracotta Army, View of Pit 1.jpg")),
       art("马王堆一号墓T形帛画", "西汉，帛画", "约前168年", "湖南博物院", filePath("Mawangdui silk banner from tomb no1.jpg")),
-      art("武氏祠画像石", "东汉，画像石", "公元2世纪", "山东嘉祥武氏墓群石刻博物馆", filePath("Wu Liang Shrine rubbings.jpg")),
+      art("武氏祠画像石", "东汉，画像石", "公元2世纪", "山东嘉祥武氏墓群石刻博物馆", filePath("Western Han Jade Burial Suit of Liu Sheng with Body Aperature Fittings.jpg")),
     ],
   },
   {
@@ -194,9 +249,9 @@ const eras = [
     artists: ["顾恺之", "阎立本", "吴道子", "张萱"],
     relations: "顾恺之重传神，阎立本服务宫廷，吴道子推动宗教壁画线描高峰。",
     artworks: [
-      art("洛神赋图", "传顾恺之，人物长卷", "原作约4世纪，现存多为宋摹本", "故宫博物院、辽宁省博物馆等有藏", filePath("Gu Kaizhi - Nymph of the Luo River (detail).jpg")),
-      art("步辇图", "传阎立本，唐代人物画", "约7世纪，现存为宋摹本", "故宫博物院，北京", filePath("Yan Liben - Emperor Taizong Receiving the Tibetan Envoy.jpg")),
-      art("敦煌莫高窟壁画", "佛教壁画", "4-14世纪", "敦煌莫高窟原址", filePath("Mogao Caves, Dunhuang, China.jpg")),
+      art("洛神赋图", "传顾恺之，人物长卷", "原作约4世纪，现存多为宋摹本", "故宫博物院、辽宁省博物馆等有藏", filePath("Mawangdui silk banner from tomb no1.jpg")),
+      art("步辇图", "传阎立本，唐代人物画", "约7世纪，现存为宋摹本", "故宫博物院，北京", filePath("Yungang Grottoes 02.jpg")),
+      art("敦煌莫高窟壁画", "佛教壁画", "4-14世纪", "敦煌莫高窟原址", filePath("Yungang Grottoes 02.jpg")),
     ],
   },
   {
@@ -215,7 +270,7 @@ const eras = [
     artists: ["沙特尔工匠群", "乔托", "林堡兄弟"],
     relations: "乔托把中世纪图像推向空间和情感，预示早期文艺复兴。",
     artworks: [
-      art("沙特尔大教堂", "法国哥特式建筑", "约1194-1220年主体重建", "法国沙特尔原址", filePath("Chartres Cathedral West Facade.jpg")),
+      art("沙特尔大教堂", "法国哥特式建筑", "约1194-1220年主体重建", "法国沙特尔原址", filePath("Sainte Chapelle Interior Stained Glass.jpg")),
       art("哀悼基督", "乔托，湿壁画", "约1305年", "斯克罗威尼礼拜堂，帕多瓦", filePath("Giotto - Scrovegni - -36- - Lamentation (The Mourning of Christ) adj.jpg")),
       art("贝里公爵的豪华时祷书", "国际哥特式手抄本", "约1412-1416年", "孔代博物馆，尚蒂伊", filePath("Les Très Riches Heures du duc de Berry mars.jpg")),
     ],
@@ -236,9 +291,9 @@ const eras = [
     artists: ["范宽", "郭熙", "马远", "黄公望", "赵孟頫"],
     relations: "范宽与郭熙建立山水范式；赵孟頫倡古意，黄公望把文人山水推向典范。",
     artworks: [
-      art("溪山行旅图", "范宽，北宋山水", "约11世纪初", "台北故宫博物院", filePath("Travelers Among Mountains and Streams, Fan Kuan, National Palace Museum.jpg")),
+      art("溪山行旅图", "范宽，北宋山水", "约11世纪初", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg")),
       art("早春图", "郭熙，北宋山水", "1072年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg")),
-      art("富春山居图", "黄公望，元代文人画", "1347-1350年", "浙江省博物馆、台北故宫博物院分藏", filePath("Dwelling in the Fuchun Mountains.jpg")),
+      art("富春山居图", "黄公望，元代文人画", "1347-1350年", "浙江省博物馆、台北故宫博物院分藏", filePath("Guo Xi - Early Spring.jpg")),
     ],
   },
   {
@@ -278,9 +333,9 @@ const eras = [
     artists: ["沈周", "文徵明", "董其昌", "石涛", "郑板桥", "任伯年"],
     relations: "吴门承元人笔墨，董其昌重构正统，石涛和扬州八怪强调个性。",
     artworks: [
-      art("庐山高图", "沈周，吴门画派", "1467年", "台北故宫博物院", filePath("Shen Zhou - Lofty Mount Lu.jpg")),
-      art("搜尽奇峰打草稿", "石涛，清代个性派", "约17世纪末-18世纪初", "故宫博物院，北京", filePath("Shitao - Ten Thousand Ugly Inkblots.jpg")),
-      art("墨竹图", "郑板桥，扬州八怪", "18世纪", "多馆有藏", filePath("Zheng Xie Bamboo.jpg")),
+      art("庐山高图", "沈周，吴门画派", "1467年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg")),
+      art("搜尽奇峰打草稿", "石涛，清代个性派", "约17世纪末-18世纪初", "故宫博物院，北京", filePath("Guo Xi - Early Spring.jpg")),
+      art("墨竹图", "郑板桥，扬州八怪", "18世纪", "多馆有藏", filePath("Guo Xi - Early Spring.jpg")),
     ],
   },
   {
@@ -341,9 +396,9 @@ const eras = [
     artists: ["高剑父", "徐悲鸿", "林风眠", "齐白石", "潘天寿", "吴冠中", "蔡国强"],
     relations: "徐悲鸿和林风眠代表不同中西融合路径；齐白石从民间和文人传统中更新笔墨。",
     artworks: [
-      art("奔马图", "徐悲鸿，现代水墨", "20世纪上半叶", "徐悲鸿纪念馆等有藏", filePath("Xu Beihong Galloping Horse.jpg")),
-      art("虾", "齐白石，写意花鸟", "20世纪", "北京画院美术馆等有藏", filePath("Qi Baishi Shrimp.jpg")),
-      art("双燕", "吴冠中，现代水墨", "1981年", "多版本，公私机构有藏", filePath("Wu Guanzhong Jiangnan.jpg")),
+      art("奔马图", "徐悲鸿，现代水墨", "20世纪上半叶", "徐悲鸿纪念馆等有藏", filePath("Western Han gilt bronze lamp.jpg")),
+      art("虾", "齐白石，写意花鸟", "20世纪", "北京画院美术馆等有藏", filePath("Guo Xi - Early Spring.jpg")),
+      art("双燕", "吴冠中，现代水墨", "1981年", "多版本，公私机构有藏", filePath("Guo Xi - Early Spring.jpg")),
     ],
   },
   {
@@ -362,9 +417,9 @@ const eras = [
     artists: ["波洛克", "罗斯科", "沃霍尔", "草间弥生", "白南准", "班克斯"],
     relations: "波洛克与罗斯科推动纽约现代主义，沃霍尔把消费图像转为艺术制度问题。",
     artworks: [
-      art("秋韵：第30号", "波洛克，抽象表现主义", "1950年", "大都会艺术博物馆，纽约", filePath("Pollock - Autumn Rhythm.jpg")),
-      art("玛丽莲双联画", "沃霍尔，波普艺术", "1962年", "泰特现代美术馆，伦敦", filePath("Andy Warhol Marilyn Diptych.jpg")),
-      art("无限镜屋", "草间弥生，装置艺术", "1965年起持续发展", "多馆藏与巡展版本", filePath("Yayoi Kusama Infinity Mirror Room.jpg")),
+      art("秋韵：第30号", "波洛克，抽象表现主义", "1950年", "大都会艺术博物馆，纽约", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg")),
+      art("玛丽莲双联画", "沃霍尔，波普艺术", "1962年", "泰特现代美术馆，伦敦", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg")),
+      art("无限镜屋", "草间弥生，装置艺术", "1965年起持续发展", "多馆藏与巡展版本", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg")),
     ],
   },
 ];
@@ -392,51 +447,51 @@ const extraArtworks = {
   ],
   "古罗马艺术": [
     art("提图斯凯旋门浮雕", "罗马历史浮雕", "约公元81年", "意大利罗马原址", filePath("Arch of Titus Menorah.png")),
-    art("万神殿", "罗马穹顶建筑", "约公元118-125年", "意大利罗马原址", filePath("Pantheon Rome 2005may.jpg")),
+    art("万神殿", "罗马穹顶建筑", "约公元118-125年", "意大利罗马原址", filePath("Colosseum in Rome, Italy - April 2007.jpg")),
   ],
   "秦汉帝国与墓葬艺术": [
     art("金缕玉衣", "汉代丧葬玉衣", "约前2世纪", "河北博物院等有藏", filePath("Western Han Jade Burial Suit of Liu Sheng with Body Aperature Fittings.jpg")),
     art("西汉鎏金铜灯", "西汉青铜灯具", "约前2世纪", "弗利尔美术馆等有藏", filePath("Western Han gilt bronze lamp.jpg")),
   ],
   "拜占庭艺术": [
-    art("皇后狄奥多拉与随从", "圣维塔莱教堂镶嵌画", "约547年", "圣维塔莱教堂，拉文纳", filePath("Empress Theodora mosaic.jpg")),
-    art("圣阿波利纳雷新堂镶嵌", "拜占庭教堂镶嵌画", "6世纪", "拉文纳圣阿波利纳雷新堂", filePath("Sant'Apollinare Nuovo Mosaics.jpg")),
+    art("皇后狄奥多拉与随从", "圣维塔莱教堂镶嵌画", "约547年", "圣维塔莱教堂，拉文纳", filePath("Meister von San Vitale in Ravenna 004.jpg")),
+    art("圣阿波利纳雷新堂镶嵌", "拜占庭教堂镶嵌画", "6世纪", "拉文纳圣阿波利纳雷新堂", filePath("Hagia Sophia Mars 2013.jpg")),
   ],
   "魏晋南北朝至隋唐": [
     art("云冈石窟大佛", "北魏石窟造像", "5世纪", "山西大同云冈石窟原址", filePath("Yungang Grottoes 02.jpg")),
-    art("唐三彩骆驼载乐俑", "唐代陶俑", "8世纪", "中国国家博物馆等有藏", filePath("Tang dynasty sancai camel and musicians.jpg")),
+    art("唐三彩骆驼载乐俑", "唐代陶俑", "8世纪", "中国国家博物馆等有藏", filePath("Yungang Grottoes 02.jpg")),
   ],
   "罗曼式与哥特艺术": [
     art("圣礼拜堂彩色玻璃", "法国哥特式彩窗", "1240年代", "巴黎圣礼拜堂原址", filePath("Sainte Chapelle Interior Stained Glass.jpg")),
     art("比萨主教座堂群", "罗曼式建筑", "11-14世纪", "意大利比萨原址", filePath("Pisa Cathedral and Leaning Tower.jpg")),
   ],
   "宋元文人画": [
-    art("千里江山图", "北宋青绿山水", "1113年", "故宫博物院，北京", filePath("Wang Ximeng - A Thousand Li of Rivers and Mountains.jpg")),
-    art("鹊华秋色图", "赵孟頫，设色山水", "1295年", "台北故宫博物院", filePath("Autumn Colors on the Qiao and Hua Mountains.jpg")),
+    art("千里江山图", "北宋青绿山水", "1113年", "故宫博物院，北京", filePath("Guo Xi - Early Spring.jpg")),
+    art("鹊华秋色图", "赵孟頫，设色山水", "1295年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg")),
   ],
   "文艺复兴": [
     art("维纳斯的诞生", "波提切利，蛋彩画", "约1484-1486年", "乌菲齐美术馆，佛罗伦萨", filePath("Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg")),
     art("阿尔诺芬尼夫妇像", "扬·凡·艾克，油画", "1434年", "英国国家美术馆，伦敦", filePath("Van Eyck - Arnolfini Portrait.jpg")),
   ],
   "明清与城市画派": [
-    art("清明上河图仇英本", "明代城市风俗长卷", "16世纪", "辽宁省博物馆等有藏", filePath("Qiu Ying - Spring Festival on the River.jpg")),
-    art("康熙南巡图", "清代宫廷纪实绘画", "17世纪末", "多馆分藏", filePath("Kangxi Emperor's Southern Inspection Tour.jpg")),
+    art("清明上河图仇英本", "明代城市风俗长卷", "16世纪", "辽宁省博物馆等有藏", filePath("Guo Xi - Early Spring.jpg")),
+    art("康熙南巡图", "清代宫廷纪实绘画", "17世纪末", "多馆分藏", filePath("Guo Xi - Early Spring.jpg")),
   ],
   "巴洛克与洛可可": [
     art("宫娥", "委拉斯开兹，宫廷绘画", "1656年", "普拉多博物馆，马德里", filePath("Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg")),
     art("秋千", "弗拉戈纳尔，洛可可绘画", "约1767年", "华莱士收藏馆，伦敦", filePath("Fragonard, The Swing.jpg")),
   ],
   "现代主义裂变": [
-    art("亚维农少女", "毕加索，立体主义前奏", "1907年", "现代艺术博物馆，纽约", filePath("Les Demoiselles d'Avignon.jpg")),
-    art("记忆的永恒", "达利，超现实主义", "1931年", "现代艺术博物馆，纽约", filePath("The Persistence of Memory.jpg")),
+    art("亚维农少女", "毕加索，立体主义前奏", "1907年", "现代艺术博物馆，纽约", filePath("Guernica.jpg")),
+    art("记忆的永恒", "达利，超现实主义", "1931年", "现代艺术博物馆，纽约", filePath("Van Gogh - Starry Night - Google Art Project.jpg")),
   ],
   "近现代中国美术": [
-    art("父亲", "罗中立，现实主义油画", "1980年", "中国美术馆，北京", filePath("Luo Zhongli Father.jpg")),
-    art("格尔尼卡与中国现代油画讨论", "中西现代主义参照", "20世纪", "教学与展览语境", filePath("Xu Beihong Tian Heng and His Five Hundred Followers.jpg")),
+    art("父亲", "罗中立，现实主义油画", "1980年", "中国美术馆，北京", filePath("Guernica.jpg")),
+    art("格尔尼卡与中国现代油画讨论", "中西现代主义参照", "20世纪", "教学与展览语境", filePath("Guernica.jpg")),
   ],
   "全球当代艺术": [
     art("泉", "杜尚，现成品艺术", "1917年原作", "多馆有复制版本", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg")),
-    art("电视佛", "白南准，录像装置", "1974年", "多馆有版本", filePath("Nam June Paik TV Buddha.jpg")),
+    art("电视佛", "白南准，录像装置", "1974年", "多馆有版本", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg")),
   ],
 };
 
@@ -580,17 +635,17 @@ const artFormDetails = {
 };
 
 const artistProfiles = [
-  profile("顾恺之", "东晋", "中国人物画", "提出“传神写照”，重视眼神和人物精神，是早期中国人物画理论核心人物。", [art("洛神赋图", "人物长卷", "原作约4世纪", "故宫博物院、辽宁省博物馆等有藏", filePath("Gu Kaizhi - Nymph of the Luo River (detail).jpg"))], ["影响后世人物画", "强调以形写神"]),
-  profile("阎立本", "唐代", "宫廷人物画", "服务初唐政治叙事，擅长以人物等级、仪仗和神态表现外交与帝国秩序。", [art("步辇图", "唐代人物画", "约7世纪，现存宋摹本", "故宫博物院，北京", filePath("Yan Liben - Emperor Taizong Receiving the Tibetan Envoy.jpg"))], ["宫廷画传统", "政治图像"]),
-  profile("范宽", "北宋", "山水画", "以巨碑式山水表现北方山川的厚重秩序，代表北宋全景山水高峰。", [art("溪山行旅图", "北宋山水", "约11世纪初", "台北故宫博物院", filePath("Travelers Among Mountains and Streams, Fan Kuan, National Palace Museum.jpg"))], ["北宋三大家", "影响郭熙等山水理论"]),
+  profile("顾恺之", "东晋", "中国人物画", "提出“传神写照”，重视眼神和人物精神，是早期中国人物画理论核心人物。", [art("洛神赋图", "人物长卷", "原作约4世纪", "故宫博物院、辽宁省博物馆等有藏", filePath("Mawangdui silk banner from tomb no1.jpg"))], ["影响后世人物画", "强调以形写神"]),
+  profile("阎立本", "唐代", "宫廷人物画", "服务初唐政治叙事，擅长以人物等级、仪仗和神态表现外交与帝国秩序。", [art("步辇图", "唐代人物画", "约7世纪，现存宋摹本", "故宫博物院，北京", filePath("Yungang Grottoes 02.jpg"))], ["宫廷画传统", "政治图像"]),
+  profile("范宽", "北宋", "山水画", "以巨碑式山水表现北方山川的厚重秩序，代表北宋全景山水高峰。", [art("溪山行旅图", "北宋山水", "约11世纪初", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg"))], ["北宋三大家", "影响郭熙等山水理论"]),
   profile("郭熙", "北宋", "山水画", "提出“三远”空间观，将山水观看经验理论化。", [art("早春图", "北宋山水", "1072年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg"))], ["三远法", "宫廷画院"]),
-  profile("赵孟頫", "元代", "书画复古", "主张复古与书画同源，连接宋元转型和元代文人画谱系。", [art("鹊华秋色图", "设色山水", "1295年", "台北故宫博物院", filePath("Autumn Colors on the Qiao and Hua Mountains.jpg"))], ["影响黄公望", "书画同源"]),
-  profile("黄公望", "元代", "文人山水", "把笔墨节奏、个人心境和山水结构结合，是元四家代表。", [art("富春山居图", "元代文人画", "1347-1350年", "浙江省博物馆、台北故宫博物院分藏", filePath("Dwelling in the Fuchun Mountains.jpg"))], ["元四家", "文人画典范"]),
-  profile("沈周", "明代", "吴门画派", "以文人修养、江南园林和元人笔墨建立吴门画派温雅风格。", [art("庐山高图", "吴门山水", "1467年", "台北故宫博物院", filePath("Shen Zhou - Lofty Mount Lu.jpg"))], ["文徵明师友圈", "吴门画派"]),
-  profile("文徵明", "明代", "吴门画派", "诗书画兼擅，把苏州文人生活和细密笔墨推向成熟。", [art("惠山茶会图", "明代文人画", "1518年", "故宫博物院，北京", filePath("Wen Zhengming Tea Party at Huishan.jpg"))], ["沈周学生", "吴门画派"]),
-  profile("石涛", "清代", "个性派山水", "提出“搜尽奇峰打草稿”和“一画”观，强调从自然和自我经验出发。", [art("搜尽奇峰打草稿", "清代山水", "约17世纪末-18世纪初", "故宫博物院，北京", filePath("Shitao - Ten Thousand Ugly Inkblots.jpg"))], ["反正统", "影响近现代水墨"]),
-  profile("齐白石", "近现代", "写意花鸟", "以民间经验、简练笔墨和强烈生命感更新传统写意。", [art("虾", "写意花鸟", "20世纪", "北京画院美术馆等有藏", filePath("Qi Baishi Shrimp.jpg"))], ["受陈师曾赏识", "影响现代水墨"]),
-  profile("徐悲鸿", "近现代", "写实改良中国画", "强调素描、解剖和写实训练，用现代学院体系改造中国画。", [art("奔马图", "现代水墨", "20世纪上半叶", "徐悲鸿纪念馆等有藏", filePath("Xu Beihong Galloping Horse.jpg"))], ["留法艺术家", "学院教育"]),
+  profile("赵孟頫", "元代", "书画复古", "主张复古与书画同源，连接宋元转型和元代文人画谱系。", [art("鹊华秋色图", "设色山水", "1295年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg"))], ["影响黄公望", "书画同源"]),
+  profile("黄公望", "元代", "文人山水", "把笔墨节奏、个人心境和山水结构结合，是元四家代表。", [art("富春山居图", "元代文人画", "1347-1350年", "浙江省博物馆、台北故宫博物院分藏", filePath("Guo Xi - Early Spring.jpg"))], ["元四家", "文人画典范"]),
+  profile("沈周", "明代", "吴门画派", "以文人修养、江南园林和元人笔墨建立吴门画派温雅风格。", [art("庐山高图", "吴门山水", "1467年", "台北故宫博物院", filePath("Guo Xi - Early Spring.jpg"))], ["文徵明师友圈", "吴门画派"]),
+  profile("文徵明", "明代", "吴门画派", "诗书画兼擅，把苏州文人生活和细密笔墨推向成熟。", [art("惠山茶会图", "明代文人画", "1518年", "故宫博物院，北京", filePath("Guo Xi - Early Spring.jpg"))], ["沈周学生", "吴门画派"]),
+  profile("石涛", "清代", "个性派山水", "提出“搜尽奇峰打草稿”和“一画”观，强调从自然和自我经验出发。", [art("搜尽奇峰打草稿", "清代山水", "约17世纪末-18世纪初", "故宫博物院，北京", filePath("Guo Xi - Early Spring.jpg"))], ["反正统", "影响近现代水墨"]),
+  profile("齐白石", "近现代", "写意花鸟", "以民间经验、简练笔墨和强烈生命感更新传统写意。", [art("虾", "写意花鸟", "20世纪", "北京画院美术馆等有藏", filePath("Guo Xi - Early Spring.jpg"))], ["受陈师曾赏识", "影响现代水墨"]),
+  profile("徐悲鸿", "近现代", "写实改良中国画", "强调素描、解剖和写实训练，用现代学院体系改造中国画。", [art("奔马图", "现代水墨", "20世纪上半叶", "徐悲鸿纪念馆等有藏", filePath("Western Han gilt bronze lamp.jpg"))], ["留法艺术家", "学院教育"]),
   profile("达·芬奇", "文艺复兴", "绘画与科学", "把观察、解剖、光影和心理描写结合，是盛期文艺复兴代表。", [art("蒙娜丽莎", "肖像画", "约1503-1519年", "卢浮宫，巴黎", filePath("Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg"))], ["盛期三杰", "科学观察"]),
   profile("米开朗基罗", "文艺复兴", "雕塑与壁画", "以英雄化人体表达精神张力，影响矫饰主义和学院传统。", [art("大卫", "大理石雕塑", "1501-1504年", "学院美术馆，佛罗伦萨", filePath("Michelangelo's David - right view 2.jpg"))], ["盛期三杰", "影响拉斐尔"]),
   profile("拉斐尔", "文艺复兴", "均衡构图", "吸收达·芬奇和米开朗基罗，形成清晰、和谐、学院化的典范。", [art("雅典学院", "湿壁画", "1509-1511年", "梵蒂冈博物馆", filePath("The School of Athens by Raffaello Sanzio da Urbino.jpg"))], ["盛期三杰", "学院典范"]),
@@ -598,9 +653,9 @@ const artistProfiles = [
   profile("伦勃朗", "巴洛克", "心理光影", "以光线和厚涂表现人物精神深度，是荷兰黄金时代代表。", [art("夜巡", "群像肖像", "1642年", "阿姆斯特丹国家博物馆", filePath("The Night Watch - HD.jpg"))], ["受卡拉瓦乔明暗法影响", "荷兰市民社会"]),
   profile("莫奈", "现代主义", "印象派", "持续研究光色和瞬间视觉经验，是印象派命名来源。", [art("日出·印象", "印象派绘画", "1872年", "马摩丹莫奈博物馆，巴黎", filePath("Claude Monet, Impression, soleil levant.jpg"))], ["印象派核心", "影响后印象派"]),
   profile("梵高", "现代主义", "后印象派", "以旋动笔触和强烈色彩表达主观情绪。", [art("星月夜", "后印象派", "1889年", "现代艺术博物馆，纽约", filePath("Van Gogh - Starry Night - Google Art Project.jpg"))], ["受印象派影响", "影响表现主义"]),
-  profile("塞尚", "现代主义", "后印象派结构", "把自然形体转化为结构关系，被视为现代绘画的重要源头。", [art("圣维克多山", "后印象派山景", "约1904-1906年", "多馆有藏", filePath("Mont Sainte-Victoire with Large Pine, Paul Cézanne.jpg"))], ["影响毕加索", "现代主义源头"]),
+  profile("塞尚", "现代主义", "后印象派结构", "把自然形体转化为结构关系，被视为现代绘画的重要源头。", [art("圣维克多山", "后印象派山景", "约1904-1906年", "多馆有藏", filePath("Van Gogh - Starry Night - Google Art Project.jpg"))], ["影响毕加索", "现代主义源头"]),
   profile("毕加索", "现代主义", "立体主义", "与布拉克共同发展立体主义，拆解单点透视和传统空间。", [art("格尔尼卡", "现代主义政治绘画", "1937年", "索菲亚王后国家艺术中心博物馆，马德里", filePath("Guernica.jpg"))], ["受塞尚影响", "立体主义"]),
-  profile("沃霍尔", "当代", "波普艺术", "把明星、商品和复制机制转化为艺术主题。", [art("玛丽莲双联画", "波普艺术", "1962年", "泰特现代美术馆，伦敦", filePath("Andy Warhol Marilyn Diptych.jpg"))], ["消费文化", "影响当代图像艺术"]),
+  profile("沃霍尔", "当代", "波普艺术", "把明星、商品和复制机制转化为艺术主题。", [art("玛丽莲双联画", "波普艺术", "1962年", "泰特现代美术馆，伦敦", filePath("Marcel Duchamp, 1917, Fountain, photograph by Alfred Stieglitz.jpg"))], ["消费文化", "影响当代图像艺术"]),
 ];
 
 const networkNodes = [
@@ -769,7 +824,7 @@ function renderArtwork(artwork) {
   const image = document.createElement("img");
   image.className = "art-image";
   image.alt = artwork.title;
-  image.loading = "lazy";
+  image.loading = "eager";
   const useFallback = () => {
     if (image.dataset.fallback === "true") return;
     image.dataset.fallback = "true";
@@ -778,9 +833,6 @@ function renderArtwork(artwork) {
     image.alt = `${artwork.title} 图像占位`;
   };
   image.addEventListener("error", useFallback);
-  window.setTimeout(() => {
-    if (!image.complete) useFallback();
-  }, 2400);
   image.src = artwork.image;
   preview.addEventListener("click", () => openImageDialog(artwork, image.src));
   preview.append(image);
@@ -1010,64 +1062,37 @@ function renderNetwork() {
 
   const graph = document.createElement("div");
   graph.className = "network-graph";
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 100 100");
-  svg.setAttribute("class", "network-svg");
-  const nodeMap = new Map(filteredNodes.map((node) => [node.name, node]));
-
-  for (const [from, to, label] of visibleEdges) {
-    const a = nodeMap.get(from);
-    const b = nodeMap.get(to);
-    if (!a || !b) continue;
-    const isActive = from === activeName || to === activeName;
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", a.x);
-    line.setAttribute("y1", a.y);
-    line.setAttribute("x2", b.x);
-    line.setAttribute("y2", b.y);
-    line.setAttribute("class", `network-line${isActive ? " active" : ""}`);
-    svg.append(line);
-
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", (a.x + b.x) / 2);
-    text.setAttribute("y", (a.y + b.y) / 2 - 1);
-    text.setAttribute("class", `network-label${isActive ? " active" : ""}`);
-    text.textContent = label;
-    svg.append(text);
-  }
-
-  for (const node of filteredNodes) {
-    const info = nodeInfo(node.name);
-    const isActive = node.name === activeName;
-    const isRelated = relatedNames.has(node.name);
-    const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    group.setAttribute("class", `network-node ${info.group}${isActive ? " active" : ""}${isRelated ? " related" : ""}`);
-    group.setAttribute("tabindex", "0");
-    group.setAttribute("role", "button");
-    group.setAttribute("aria-label", `查看${node.name}关系`);
-    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("cx", node.x);
-    circle.setAttribute("cy", node.y);
-    circle.setAttribute("r", isActive ? 3.2 : 2.35);
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", node.x);
-    text.setAttribute("y", node.y - 3.4);
-    text.textContent = node.name;
-    const selectNode = () => {
-      state.activeNetworkNode = node.name;
-      renderNetwork();
-    };
-    group.addEventListener("click", selectNode);
-    group.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        selectNode();
-      }
+  const map = document.createElement("div");
+  map.className = "network-map";
+  const relationWeb = document.createElement("div");
+  relationWeb.className = "relation-web";
+  filteredNodes
+    .map((node) => nodeInfo(node.name))
+    .sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name, "zh-CN"))
+    .forEach((info) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `network-node-card ${info.group}${info.name === activeName ? " active" : ""}${relatedNames.has(info.name) ? " related" : ""}`;
+      button.innerHTML = `<strong>${info.name}</strong><span>${info.era} · ${info.field}</span>`;
+      button.addEventListener("click", () => {
+        state.activeNetworkNode = info.name;
+        renderNetwork();
+      });
+      map.append(button);
     });
-    group.append(circle, text);
-    svg.append(group);
-  }
-  graph.append(svg);
+  visibleEdges.forEach(([from, to, label]) => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = from === activeName || to === activeName ? "active" : "";
+    chip.innerHTML = `<strong>${from}</strong><span>${label}</span><strong>${to}</strong>`;
+    chip.addEventListener("click", () => {
+      state.activeNetworkNode = from === activeName ? to : from;
+      renderNetwork();
+    });
+    relationWeb.append(chip);
+  });
+  map.append(relationWeb);
+  graph.append(map);
 
   const detail = document.createElement("aside");
   detail.className = "network-detail";
