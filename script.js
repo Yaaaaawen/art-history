@@ -920,6 +920,7 @@ function renderCards() {
     cardsGrid.replaceChildren();
     return;
   }
+  cardsGrid.className = "cards-grid";
   const visible = eras.filter(matchesEra);
   cardsGrid.replaceChildren();
   if (!visible.length) {
@@ -929,7 +930,40 @@ function renderCards() {
     cardsGrid.append(empty);
     return;
   }
+  if (state.view === "all") {
+    renderOverviewTimeline(visible);
+    return;
+  }
   cardsGrid.append(...visible.map(renderEraCard));
+}
+
+function renderOverviewTimeline(visible) {
+  cardsGrid.className = "cards-grid overview-timeline";
+  const head = document.createElement("div");
+  head.className = "overview-head";
+  head.innerHTML = "<strong>中国艺术</strong><span>时间轴</span><strong>世界艺术</strong>";
+  cardsGrid.append(head);
+
+  visible.forEach((era, index) => {
+    const row = document.createElement("section");
+    row.className = `overview-row ${era.region}`;
+    row.style.setProperty("--row-delay", `${index * 35}ms`);
+    const card = renderEraCard(era);
+    const left = document.createElement("div");
+    const marker = document.createElement("div");
+    const right = document.createElement("div");
+    left.className = "overview-side overview-left";
+    marker.className = "overview-marker";
+    right.className = "overview-side overview-right";
+    marker.innerHTML = `<strong>${era.years}</strong><span>${era.period}</span>`;
+    if (era.region === "china") {
+      left.append(card);
+    } else {
+      right.append(card);
+    }
+    row.append(left, marker, right);
+    cardsGrid.append(row);
+  });
 }
 
 function renderCompare() {

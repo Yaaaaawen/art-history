@@ -210,6 +210,10 @@ select:focus {
   align-items: start;
 }
 
+.content-area {
+  min-width: 0;
+}
+
 .timeline-shell {
   position: sticky;
   top: 116px;
@@ -275,6 +279,119 @@ select:focus {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.cards-grid.overview-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.overview-timeline::before {
+  content: "";
+  position: absolute;
+  top: 56px;
+  bottom: 8px;
+  left: 50%;
+  width: 2px;
+  min-height: 100%;
+  background: linear-gradient(var(--red), var(--gold), var(--blue));
+  transform: translateX(-50%);
+}
+
+.overview-head,
+.overview-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
+  gap: 18px;
+  min-width: 920px;
+}
+
+.overview-head {
+  z-index: 1;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.overview-head strong {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffaf1;
+  padding: 10px;
+}
+
+.overview-head span {
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fffaf1;
+}
+
+.overview-row {
+  align-items: start;
+  margin-bottom: 22px;
+  animation: rowIn 0.4s ease both;
+  animation-delay: var(--row-delay);
+}
+
+.overview-marker {
+  position: sticky;
+  top: 96px;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  border: 1px solid rgba(176, 122, 34, 0.4);
+  border-radius: 999px;
+  background: #fffaf1;
+  padding: 10px 12px;
+  color: var(--gold);
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(58, 43, 24, 0.08);
+}
+
+.overview-marker strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.overview-marker span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.overview-side {
+  min-width: 0;
+}
+
+.overview-row.china .overview-left .era-card {
+  border-left: 4px solid var(--red);
+}
+
+.overview-row.world .overview-right .era-card {
+  border-right: 4px solid var(--blue);
+}
+
+.overview-row .relation-grid,
+.overview-row .info-columns,
+.overview-row .forms-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.overview-row .artwork-strip {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .era-card {
