@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>中外艺术史时间轴</title>
-    <link rel="stylesheet" href="./styles.css?v=20260603-map" />
+    <link rel="stylesheet" href="./styles.css?v=20260603-geo-artists" />
   </head>
   <body>
     <header class="topbar">
@@ -14,8 +14,7 @@
       </div>
       <nav class="view-tabs" aria-label="视图切换">
         <button class="tab-button active" data-view="all" type="button">总览</button>
-        <button class="tab-button" data-view="china" type="button">中国线</button>
-        <button class="tab-button" data-view="world" type="button">世界线</button>
+        <button class="tab-button" data-view="geo" type="button">地理位置</button>
         <button class="tab-button" data-view="compare" type="button">中外对照</button>
         <button class="tab-button" data-view="artists" type="button">艺术家</button>
         <button class="tab-button" data-view="network" type="button">关系网</button>
@@ -38,20 +37,6 @@
             </label>
           </div>
         </div>
-        <div class="stat-grid" aria-label="内容概览">
-          <div>
-            <strong id="periodCount">0</strong>
-            <span>历史阶段</span>
-          </div>
-          <div>
-            <strong id="artistCount">0</strong>
-            <span>代表人物</span>
-          </div>
-          <div>
-            <strong id="movementCount">0</strong>
-            <span>流派运动</span>
-          </div>
-        </div>
       </section>
 
       <section class="layout">
@@ -62,6 +47,12 @@
               <h2>中外时间轴对比</h2>
             </div>
             <div id="compareGrid" class="parallel-timeline"></div>
+          </section>
+          <section id="geoPanel" class="geo-panel" hidden>
+            <div class="section-title">
+              <h2>地理位置</h2>
+            </div>
+            <div id="geoCanvas" class="geo-canvas"></div>
           </section>
           <section id="artistsPanel" class="artists-panel" hidden>
             <div class="section-title">
@@ -118,6 +109,6 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aa7cfef2388c47c08c2b725b2efc7fac"}'></script>
     <!-- End Cloudflare Web Analytics -->
-    <script src="./script.js?v=20260603-map"></script>
+    <script src="./script.js?v=20260603-geo-artists"></script>
   </body>
 </html>

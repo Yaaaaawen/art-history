@@ -790,12 +790,14 @@ const artistProfiles = [
 ];
 
 const networkNodes = [
-  ["顾恺之", 9, 16], ["阎立本", 18, 22], ["吴道子", 27, 18],
-  ["敦煌莫高窟壁画", 35, 12],
-  ["范宽", 12, 45], ["郭熙", 23, 48], ["赵孟頫", 34, 56], ["黄公望", 45, 52],
-  ["沈周", 55, 63], ["文徵明", 66, 66], ["石涛", 76, 59], ["齐白石", 88, 68], ["徐悲鸿", 82, 82], ["近现代中国美术", 92, 86],
-  ["达·芬奇", 16, 78], ["米开朗基罗", 28, 84], ["拉斐尔", 39, 80],
-  ["卡拉瓦乔", 53, 82], ["伦勃朗", 66, 84], ["莫奈", 74, 34], ["梵高", 86, 30], ["塞尚", 63, 28], ["毕加索", 50, 34], ["沃霍尔", 41, 17],
+  ["顾恺之", 7, 9], ["阎立本", 24, 9], ["吴道子", 41, 9], ["敦煌莫高窟壁画", 58, 9],
+  ["莫奈", 75, 9], ["梵高", 93, 9],
+  ["范宽", 7, 24], ["郭熙", 24, 24], ["赵孟頫", 41, 24], ["黄公望", 58, 24],
+  ["塞尚", 75, 24], ["毕加索", 93, 24],
+  ["沈周", 7, 39], ["文徵明", 24, 39], ["石涛", 41, 39], ["齐白石", 58, 39],
+  ["徐悲鸿", 75, 39], ["近现代中国美术", 93, 39],
+  ["卡拉瓦乔", 58, 58], ["伦勃朗", 75, 58], ["沃霍尔", 93, 58],
+  ["达·芬奇", 24, 78], ["米开朗基罗", 47, 78], ["拉斐尔", 70, 78],
 ].map(([name, x, y]) => ({ name, x, y }));
 
 const networkEdges = [
@@ -825,17 +827,47 @@ function nodeInfo(name) {
   };
 }
 
+const artistMeta = {
+  "顾恺之": { region: "china", dynasty: "东晋" },
+  "阎立本": { region: "china", dynasty: "唐代" },
+  "范宽": { region: "china", dynasty: "北宋" },
+  "郭熙": { region: "china", dynasty: "北宋" },
+  "赵孟頫": { region: "china", dynasty: "元代" },
+  "黄公望": { region: "china", dynasty: "元代" },
+  "沈周": { region: "china", dynasty: "明代" },
+  "文徵明": { region: "china", dynasty: "明代" },
+  "石涛": { region: "china", dynasty: "清代" },
+  "齐白石": { region: "china", dynasty: "近现代" },
+  "徐悲鸿": { region: "china", dynasty: "近现代" },
+  "达·芬奇": { region: "world", country: "意大利" },
+  "米开朗基罗": { region: "world", country: "意大利" },
+  "拉斐尔": { region: "world", country: "意大利" },
+  "卡拉瓦乔": { region: "world", country: "意大利" },
+  "伦勃朗": { region: "world", country: "荷兰" },
+  "莫奈": { region: "world", country: "法国" },
+  "梵高": { region: "world", country: "荷兰" },
+  "塞尚": { region: "world", country: "法国" },
+  "毕加索": { region: "world", country: "西班牙" },
+  "沃霍尔": { region: "world", country: "美国" },
+};
+
 const state = {
   view: "all",
   period: "all",
   query: "",
   activeNetworkNode: "",
   networkFilter: "all",
+  geoScope: "china",
+  activeGeoEvent: "",
+  artistScope: "china",
+  artistFilter: "all",
 };
 
 const cardsGrid = document.querySelector("#cardsGrid");
 const comparePanel = document.querySelector("#comparePanel");
 const compareGrid = document.querySelector("#compareGrid");
+const geoPanel = document.querySelector("#geoPanel");
+const geoCanvas = document.querySelector("#geoCanvas");
 const artistsPanel = document.querySelector("#artistsPanel");
 const artistsGrid = document.querySelector("#artistsGrid");
 const networkPanel = document.querySelector("#networkPanel");
@@ -862,6 +894,7 @@ function matchesEra(era) {
   const viewMatch =
     state.view === "all" ||
     state.view === "compare" ||
+    state.view === "geo" ||
     state.view === "artists" ||
     state.view === "network" ||
     era.region === state.view;
@@ -893,10 +926,7 @@ function matchesEra(era) {
 }
 
 function renderStats() {
-  const visible = eras.filter((era) => ["all", "compare", "artists", "network"].includes(state.view) || era.region === state.view);
-  document.querySelector("#periodCount").textContent = visible.length;
-  document.querySelector("#artistCount").textContent = new Set(visible.flatMap((era) => era.artists)).size;
-  document.querySelector("#movementCount").textContent = new Set(visible.flatMap((era) => era.product.split("、"))).size;
+  return;
 }
 
 function renderPeriodOptions() {
@@ -1018,42 +1048,104 @@ function geoProfile(era) {
 }
 
 function makeGeoBlock(era) {
-  const profile = geoProfile(era);
-  const block = document.createElement("div");
-  block.className = "geo-block";
-  const points = {
-    north: [53, 24],
-    central: [48, 45],
-    south: [58, 68],
-    west: [30, 50],
-    east: [66, 56],
-    nile: [56, 61],
-    aegean: [49, 45],
-    med: [48, 51],
-    eastmed: [57, 46],
+  return makeInfoBlock("地理范围", era.geography);
+}
+
+function eraColor(era, index) {
+  if (era.years.includes("前40000") || era.years.includes("前7000") || era.years.includes("前5000") || era.years.includes("前4700") || era.years.includes("前4500") || era.years.includes("前3300")) return "ancient";
+  if (era.years.includes("前1600") || era.years.includes("前800") || era.years.includes("前221") || era.years.includes("前146") || era.years.includes("330")) return "classical";
+  if (era.years.includes("960") || era.years.includes("1000") || era.years.includes("1400") || era.years.includes("1600") || era.years.includes("1368")) return "early-modern";
+  return index % 2 ? "modern" : "contemporary";
+}
+
+function geoPoint(era) {
+  return {
+    north: [55, 25],
+    central: [50, 45],
+    south: [62, 67],
+    west: [28, 52],
+    east: [68, 56],
+    nile: [56, 62],
+    aegean: [51, 44],
+    med: [48, 53],
+    eastmed: [58, 45],
     europe: [42, 35],
-  };
-  const [x, y] = points[profile.focus] || points.central;
-  const outline = profile.map === "china"
-    ? '<path d="M33 21 L50 15 L68 25 L74 45 L67 66 L51 75 L34 67 L25 49 Z" />'
-    : '<path d="M20 42 C31 20 56 18 72 31 C87 43 76 68 52 72 C30 76 11 63 20 42 Z" />';
-  const river = profile.map === "china"
-    ? '<path class="geo-river" d="M24 46 C38 38 48 45 61 39 C70 35 75 39 82 33" /><path class="geo-river" d="M27 64 C43 59 51 66 66 61 C74 58 80 61 85 56" />'
-    : '<path class="geo-river" d="M57 26 C54 40 58 48 55 63 C54 71 58 76 61 82" /><path class="geo-river" d="M28 55 C43 48 58 49 75 54" />';
-  block.innerHTML = `
-    <h3>地理范围</h3>
-    <div class="geo-sketch ${profile.map}">
-      <svg viewBox="0 0 100 90" aria-hidden="true">
-        ${outline}
-        ${river}
-        <circle class="geo-focus" cx="${x}" cy="${y}" r="6" />
-        <circle class="geo-dot" cx="${x}" cy="${y}" r="2.2" />
-      </svg>
-      <p>${era.geography}</p>
-      <div class="geo-labels">${profile.labels.map((label) => `<span>${label}</span>`).join("")}</div>
-    </div>
+  }[geoProfile(era).focus] || [50, 50];
+}
+
+function renderGeo() {
+  geoPanel.hidden = state.view !== "geo";
+  geoCanvas.replaceChildren();
+  if (geoPanel.hidden) return;
+
+  const controls = document.createElement("div");
+  controls.className = "geo-controls";
+  [
+    ["china", "中国地图"],
+    ["world", "世界地图"],
+  ].forEach(([value, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = state.geoScope === value ? "active" : "";
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      state.geoScope = value;
+      state.activeGeoEvent = "";
+      renderGeo();
+    });
+    controls.append(button);
+  });
+
+  const events = eras
+    .filter((era) => era.region === state.geoScope)
+    .filter((era) => state.period === "all" || era.period === state.period)
+    .map((era, index) => ({ era, index, point: geoPoint(era), color: eraColor(era, index) }));
+  if (!state.activeGeoEvent || !events.some((event) => event.era.id === state.activeGeoEvent)) {
+    state.activeGeoEvent = events[0]?.era.id || "";
+  }
+  const active = events.find((event) => event.era.id === state.activeGeoEvent) || events[0];
+
+  const map = document.createElement("div");
+  map.className = `event-map ${state.geoScope}`;
+  map.innerHTML = `
+    <svg viewBox="0 0 100 80" aria-hidden="true">
+      ${
+        state.geoScope === "china"
+          ? '<path class="map-land" d="M31 17 L49 10 L69 20 L78 41 L69 64 L51 74 L32 66 L20 47 Z" /><path class="map-river" d="M20 40 C35 35 45 42 60 36 C70 32 80 37 87 30" /><path class="map-river" d="M25 62 C43 56 52 64 70 58 C80 55 86 59 91 53" />'
+          : '<path class="map-land" d="M11 36 C23 15 46 11 61 22 C74 14 91 24 92 41 C93 59 72 72 51 66 C35 75 13 62 11 36 Z" /><path class="map-river" d="M24 50 C39 44 55 45 73 50" /><path class="map-river" d="M55 22 C53 37 58 49 55 68" />'
+      }
+    </svg>
   `;
-  return block;
+  events.forEach((event) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `map-event ${event.color}${event.era.id === state.activeGeoEvent ? " active" : ""}`;
+    button.style.left = `${event.point[0]}%`;
+    button.style.top = `${event.point[1]}%`;
+    button.setAttribute("aria-label", event.era.period);
+    button.innerHTML = `<span>${event.era.period}</span>`;
+    button.addEventListener("click", () => {
+      state.activeGeoEvent = event.era.id;
+      renderGeo();
+    });
+    map.append(button);
+  });
+
+  const detail = document.createElement("aside");
+  detail.className = "geo-event-detail";
+  if (active) {
+    detail.innerHTML = `
+      <p>${active.era.years} · ${regionLabel(active.era.region)}</p>
+      <h3>${active.era.period}</h3>
+      <strong>${active.era.title}</strong>
+      <p>${active.era.geography}</p>
+      <p>${active.era.artRelation}</p>
+      <div class="geo-event-tags">
+        <span>${active.era.product}</span>
+      </div>
+    `;
+  }
+  geoCanvas.append(controls, map, detail);
 }
 
 function renderEraCard(era) {
@@ -1105,7 +1197,7 @@ function renderEraCard(era) {
 }
 
 function renderCards() {
-  cardsGrid.hidden = state.view === "compare" || state.view === "artists" || state.view === "network";
+  cardsGrid.hidden = state.view === "compare" || state.view === "geo" || state.view === "artists" || state.view === "network";
   if (cardsGrid.hidden) {
     cardsGrid.replaceChildren();
     return;
@@ -1197,8 +1289,48 @@ function renderArtists() {
   artistsPanel.hidden = state.view !== "artists";
   artistsGrid.replaceChildren();
   if (artistsPanel.hidden) return;
+  artistsGrid.className = "artists-workspace";
+  const controls = document.createElement("div");
+  controls.className = "artist-controls";
+  const scope = document.createElement("div");
+  scope.className = "artist-scope";
+  [
+    ["china", "中国艺术家"],
+    ["world", "世界艺术家"],
+  ].forEach(([value, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = state.artistScope === value ? "active" : "";
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      state.artistScope = value;
+      state.artistFilter = "all";
+      renderArtists();
+    });
+    scope.append(button);
+  });
+  const filter = document.createElement("label");
+  filter.className = "artist-filter";
+  const filterValues = [...new Set(artistProfiles
+    .filter((artist) => artistMeta[artist.name]?.region === state.artistScope)
+    .map((artist) => state.artistScope === "china" ? artistMeta[artist.name]?.dynasty : artistMeta[artist.name]?.country)
+    .filter(Boolean))];
+  filter.innerHTML = `<span>${state.artistScope === "china" ? "朝代" : "国家"}</span>`;
+  const select = document.createElement("select");
+  select.innerHTML = `<option value="all">全部</option>${filterValues.map((value) => `<option value="${value}">${value}</option>`).join("")}`;
+  select.value = state.artistFilter;
+  select.addEventListener("change", () => {
+    state.artistFilter = select.value;
+    renderArtists();
+  });
+  filter.append(select);
+  controls.append(scope, filter);
+
   const query = state.query.toLowerCase();
   const visible = artistProfiles.filter((artist) => {
+    const meta = artistMeta[artist.name] || {};
+    const regionMatch = meta.region === state.artistScope;
+    const filterMatch = state.artistFilter === "all" || meta.dynasty === state.artistFilter || meta.country === state.artistFilter;
     const haystack = [
       artist.name,
       artist.era,
@@ -1207,9 +1339,12 @@ function renderArtists() {
       ...artist.tags,
       ...artist.works.flatMap((work) => [work.title, work.meta, work.date, work.location]),
     ].join(" ").toLowerCase();
-    return !query || haystack.includes(query);
+    return regionMatch && filterMatch && (!query || haystack.includes(query));
   });
-  artistsGrid.append(...visible.map(renderArtistCard));
+  const grid = document.createElement("div");
+  grid.className = "artists-grid";
+  grid.append(...visible.map(renderArtistCard));
+  artistsGrid.append(controls, grid);
 }
 
 function renderArtistCard(artist) {
@@ -1287,35 +1422,41 @@ function renderNetwork() {
   const graph = document.createElement("div");
   graph.className = "network-graph";
   const map = document.createElement("div");
-  map.className = "network-map";
-  const relationWeb = document.createElement("div");
-  relationWeb.className = "relation-web";
-  filteredNodes
-    .map((node) => nodeInfo(node.name))
-    .sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name, "zh-CN"))
-    .forEach((info) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = `network-node-card ${info.group}${info.name === activeName ? " active" : ""}${relatedNames.has(info.name) ? " related" : ""}`;
-      button.innerHTML = `<strong>${info.name}</strong><span>${info.era} · ${info.field}</span>`;
-      button.addEventListener("click", () => {
-        state.activeNetworkNode = info.name;
-        renderNetwork();
-      });
-      map.append(button);
-    });
+  map.className = "network-topology";
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 100 100");
+  svg.setAttribute("class", "network-links");
+  const nodeMap = new Map(filteredNodes.map((node) => [node.name, node]));
   visibleEdges.forEach(([from, to, label]) => {
-    const chip = document.createElement("button");
-    chip.type = "button";
-    chip.className = from === activeName || to === activeName ? "active" : "";
-    chip.innerHTML = `<strong>${from}</strong><span>${label}</span><strong>${to}</strong>`;
-    chip.addEventListener("click", () => {
-      state.activeNetworkNode = from === activeName ? to : from;
+    const a = nodeMap.get(from);
+    const b = nodeMap.get(to);
+    if (!a || !b) return;
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", a.x);
+    line.setAttribute("y1", a.y);
+    line.setAttribute("x2", b.x);
+    line.setAttribute("y2", b.y);
+    line.setAttribute("class", from === activeName || to === activeName ? "active" : "");
+    const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    title.textContent = `${from} - ${label} - ${to}`;
+    line.append(title);
+    svg.append(line);
+  });
+  map.append(svg);
+  filteredNodes.forEach((node) => {
+    const info = nodeInfo(node.name);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `network-node-card ${info.group}${info.name === activeName ? " active" : ""}${relatedNames.has(info.name) ? " related" : ""}`;
+    button.style.left = `${node.x}%`;
+    button.style.top = `${node.y}%`;
+    button.innerHTML = `<strong>${info.name}</strong><span>${info.era}</span>`;
+    button.addEventListener("click", () => {
+      state.activeNetworkNode = info.name;
       renderNetwork();
     });
-    relationWeb.append(chip);
+    map.append(button);
   });
-  map.append(relationWeb);
   graph.append(map);
 
   const detail = document.createElement("aside");
@@ -1374,6 +1515,7 @@ function render() {
   renderTimeline();
   renderCards();
   renderCompare();
+  renderGeo();
   renderArtists();
   renderNetwork();
 }

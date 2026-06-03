@@ -115,7 +115,7 @@ main {
 
 .hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   align-items: stretch;
   margin-bottom: 24px;
@@ -146,7 +146,7 @@ main {
 
 .search-row {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(150px, 260px);
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 360px);
   gap: 12px;
 }
 
@@ -969,12 +969,181 @@ h3 {
   text-align: center;
 }
 
+.geo-panel,
 .artists-panel,
 .network-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 250, 241, 0.82);
   padding: 18px;
+}
+
+.geo-canvas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
+  gap: 14px;
+}
+
+.geo-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.geo-controls button,
+.artist-scope button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fffdf8;
+  color: var(--muted);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.geo-controls button.active,
+.artist-scope button.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fffaf1;
+}
+
+.event-map {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(49, 95, 133, 0.08), rgba(47, 117, 108, 0.08)),
+    #fffdf8;
+}
+
+.event-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-land {
+  fill: rgba(176, 122, 34, 0.12);
+  stroke: rgba(35, 32, 28, 0.38);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.map-river {
+  fill: none;
+  stroke: rgba(49, 95, 133, 0.48);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.map-event {
+  position: absolute;
+  z-index: 2;
+  min-width: 18px;
+  min-height: 18px;
+  border: 2px solid #fffaf1;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 20px rgba(58, 43, 24, 0.2);
+}
+
+.map-event span {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 5px);
+  width: max-content;
+  max-width: 118px;
+  border-radius: 999px;
+  background: rgba(255, 250, 241, 0.92);
+  color: var(--ink);
+  padding: 4px 7px;
+  font-size: 11px;
+  font-weight: 900;
+  transform: translateX(-50%);
+  white-space: normal;
+}
+
+.map-event.ancient { background: #9f3f2f; }
+.map-event.classical { background: #b07a22; }
+.map-event.early-modern { background: #2f756c; }
+.map-event.modern { background: #315f85; }
+.map-event.contemporary { background: #6e4f8f; }
+
+.map-event.active {
+  outline: 4px solid rgba(35, 32, 28, 0.18);
+}
+
+.geo-event-detail {
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 16px;
+}
+
+.geo-event-detail > p:first-child {
+  margin-bottom: 6px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.geo-event-detail h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+}
+
+.geo-event-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.geo-event-tags span {
+  border: 1px solid rgba(47, 117, 108, 0.24);
+  border-radius: 8px;
+  background: rgba(47, 117, 108, 0.08);
+  color: var(--jade);
+  padding: 7px 9px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.artists-workspace {
+  display: grid;
+  gap: 14px;
+}
+
+.artist-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.artist-scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.artist-filter {
+  display: grid;
+  gap: 6px;
+  min-width: 220px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .artists-grid {
@@ -1091,7 +1260,7 @@ h3 {
 
 .network-graph {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr);
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
@@ -1108,17 +1277,49 @@ h3 {
   padding: 14px;
 }
 
+.network-topology {
+  position: relative;
+  min-height: 820px;
+  overflow: hidden;
+  border: 1px solid rgba(216, 205, 187, 0.92);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(159, 63, 47, 0.08), transparent 44%, rgba(49, 95, 133, 0.08)),
+    #fffdf8;
+}
+
+.network-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.network-links line {
+  stroke: rgba(111, 102, 90, 0.32);
+  stroke-width: 0.42;
+}
+
+.network-links line.active {
+  stroke: var(--gold);
+  stroke-width: 0.9;
+}
+
 .network-node-card {
+  position: absolute;
+  box-sizing: border-box;
   display: grid;
-  gap: 5px;
-  min-height: 78px;
+  gap: 4px;
+  width: 72px;
+  min-height: 46px;
   border: 1px solid rgba(216, 205, 187, 0.92);
   border-left: 4px solid var(--red);
   border-radius: 8px;
   background: rgba(255, 250, 241, 0.84);
   color: var(--ink);
-  padding: 10px;
-  text-align: left;
+  padding: 6px 5px;
+  text-align: center;
+  transform: translate(-50%, -50%);
   transition:
     transform 0.18s ease,
     border-color 0.18s ease,
@@ -1131,7 +1332,7 @@ h3 {
 
 .network-node-card:hover,
 .network-node-card:focus-visible {
-  transform: translateY(-2px);
+  transform: translate(-50%, -54%);
 }
 
 .network-node-card.related {
@@ -1146,12 +1347,13 @@ h3 {
 }
 
 .network-node-card strong {
-  font-size: 15px;
+  font-size: 11px;
+  line-height: 1.2;
 }
 
 .network-node-card span {
   color: inherit;
-  font-size: 12px;
+  font-size: 9.5px;
   line-height: 1.35;
   opacity: 0.72;
 }
@@ -1395,6 +1597,7 @@ h3 {
 
   .forms-list,
   .artists-grid,
+  .geo-canvas,
   .network-canvas,
   .network-graph {
     grid-template-columns: 1fr;
@@ -1403,6 +1606,11 @@ h3 {
   .network-map,
   .relation-web {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .event-map,
+  .network-topology {
+    min-height: 680px;
   }
 }
 
@@ -1448,6 +1656,14 @@ h3 {
   .network-map,
   .relation-web {
     grid-template-columns: 1fr;
+  }
+
+  .map-event span {
+    display: none;
+  }
+
+  .network-node-card {
+    width: 64px;
   }
 
   .view-tabs {
