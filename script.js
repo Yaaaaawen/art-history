@@ -64,7 +64,7 @@ const art = (title, meta, date, location, image) => ({
   image,
 });
 
-const eras = [
+let eras = [
   {
     id: "china-neolithic",
     period: "中国新石器艺术",
@@ -424,6 +424,112 @@ const eras = [
   },
 ];
 
+eras.splice(
+  0,
+  2,
+  {
+    id: "hongshan",
+    period: "红山文化",
+    years: "约前4700-前2900",
+    region: "china",
+    title: "辽河流域的玉龙与祭祀空间",
+    geography: "辽河上游、内蒙古东南部、辽宁西部",
+    history: "北方旱作农业与聚落祭祀发展，玉器和女神庙遗址显示早期礼仪中心。",
+    artRelation: "红山艺术把动物崇拜、祖先观念和祭祀权力集中在小型玉器与礼仪空间中。",
+    product: "玉龙、玉猪龙、女神庙陶塑、积石冢。",
+    context: "红山文化是中国北方新石器礼仪艺术的重要高峰，玉龙形象把动物、祖先和神圣权力连接起来。",
+    movement: "造型浑圆凝练，重视动物形象和抽象曲线，材料上突出玉器的神圣性。",
+    legacy: "为后世龙形象、玉礼器和北方祭祀传统提供早期线索。",
+    artists: ["红山玉器工匠", "祭祀空间营造者"],
+    relations: "与辽河流域聚落和祭祀中心相关，尚未形成署名艺术家传统。",
+    artworks: [
+      art("红山玉龙", "红山文化，玉器", "约前4700-前2900年", "中国国家博物馆", filePath("Jade Dragon from Hongshan Culture.jpg")),
+      art("红山玉猪龙", "红山文化，玉器", "约前4700-前2900年", "多馆有藏", filePath("Jade Dragon from Hongshan Culture.jpg")),
+    ],
+  },
+  {
+    id: "yangshao",
+    period: "仰韶文化",
+    years: "约前5000-前3000",
+    region: "china",
+    title: "黄河中游的彩陶与聚落图像",
+    geography: "黄河中游，关中、豫西、晋南一带",
+    history: "农业聚落扩展，陶器成为日常生活、仪式和族群身份的重要载体。",
+    artRelation: "彩陶纹样把鱼纹、人面纹、几何纹和聚落身份联系起来，是早期图像叙事的核心。",
+    product: "人面鱼纹彩陶盆、彩陶钵、几何纹陶器。",
+    context: "仰韶文化的彩陶让艺术进入日常器物，也让图像成为聚落记忆与仪式的一部分。",
+    movement: "构图对称，线条清晰，常见黑彩纹样与红陶胎形成强烈对比。",
+    legacy: "为中国陶器装饰、几何纹样和器物审美提供源头。",
+    artists: ["仰韶制陶工匠", "彩陶绘制者"],
+    relations: "以聚落工匠共同体为主，图像经验在黄河流域传播。",
+    artworks: [
+      art("人面鱼纹彩陶盆", "仰韶文化，彩陶", "约前5000-前4000年", "中国国家博物馆", filePath("Banpo bowl.jpg")),
+      art("马家窑彩陶罐", "新石器时代彩陶", "约前3300-前2000年", "克利夫兰艺术博物馆等有藏", filePath("CMOC Treasures of Ancient China exhibit - painted jar.jpg")),
+    ],
+  },
+  {
+    id: "liangzhu",
+    period: "良渚文化",
+    years: "约前3300-前2300",
+    region: "china",
+    title: "太湖流域的玉礼器与早期权力",
+    geography: "长江下游、太湖流域、杭州良渚一带",
+    history: "大型城址、水利系统和等级墓葬出现，说明复杂社会和礼仪权力成熟。",
+    artRelation: "玉琮、玉璧和神人兽面纹把天地观、权力等级与祭祀秩序固定在器物上。",
+    product: "玉琮、玉璧、神人兽面纹、良渚古城。",
+    context: "良渚文化把玉器从装饰推向制度化礼器，是中国早期礼制艺术的重要源头。",
+    movement: "强调轴线、几何结构和精密刻纹，风格庄严而秩序化。",
+    legacy: "影响后世玉礼器、礼制观念和“器以载礼”的艺术传统。",
+    artists: ["良渚玉作工匠", "礼仪器物设计者"],
+    relations: "王权、祭祀和手工业分工共同推动玉器体系成熟。",
+    artworks: [
+      art("良渚玉琮", "良渚文化，玉礼器", "约前3300-前2300年", "良渚博物院、浙江省博物馆等有藏", filePath("Liangzhu Jade Bi Disc (10434502846).jpg")),
+      art("良渚玉璧", "良渚文化，玉礼器", "约前3300-前2300年", "多馆有藏", filePath("Liangzhu Jade Bi Disc (10434502846).jpg")),
+    ],
+  },
+  {
+    id: "paleolithic-caves",
+    period: "旧石器洞穴艺术",
+    years: "约前40000-前10000",
+    region: "world",
+    title: "洞穴壁画、动物图像与狩猎仪式",
+    geography: "西欧洞穴带，法国多尔多涅、西班牙坎塔布连地区",
+    history: "狩猎采集社会中，洞穴空间成为仪式、记忆和自然崇拜的图像场所。",
+    artRelation: "动物壁画强调人与自然、狩猎和精神世界之间的关系。",
+    product: "洞穴壁画、刻线动物、赭石图像。",
+    context: "旧石器洞穴艺术让图像进入深处空间，观看本身具有仪式性质。",
+    movement: "重轮廓、动态和动物体量，常利用岩壁起伏制造立体感。",
+    legacy: "为后来纪念性艺术和宗教图像提供早期经验。",
+    artists: ["拉斯科洞穴画作者群", "肖韦洞穴画作者群"],
+    relations: "图像经验依靠迁徙路线、狩猎知识和仪式传统延续。",
+    artworks: [
+      art("拉斯科洞穴壁画", "旧石器时代，洞穴壁画", "约前17000年", "法国多尔多涅，拉斯科洞穴", filePath("Lascaux painting.jpg")),
+      art("阿尔塔米拉野牛", "旧石器洞穴壁画", "约前15000-前12000年", "西班牙阿尔塔米拉洞穴", filePath("Altamira, bison.jpg")),
+      art("肖韦洞穴马群", "旧石器洞穴壁画", "约前30000年", "法国肖韦洞穴", filePath("Chauvet´s cave horses.jpg")),
+    ],
+  },
+  {
+    id: "neolithic-megalith",
+    period: "新石器巨石文化",
+    years: "约前4500-前2000",
+    region: "world",
+    title: "巨石建筑、身体小像与天象秩序",
+    geography: "不列颠群岛、西欧大西洋沿岸、多瑙河流域",
+    history: "农业定居之后，集体劳动、天文观察和纪念仪式推动巨石空间形成。",
+    artRelation: "巨石阵等建筑把地理、天象、纪念和共同体仪式组织成可进入的空间。",
+    product: "巨石阵、石圈、墓室、小型雕像。",
+    context: "新石器艺术从洞穴图像转向开放空间和纪念建筑。",
+    movement: "重轴线、方位、尺度和集体建造，视觉语言更偏空间秩序。",
+    legacy: "为埃及、两河和爱琴海文明的纪念性艺术提供先声。",
+    artists: ["巨石阵建造者", "威伦道夫小像工匠"],
+    relations: "建造者、祭祀者和农业共同体协作形成仪式空间。",
+    artworks: [
+      art("威伦道夫的维纳斯", "旧石器时代，石灰岩小像", "约前28000-前25000年", "维也纳自然史博物馆", filePath("Venus of Willendorf frontview retouched 2.jpg")),
+      art("巨石阵", "新石器至青铜时代，巨石建筑", "约前3000-前2000年", "英国威尔特郡原址", filePath("Stonehenge2007 07 30.jpg")),
+    ],
+  },
+);
+
 const extraArtworks = {
   "中国新石器艺术": [
     art("马家窑彩陶罐", "新石器时代彩陶", "约前3300-前2000年", "克利夫兰艺术博物馆等有藏", filePath("CMOC Treasures of Ancient China exhibit - painted jar.jpg")),
@@ -547,6 +653,31 @@ const compareRows = [
 ];
 
 const artFormDetails = {
+  "红山文化": [
+    ["玉龙与玉猪龙", "以动物形体和环曲造型表现神圣力量，是北方玉器传统的重要源头。"],
+    ["祭祀遗址", "女神庙、积石冢等空间说明艺术与宗教仪式、祖先崇拜密切相关。"],
+    ["陶塑与小型造像", "陶塑身体和动物形象让身体、生育、自然崇拜进入视觉表达。"],
+  ],
+  "仰韶文化": [
+    ["彩陶", "黑彩纹样与红陶胎结合，人面、鱼纹和几何纹体现聚落记忆和仪式意义。"],
+    ["日用器物图像", "盆、钵、罐等器物让图像进入日常生活，也承载族群身份。"],
+    ["几何装饰", "连续纹、旋纹和对称构图为后世器物纹样提供早期经验。"],
+  ],
+  "良渚文化": [
+    ["玉琮", "方柱圆孔结构连接天地观念，常见神人兽面纹。"],
+    ["玉璧", "圆形玉礼器体现祭祀、等级和权力象征。"],
+    ["神人兽面纹", "精密刻纹把权力、神灵和仪式制度固定在玉器表面。"],
+  ],
+  "旧石器洞穴艺术": [
+    ["洞穴壁画", "利用岩壁起伏描绘动物，强调动态、轮廓和仪式观看。"],
+    ["刻线图像", "用刻划方式记录动物、狩猎和可能的精神世界。"],
+    ["赭石与天然颜料", "色彩来自矿物材料，说明图像制作已经有技术分工。"],
+  ],
+  "新石器巨石文化": [
+    ["巨石阵与石圈", "用大型石材组织天象、纪念和集体仪式。"],
+    ["墓室空间", "巨石墓把死亡、祖先和地景联系起来。"],
+    ["身体小像", "小型雕像常与身体、生育和仪式意义相关。"],
+  ],
   "中国新石器艺术": [
     ["彩陶", "以旋涡纹、人面鱼纹、几何纹记录聚落身份和自然崇拜，常见于仰韶、马家窑等文化。"],
     ["玉礼器", "玉琮、玉璧、玉龙不只是装饰品，而是祭祀权力、天地观念和精英身份的象征。"],
@@ -771,14 +902,16 @@ function renderStats() {
 function renderPeriodOptions() {
   const periods = eras.map((era) => era.period);
   for (const period of periods) {
+    const era = eras.find((item) => item.period === period);
     const option = document.createElement("option");
     option.value = period;
-    option.textContent = period;
+    option.textContent = era ? `${era.years} · ${period}` : period;
     periodSelect.append(option);
   }
 }
 
 function renderTimeline() {
+  if (!timelineNav) return;
   timelineNav.replaceChildren();
   for (const era of eras) {
     const button = document.createElement("button");
@@ -866,6 +999,63 @@ function makeInfoBlock(title, text) {
   return block;
 }
 
+function geoProfile(era) {
+  const text = `${era.period} ${era.geography}`;
+  if (text.includes("红山") || text.includes("辽河")) return { map: "china", focus: "north", labels: ["辽河", "内蒙古东南", "辽宁西部"] };
+  if (text.includes("仰韶") || text.includes("黄河")) return { map: "china", focus: "central", labels: ["黄河中游", "关中", "豫西"] };
+  if (text.includes("良渚") || text.includes("长江下游") || text.includes("太湖")) return { map: "china", focus: "south", labels: ["长江下游", "太湖", "杭州湾"] };
+  if (text.includes("中原") || text.includes("关中")) return { map: "china", focus: "central", labels: ["中原", "关中", "长江流域"] };
+  if (text.includes("敦煌") || text.includes("丝绸")) return { map: "china", focus: "west", labels: ["长安", "敦煌", "丝路"] };
+  if (text.includes("江南") || text.includes("苏州") || text.includes("上海")) return { map: "china", focus: "east", labels: ["江南", "苏州", "上海"] };
+  if (text.includes("尼罗")) return { map: "world", focus: "nile", labels: ["尼罗河", "吉萨", "底比斯"] };
+  if (text.includes("爱琴") || text.includes("雅典")) return { map: "world", focus: "aegean", labels: ["爱琴海", "雅典", "小亚细亚"] };
+  if (text.includes("罗马") || text.includes("地中海")) return { map: "world", focus: "med", labels: ["罗马", "地中海", "北非"] };
+  if (text.includes("拜占庭") || text.includes("君士坦丁堡")) return { map: "world", focus: "eastmed", labels: ["君士坦丁堡", "拉文纳", "小亚细亚"] };
+  if (text.includes("西欧") || text.includes("法国") || text.includes("不列颠")) return { map: "world", focus: "europe", labels: ["西欧", "法国", "不列颠"] };
+  return era.region === "china"
+    ? { map: "china", focus: "east", labels: era.geography.split("、").slice(0, 3) }
+    : { map: "world", focus: "med", labels: era.geography.split("、").slice(0, 3) };
+}
+
+function makeGeoBlock(era) {
+  const profile = geoProfile(era);
+  const block = document.createElement("div");
+  block.className = "geo-block";
+  const points = {
+    north: [53, 24],
+    central: [48, 45],
+    south: [58, 68],
+    west: [30, 50],
+    east: [66, 56],
+    nile: [56, 61],
+    aegean: [49, 45],
+    med: [48, 51],
+    eastmed: [57, 46],
+    europe: [42, 35],
+  };
+  const [x, y] = points[profile.focus] || points.central;
+  const outline = profile.map === "china"
+    ? '<path d="M33 21 L50 15 L68 25 L74 45 L67 66 L51 75 L34 67 L25 49 Z" />'
+    : '<path d="M20 42 C31 20 56 18 72 31 C87 43 76 68 52 72 C30 76 11 63 20 42 Z" />';
+  const river = profile.map === "china"
+    ? '<path class="geo-river" d="M24 46 C38 38 48 45 61 39 C70 35 75 39 82 33" /><path class="geo-river" d="M27 64 C43 59 51 66 66 61 C74 58 80 61 85 56" />'
+    : '<path class="geo-river" d="M57 26 C54 40 58 48 55 63 C54 71 58 76 61 82" /><path class="geo-river" d="M28 55 C43 48 58 49 75 54" />';
+  block.innerHTML = `
+    <h3>地理范围</h3>
+    <div class="geo-sketch ${profile.map}">
+      <svg viewBox="0 0 100 90" aria-hidden="true">
+        ${outline}
+        ${river}
+        <circle class="geo-focus" cx="${x}" cy="${y}" r="6" />
+        <circle class="geo-dot" cx="${x}" cy="${y}" r="2.2" />
+      </svg>
+      <p>${era.geography}</p>
+      <div class="geo-labels">${profile.labels.map((label) => `<span>${label}</span>`).join("")}</div>
+    </div>
+  `;
+  return block;
+}
+
 function renderEraCard(era) {
   const template = document.querySelector("#eraTemplate");
   const card = template.content.firstElementChild.cloneNode(true);
@@ -877,7 +1067,7 @@ function renderEraCard(era) {
   card.querySelector(".context").textContent = era.context;
 
   card.querySelector(".relation-grid").replaceChildren(
-    makeInfoBlock("地理范围", era.geography),
+    makeGeoBlock(era),
     makeInfoBlock("历史动力", era.history),
     makeInfoBlock("典型产物", era.product),
     makeInfoBlock("艺术与历史关系", era.artRelation),
@@ -1205,7 +1395,7 @@ periodSelect.addEventListener("change", (event) => {
   render();
 });
 
-resetButton.addEventListener("click", () => {
+resetButton?.addEventListener("click", () => {
   state.view = "all";
   state.period = "all";
   state.query = "";

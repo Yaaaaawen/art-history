@@ -131,6 +131,11 @@ main {
   box-shadow: var(--shadow);
 }
 
+.hero-copy {
+  display: grid;
+  align-content: end;
+}
+
 .hero-copy p {
   max-width: 800px;
   margin-bottom: 28px;
@@ -205,7 +210,7 @@ select:focus {
 
 .layout {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   align-items: start;
 }
@@ -466,6 +471,82 @@ select:focus {
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.62);
   padding: 12px;
+}
+
+.geo-block {
+  display: grid;
+  gap: 8px;
+}
+
+.geo-sketch {
+  display: grid;
+  gap: 8px;
+}
+
+.geo-sketch svg {
+  width: 100%;
+  aspect-ratio: 1.55;
+  border: 1px solid rgba(216, 205, 187, 0.9);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(49, 95, 133, 0.08), rgba(47, 117, 108, 0.08)),
+    #fffdf8;
+}
+
+.geo-sketch path:first-child {
+  fill: rgba(176, 122, 34, 0.12);
+  stroke: rgba(35, 32, 28, 0.42);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.geo-river {
+  fill: none;
+  stroke: rgba(49, 95, 133, 0.55);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.geo-focus {
+  fill: rgba(159, 63, 47, 0.18);
+  stroke: var(--red);
+  stroke-width: 1.5;
+}
+
+.geo-dot {
+  fill: var(--red);
+}
+
+.geo-sketch.world .geo-focus {
+  fill: rgba(49, 95, 133, 0.18);
+  stroke: var(--blue);
+}
+
+.geo-sketch.world .geo-dot {
+  fill: var(--blue);
+}
+
+.geo-sketch p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.geo-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.geo-labels span {
+  border: 1px solid rgba(47, 117, 108, 0.2);
+  border-radius: 999px;
+  background: rgba(47, 117, 108, 0.08);
+  color: var(--jade);
+  padding: 4px 7px;
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .info-columns div,
