@@ -56,6 +56,16 @@ const imageUrls = {
 const filePath = (name) =>
   imageUrls[name] || `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name)}?width=900`;
 
+const mismatchedArtworkTitles = new Set([
+  "良渚玉琮", "内巴蒙墓壁画", "后母戊鼎", "毛公鼎", "庞贝湿壁画", "武氏祠画像石",
+  "洛神赋图", "步辇图", "敦煌莫高窟壁画", "沙特尔大教堂", "溪山行旅图", "富春山居图",
+  "庐山高图", "搜尽奇峰打草稿", "墨竹图", "奔马图", "虾", "双燕", "秋韵：第30号",
+  "玛丽莲双联画", "无限镜屋", "红山玉猪龙", "万神殿", "皇后狄奥多拉与随从",
+  "圣阿波利纳雷新堂镶嵌", "唐三彩骆驼载乐俑", "千里江山图", "鹊华秋色图",
+  "清明上河图仇英本", "康熙南巡图", "亚维农少女", "记忆的永恒", "父亲",
+  "格尔尼卡与中国现代油画讨论", "电视佛", "圣维克多山", "惠山茶会图",
+]);
+
 const art = (title, meta, date, location, image) => ({
   title,
   meta,
@@ -817,13 +827,14 @@ function profile(name, era, field, bio, works, tags) {
 function nodeInfo(name) {
   const artist = artistProfiles.find((item) => item.name === name);
   const era = eras.find((item) => item.period === name || item.artists.includes(name));
+  const artistWork = artist?.works?.find((work) => work.image && !mismatchedArtworkTitles.has(work.title));
   return {
     name,
     group: era?.region || (artist?.era === "当代" || artist?.era === "现代主义" || artist?.era === "文艺复兴" || artist?.era === "巴洛克" ? "world" : "china"),
     era: artist?.era || era?.period || "艺术史节点",
     field: artist?.field || era?.title || "艺术线索",
     bio: artist?.bio || era?.context || "这个节点用于连接艺术形式、人物和时代之间的影响关系。",
-    work: artist?.works?.[0] || era?.artworks?.[0] || null,
+    work: artistWork || (era ? artworksForEra(era)[0] : null) || null,
   };
 }
 
@@ -962,6 +973,16 @@ const worldContinents = [
   },
 ];
 
+const prehistoricRegionPoints = {
+  liao: [76, 26],
+  "upper-yellow": [46, 47],
+  "middle-yellow": [61, 48],
+  "lower-yellow": [72, 48],
+  "middle-yangtze": [63, 61],
+  "lower-yangtze": [77, 62],
+  south: [68, 76],
+};
+
 const materialLenses = {
   buddhism: {
     label: "中国佛像",
@@ -1057,7 +1078,8 @@ function regionLabel(region) {
 }
 
 function artworksForEra(era) {
-  return [...era.artworks, ...(extraArtworks[era.period] || [])];
+  return [...era.artworks, ...(extraArtworks[era.period] || [])]
+    .filter((item) => item.image && !mismatchedArtworkTitles.has(item.title));
 }
 
 function matchesEra(era) {
@@ -1191,17 +1213,7 @@ function renderRegionExplorer() {
   worldLayout.className = "world-region-layout";
   const globe = document.createElement("div");
   globe.className = "atlas-globe";
-  globe.innerHTML = `
-    <svg viewBox="0 0 100 72" aria-hidden="true">
-      <ellipse class="globe-ocean" cx="50" cy="36" rx="47" ry="32"></ellipse>
-      <path class="globe-grid" d="M4 36 H96 M50 4 V68 M14 18 C32 27 68 27 86 18 M14 54 C32 45 68 45 86 54"></path>
-      <path class="globe-land" d="M9 24 L18 13 L32 12 L40 21 L35 31 L25 34 L20 46 L13 38 Z"></path>
-      <path class="globe-land" d="M29 44 L39 47 L42 58 L35 68 L28 59 Z"></path>
-      <path class="globe-land" d="M43 18 L54 12 L68 15 L79 23 L91 25 L86 37 L72 40 L64 34 L57 42 L47 35 Z"></path>
-      <path class="globe-land" d="M49 38 L61 39 L65 55 L56 66 L47 54 Z"></path>
-      <path class="globe-land" d="M78 53 L90 55 L94 64 L84 68 L76 62 Z"></path>
-    </svg>
-  `;
+  globe.innerHTML = '<img class="handpainted-map-base" src="./assets/world-handpainted-map.png" alt="手绘写实世界地形地图" />';
   worldContinents.forEach((continent) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -1273,21 +1285,24 @@ function renderPrehistoricExplorer() {
     const mapLayout = document.createElement("div");
     mapLayout.className = "neolithic-map-layout";
     const figure = document.createElement("figure");
-    figure.className = "reference-map";
+    figure.className = "reference-map prehistoric-hand-map";
     figure.innerHTML = `
-      <button type="button" aria-label="放大查看中国新石器时代文化遗存分布图">
-        <img src="./assets/reference/china-neolithic-sites-map.jpeg" alt="中国新石器时代主要文化遗存分布参考图" />
-      </button>
-      <figcaption>中国新石器时代主要文化遗存分布参考图（用户提供资料）</figcaption>
+      <img class="handpainted-map-base" src="./assets/buddhist-sites-handpainted-map.png" alt="手绘写实中国地形地图" />
+      <figcaption>依据用户提供的文化遗存分布资料，按主要文化区重新整理</figcaption>
     `;
-    figure.querySelector("button").addEventListener("click", () => {
-      openImageDialog({
-        title: "中国新石器时代文化遗存分布图",
-        meta: "主要文化遗存与区域分布参考",
-        date: "新石器时代",
-        location: "用户提供资料",
-        image: "./assets/reference/china-neolithic-sites-map.jpeg",
+    group.regions.forEach(([id, name]) => {
+      const point = prehistoricRegionPoints[id];
+      const marker = document.createElement("button");
+      marker.type = "button";
+      marker.className = `prehistoric-map-marker${id === state.prehistoricRegion ? " active" : ""}`;
+      marker.style.left = `${point[0]}%`;
+      marker.style.top = `${point[1]}%`;
+      marker.textContent = name;
+      marker.addEventListener("click", () => {
+        state.prehistoricRegion = id;
+        renderRegionExplorer();
       });
+      figure.append(marker);
     });
     const regionList = document.createElement("div");
     regionList.className = "prehistoric-region-list";
@@ -1545,16 +1560,16 @@ function eraColor(era, index) {
 
 function geoPoint(era) {
   return {
-    north: [55, 25],
-    central: [50, 45],
-    south: [62, 67],
-    west: [28, 52],
-    east: [68, 56],
-    nile: [56, 62],
-    aegean: [51, 44],
-    med: [48, 53],
-    eastmed: [58, 45],
-    europe: [42, 35],
+    north: [76, 27],
+    central: [65, 49],
+    south: [69, 70],
+    west: [42, 48],
+    east: [79, 56],
+    nile: [54, 51],
+    aegean: [53, 40],
+    med: [50, 43],
+    eastmed: [57, 42],
+    europe: [49, 34],
   }[geoProfile(era).focus] || [50, 50];
 }
 
@@ -1592,15 +1607,7 @@ function renderGeo() {
 
   const map = document.createElement("div");
   map.className = `event-map ${state.geoScope}`;
-  map.innerHTML = `
-    <svg viewBox="0 0 100 80" aria-hidden="true">
-      ${
-        state.geoScope === "china"
-          ? '<path class="map-land" d="M31 17 L49 10 L69 20 L78 41 L69 64 L51 74 L32 66 L20 47 Z" /><path class="map-river" d="M20 40 C35 35 45 42 60 36 C70 32 80 37 87 30" /><path class="map-river" d="M25 62 C43 56 52 64 70 58 C80 55 86 59 91 53" />'
-          : '<path class="map-land" d="M11 36 C23 15 46 11 61 22 C74 14 91 24 92 41 C93 59 72 72 51 66 C35 75 13 62 11 36 Z" /><path class="map-river" d="M24 50 C39 44 55 45 73 50" /><path class="map-river" d="M55 22 C53 37 58 49 55 68" />'
-      }
-    </svg>
-  `;
+  map.innerHTML = `<img class="handpainted-map-base" src="${state.geoScope === "china" ? "./assets/buddhist-sites-handpainted-map.png" : "./assets/world-handpainted-map.png"}" alt="${state.geoScope === "china" ? "手绘写实中国地形地图" : "手绘写实世界地形地图"}" />`;
   events.forEach((event) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -1705,31 +1712,22 @@ function renderCards() {
 }
 
 function renderOverviewTimeline(visible) {
-  cardsGrid.className = "cards-grid overview-timeline";
-  const head = document.createElement("div");
-  head.className = "overview-head";
-  head.innerHTML = "<strong>中国艺术</strong><span>时间轴</span><strong>世界艺术</strong>";
-  cardsGrid.append(head);
-
-  visible.forEach((era, index) => {
-    const row = document.createElement("section");
-    row.className = `overview-row ${era.region}`;
-    row.style.setProperty("--row-delay", `${index * 35}ms`);
-    const card = renderEraCard(era);
-    const left = document.createElement("div");
-    const marker = document.createElement("div");
-    const right = document.createElement("div");
-    left.className = "overview-side overview-left";
-    marker.className = "overview-marker";
-    right.className = "overview-side overview-right";
-    marker.innerHTML = `<strong>${era.years}</strong><span>${era.period}</span>`;
-    if (era.region === "china") {
-      left.append(card);
-    } else {
-      right.append(card);
-    }
-    row.append(left, marker, right);
-    cardsGrid.append(row);
+  cardsGrid.className = "overview-index";
+  [
+    ["china", "中国艺术"],
+    ["world", "世界艺术"],
+  ].forEach(([region, title]) => {
+    const regionEras = visible.filter((era) => era.region === region);
+    const column = document.createElement("section");
+    column.className = `overview-index-column ${region}`;
+    column.innerHTML = `<div class="overview-index-heading"><h2>${title}</h2><span>${regionEras.length} 个时期</span></div>`;
+    regionEras.forEach((era) => {
+      const item = document.createElement("article");
+      item.className = "overview-index-item";
+      item.innerHTML = `<time>${era.years}</time><div><h3>${era.period}</h3><p>${era.title}</p></div>`;
+      column.append(item);
+    });
+    cardsGrid.append(column);
   });
 }
 
@@ -1835,7 +1833,8 @@ function renderArtists() {
 function renderArtistCard(artist) {
   const card = document.createElement("article");
   card.className = "artist-card";
-  const works = artist.works.map((work, index) => `
+  const verifiedWorks = artist.works.filter((work) => work.image && !mismatchedArtworkTitles.has(work.title));
+  const works = verifiedWorks.map((work, index) => `
     <button class="artist-work" type="button" data-work-index="${index}">
       <img src="${work.image}" alt="${work.title}" loading="lazy" />
       <div>
@@ -1864,7 +1863,7 @@ function renderArtistCard(artist) {
   });
   card.querySelectorAll(".artist-work").forEach((button) => {
     button.addEventListener("click", () => {
-      openImageDialog(artist.works[Number(button.dataset.workIndex)], button.querySelector("img").src);
+      openImageDialog(verifiedWorks[Number(button.dataset.workIndex)], button.querySelector("img").src);
     });
   });
   return card;
