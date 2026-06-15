@@ -700,7 +700,7 @@ main {
 .material-evolution-track article {
   position: relative;
   display: grid;
-  grid-template-columns: 52px minmax(110px, 0.45fr) minmax(130px, 0.55fr) minmax(0, 1.8fr);
+  grid-template-columns: 118px 44px minmax(95px, 0.4fr) minmax(115px, 0.5fr) minmax(0, 1.5fr);
   gap: 16px;
   align-items: start;
   min-height: 104px;
@@ -708,6 +708,29 @@ main {
   border-left: 4px solid var(--jade);
   background: #fffdf8;
   padding: 18px;
+}
+
+.material-stage-image {
+  width: 118px;
+  height: 86px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background: #ece5d8;
+  padding: 0;
+}
+
+.material-stage-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.material-stage-image:hover img,
+.material-stage-image:focus-visible img {
+  transform: scale(1.04);
 }
 
 .material-evolution-track span {
@@ -733,6 +756,177 @@ main {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
+}
+
+.material-evolution-track article > div > strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--jade);
+  font-size: 11px;
+}
+
+.buddhist-sites {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.buddhist-sites-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.buddhist-sites-heading p {
+  margin-bottom: 4px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.buddhist-sites-heading h3 {
+  margin-bottom: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+}
+
+.buddhist-sites-heading > span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.buddhist-sites-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+  gap: 12px;
+}
+
+.buddhist-site-map {
+  position: relative;
+  min-height: 480px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #eaf0eb;
+}
+
+.buddhist-site-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.temple-map-land {
+  fill: #dccdb0;
+  stroke: #716752;
+  stroke-width: 1.2;
+}
+
+.temple-map-river {
+  fill: none;
+  stroke: rgba(49, 95, 133, 0.52);
+  stroke-width: 1.2;
+}
+
+.buddhist-site-marker {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--red);
+  padding: 0;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 14px rgba(35, 32, 28, 0.24);
+}
+
+.buddhist-site-marker span {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 5px);
+  width: max-content;
+  max-width: 90px;
+  border-radius: 5px;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--ink);
+  padding: 3px 5px;
+  font-size: 10px;
+  font-weight: 900;
+  transform: translateX(-50%);
+}
+
+.buddhist-site-marker.active {
+  background: var(--blue);
+  outline: 5px solid rgba(49, 95, 133, 0.18);
+}
+
+.buddhist-site-detail {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 16px;
+}
+
+.buddhist-site-detail > p:first-child {
+  margin-bottom: 4px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.buddhist-site-detail h4 {
+  margin-bottom: 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.buddhist-site-detail > strong {
+  color: var(--jade);
+  font-size: 12px;
+}
+
+.buddhist-site-detail > p {
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.site-location-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.site-location-list button {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 7px 8px;
+  font-size: 11px;
+  font-weight: 900;
+  text-align: left;
+}
+
+.site-location-list button span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.site-location-list button.active {
+  border-color: var(--blue);
+  background: rgba(49, 95, 133, 0.08);
 }
 
 .search-box,
@@ -2202,6 +2396,10 @@ h3 {
     grid-template-columns: minmax(0, 1fr) minmax(210px, 0.4fr);
   }
 
+  .buddhist-sites-layout {
+    grid-template-columns: 1fr;
+  }
+
   .prehistoric-region-detail {
     grid-column: 1 / -1;
   }
@@ -2272,12 +2470,34 @@ h3 {
   }
 
   .material-evolution-track article {
-    grid-template-columns: 42px 1fr;
+    grid-template-columns: 96px 42px 1fr;
     gap: 8px 12px;
   }
 
-  .material-evolution-track article p {
-    grid-column: 2;
+  .material-stage-image {
+    grid-row: span 2;
+    width: 96px;
+    height: 76px;
+  }
+
+  .material-evolution-track article h3 {
+    grid-column: 2 / -1;
+  }
+
+  .material-evolution-track article > div {
+    grid-column: 1 / -1;
+  }
+
+  .buddhist-sites-heading {
+    display: grid;
+  }
+
+  .buddhist-site-map {
+    min-height: 360px;
+  }
+
+  .buddhist-site-marker span {
+    display: none;
   }
 
   .view-tabs,

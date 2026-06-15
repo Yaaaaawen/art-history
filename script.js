@@ -967,36 +967,46 @@ const materialLenses = {
     label: "中国佛像",
     intro: "观察佛像如何从外来图式，逐渐转化为中国化、世俗化和地域化的视觉语言。",
     stages: [
-      ["东汉-十六国", "初传与译介", "犍陀罗、秣菟罗样式经丝路进入，造像强调神圣性与异域特征。"],
-      ["北魏", "秀骨清像", "云冈由雄健厚重转向龙门式清瘦典雅，服饰线条趋于中国化。"],
-      ["隋唐", "圆融丰腴", "身体比例自然，衣纹流畅，菩萨形象兼具庄严与人间气息。"],
-      ["宋辽金", "世俗与地域", "木雕、彩塑发展，观音等形象更亲近生活，地域风格明显。"],
-      ["明清", "宫廷与民间", "藏传、汉传并行，鎏金铜造像和寺观彩塑形成多层体系。"],
+      ["东汉-十六国", "初传与译介", "犍陀罗、秣菟罗样式经丝路进入，造像强调神圣性与异域特征。", "./assets/materials/yungang-buddha.jpg", "早期石窟造像参考"],
+      ["北魏", "秀骨清像", "云冈由雄健厚重转向龙门式清瘦典雅，服饰线条趋于中国化。", "./assets/materials/yungang-buddha.jpg", "云冈石窟造像"],
+      ["隋唐", "圆融丰腴", "身体比例自然，衣纹流畅，菩萨形象兼具庄严与人间气息。", "./assets/materials/longmen-vairocana.jpg", "龙门石窟奉先寺卢舍那大佛"],
+      ["宋辽金", "世俗与地域", "木雕、彩塑发展，观音等形象更亲近生活，地域风格明显。", "./assets/materials/song-guanyin.jpg", "宋代木雕观音"],
+      ["明清", "宫廷与民间", "藏传、汉传并行，鎏金铜造像和寺观彩塑形成多层体系。", "./assets/materials/qing-buddha.jpg", "清代鎏金铜佛"],
     ],
   },
   porcelain: {
     label: "中国瓷器",
     intro: "从青瓷成熟到全球贸易，瓷器把技术、审美、宫廷制度与世界交流连接起来。",
     stages: [
-      ["商周-汉", "原始瓷", "高温釉陶逐渐成熟，为真正瓷器的烧成奠定技术基础。"],
-      ["六朝", "青瓷成熟", "越窑系统发展，器形与动物塑饰反映南方生活和墓葬文化。"],
-      ["隋唐", "南青北白", "越窑青瓷、邢窑白瓷并立，唐三彩与外来器形显示开放交流。"],
-      ["宋代", "窑口美学", "汝、官、哥、定、钧及民窑共同形成釉色、器形与触感的高峰。"],
-      ["元明清", "彩绘与全球化", "青花、斗彩、五彩、珐琅彩发展，景德镇连接宫廷与海外市场。"],
+      ["商周-汉", "原始瓷", "高温釉陶逐渐成熟，为真正瓷器的烧成奠定技术基础。", "./assets/materials/early-ceramic.jpg", "早期陶瓷器形参考"],
+      ["六朝", "青瓷成熟", "越窑系统发展，器形与动物塑饰反映南方生活和墓葬文化。", "./assets/materials/yue-celadon.jpg", "越窑青瓷"],
+      ["隋唐", "南青北白", "越窑青瓷、邢窑白瓷并立，唐三彩与外来器形显示开放交流。", "./assets/materials/tang-celadon.jpg", "唐代越窑青瓷"],
+      ["宋代", "窑口美学", "汝、官、哥、定、钧及民窑共同形成釉色、器形与触感的高峰。", "./assets/materials/ru-ware.jpg", "北宋汝窑青瓷"],
+      ["元明清", "彩绘与全球化", "青花、斗彩、五彩、珐琅彩发展，景德镇连接宫廷与海外市场。", "./assets/materials/ming-blue-white.jpg", "明代青花瓷"],
     ],
   },
   jade: {
     label: "中国玉器",
     intro: "玉器从巫礼媒介变为礼制、身份、丧葬与文人趣味的共同载体。",
     stages: [
-      ["新石器时代", "神权与礼仪", "红山玉龙、良渚玉琮体现祭祀、宇宙观与社会等级。"],
-      ["商周", "礼制与王权", "璧、琮、圭、璋进入礼制系统，动物纹与铭刻强化身份。"],
-      ["秦汉", "永生与护佑", "玉衣、玉璧、玉剑饰进入墓葬体系，连接身体与不朽观念。"],
-      ["唐宋", "生活与雅玩", "人物、花鸟和实用器增多，玉器从礼制走向日常审美。"],
-      ["明清", "宫廷工艺", "大型陈设玉、仿古玉与文房玉器并行，乾隆时期工艺尤盛。"],
+      ["新石器时代", "神权与礼仪", "红山玉龙、良渚玉琮体现祭祀、宇宙观与社会等级。", "./assets/materials/hongshan-jade-dragon.jpg", "红山文化玉龙"],
+      ["商周", "礼制与王权", "璧、琮、圭、璋进入礼制系统，动物纹与铭刻强化身份。", "./assets/materials/jade-bi.jpg", "玉璧与礼制传统"],
+      ["秦汉", "永生与护佑", "玉衣、玉璧、玉剑饰进入墓葬体系，连接身体与不朽观念。", "./assets/materials/jade-suit.jpg", "西汉金缕玉衣"],
+      ["唐宋", "生活与雅玩", "人物、花鸟和实用器增多，玉器从礼制走向日常审美。", "./assets/materials/jade-bi.jpg", "古玉收藏与仿古传统"],
+      ["明清", "宫廷工艺", "大型陈设玉、仿古玉与文房玉器并行，乾隆时期工艺尤盛。", "./assets/materials/qing-jade-bowl.jpg", "清代痕都斯坦式玉碗"],
     ],
   },
 };
+
+const buddhistSites = [
+  { id: "mogao", name: "莫高窟", place: "甘肃敦煌", x: 22, y: 45, period: "十六国-元", feature: "丝绸之路上的壁画、彩塑与洞窟寺综合体系。" },
+  { id: "maijishan", name: "麦积山石窟", place: "甘肃天水", x: 38, y: 51, period: "十六国-明清", feature: "以泥塑见长，造像亲切温润，体现西北与中原交流。" },
+  { id: "yungang", name: "云冈石窟", place: "山西大同", x: 57, y: 29, period: "北魏", feature: "早期雄健庄严，融合中亚、印度与北魏皇权图式。" },
+  { id: "longmen", name: "龙门石窟", place: "河南洛阳", x: 59, y: 48, period: "北魏-唐", feature: "从秀骨清像发展到唐代圆融丰腴，奉先寺为高峰。" },
+  { id: "lingyin", name: "灵隐寺与飞来峰", place: "浙江杭州", x: 76, y: 64, period: "五代-元", feature: "寺院与摩崖造像结合，呈现江南佛教的世俗化与地域风格。" },
+  { id: "dazu", name: "大足石刻", place: "重庆大足", x: 48, y: 68, period: "唐末-宋", feature: "佛、道、儒题材交融，造像与日常生活叙事关系密切。" },
+  { id: "yonghe", name: "雍和宫", place: "北京", x: 64, y: 31, period: "清", feature: "汉藏建筑和藏传佛教造像并置，体现清代宫廷宗教艺术。" },
+];
 
 const state = {
   view: "all",
@@ -1014,6 +1024,7 @@ const state = {
   materialLens: "buddhism",
   prehistoricView: "overview",
   prehistoricRegion: "liao",
+  activeBuddhistSite: "yungang",
 };
 
 const cardsGrid = document.querySelector("#cardsGrid");
@@ -1359,12 +1370,82 @@ function renderMaterialLenses() {
   intro.textContent = lens.intro;
   const track = document.createElement("div");
   track.className = "material-evolution-track";
-  lens.stages.forEach(([period, title, detail], index) => {
+  lens.stages.forEach(([period, title, detail, image, imageTitle], index) => {
     const item = document.createElement("article");
-    item.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><small>${period}</small><h3>${title}</h3><p>${detail}</p>`;
+    item.innerHTML = `
+      <button class="material-stage-image" type="button" aria-label="放大查看${imageTitle}">
+        <img src="${image}" alt="${imageTitle}" loading="lazy" />
+      </button>
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <small>${period}</small>
+      <h3>${title}</h3>
+      <div><p>${detail}</p><strong>${imageTitle}</strong></div>
+    `;
+    const stageImage = item.querySelector("img");
+    stageImage.addEventListener("error", () => {
+      stageImage.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(fallbackSvg({ title: imageTitle, date: period }))}`;
+    });
+    item.querySelector(".material-stage-image").addEventListener("click", () => {
+      openImageDialog({ title: imageTitle, meta: `${lens.label} · ${title}`, date: period, location: "代表作品图像", image }, stageImage.src);
+    });
     track.append(item);
   });
   materialLensCanvas.replaceChildren(intro, track);
+  if (state.materialLens === "buddhism") {
+    materialLensCanvas.append(renderBuddhistSites());
+  }
+}
+
+function renderBuddhistSites() {
+  const section = document.createElement("section");
+  section.className = "buddhist-sites";
+  const heading = document.createElement("div");
+  heading.className = "buddhist-sites-heading";
+  heading.innerHTML = "<div><p>地理观察</p><h3>代表寺院与石窟位置</h3></div><span>点击地图标记查看</span>";
+  const layout = document.createElement("div");
+  layout.className = "buddhist-sites-layout";
+  const map = document.createElement("div");
+  map.className = "buddhist-site-map";
+  map.innerHTML = `
+    <svg viewBox="0 0 100 80" aria-hidden="true">
+      <path class="temple-map-land" d="M25 15 L47 8 L69 18 L79 39 L70 65 L52 75 L31 67 L19 48 Z"></path>
+      <path class="temple-map-river" d="M21 43 C37 37 47 44 61 38 C70 34 78 38 88 31"></path>
+      <path class="temple-map-river" d="M27 62 C42 56 53 64 70 57 C78 54 85 58 91 52"></path>
+    </svg>
+  `;
+  buddhistSites.forEach((site) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `buddhist-site-marker${site.id === state.activeBuddhistSite ? " active" : ""}`;
+    button.style.left = `${site.x}%`;
+    button.style.top = `${site.y}%`;
+    button.innerHTML = `<span>${site.name}</span>`;
+    button.setAttribute("aria-label", `${site.name}，${site.place}`);
+    button.addEventListener("click", () => {
+      state.activeBuddhistSite = site.id;
+      renderMaterialLenses();
+    });
+    map.append(button);
+  });
+  const active = buddhistSites.find((site) => site.id === state.activeBuddhistSite) || buddhistSites[0];
+  const detail = document.createElement("article");
+  detail.className = "buddhist-site-detail";
+  detail.innerHTML = `
+    <p>${active.period}</p>
+    <h4>${active.name}</h4>
+    <strong>${active.place}</strong>
+    <p>${active.feature}</p>
+    <div class="site-location-list">${buddhistSites.map((site) => `<button type="button" data-site="${site.id}" class="${site.id === active.id ? "active" : ""}">${site.name}<span>${site.place}</span></button>`).join("")}</div>
+  `;
+  detail.querySelectorAll("[data-site]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeBuddhistSite = button.dataset.site;
+      renderMaterialLenses();
+    });
+  });
+  layout.append(map, detail);
+  section.append(heading, layout);
+  return section;
 }
 
 function fallbackSvg(artwork) {
