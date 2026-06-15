@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -688,17 +692,22 @@ main {
 
 .material-evolution-track {
   display: grid;
-  grid-template-columns: repeat(5, minmax(170px, 1fr));
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
 }
 
 .material-evolution-track article {
-  min-height: 190px;
-  border-top: 4px solid var(--jade);
+  position: relative;
+  display: grid;
+  grid-template-columns: 52px minmax(110px, 0.45fr) minmax(130px, 0.55fr) minmax(0, 1.8fr);
+  gap: 16px;
+  align-items: start;
+  min-height: 104px;
+  border-bottom: 1px solid var(--line);
+  border-left: 4px solid var(--jade);
   background: #fffdf8;
-  padding: 14px;
+  padding: 18px;
 }
 
 .material-evolution-track span {
@@ -709,13 +718,13 @@ main {
 
 .material-evolution-track small {
   display: block;
-  margin: 8px 0 4px;
+  margin: 3px 0 0;
   color: var(--muted);
   font-weight: 800;
 }
 
 .material-evolution-track h3 {
-  margin-bottom: 8px;
+  margin: 2px 0 0;
   font-size: 17px;
 }
 
@@ -2260,6 +2269,15 @@ h3 {
 
   .reference-map button {
     min-height: 260px;
+  }
+
+  .material-evolution-track article {
+    grid-template-columns: 42px 1fr;
+    gap: 8px 12px;
+  }
+
+  .material-evolution-track article p {
+    grid-column: 2;
   }
 
   .view-tabs,
