@@ -999,13 +999,13 @@ const materialLenses = {
 };
 
 const buddhistSites = [
-  { id: "mogao", name: "莫高窟", place: "甘肃敦煌", x: 22, y: 45, period: "十六国-元", feature: "丝绸之路上的壁画、彩塑与洞窟寺综合体系。" },
-  { id: "maijishan", name: "麦积山石窟", place: "甘肃天水", x: 38, y: 51, period: "十六国-明清", feature: "以泥塑见长，造像亲切温润，体现西北与中原交流。" },
-  { id: "yungang", name: "云冈石窟", place: "山西大同", x: 57, y: 29, period: "北魏", feature: "早期雄健庄严，融合中亚、印度与北魏皇权图式。" },
-  { id: "longmen", name: "龙门石窟", place: "河南洛阳", x: 59, y: 48, period: "北魏-唐", feature: "从秀骨清像发展到唐代圆融丰腴，奉先寺为高峰。" },
-  { id: "lingyin", name: "灵隐寺与飞来峰", place: "浙江杭州", x: 76, y: 64, period: "五代-元", feature: "寺院与摩崖造像结合，呈现江南佛教的世俗化与地域风格。" },
-  { id: "dazu", name: "大足石刻", place: "重庆大足", x: 48, y: 68, period: "唐末-宋", feature: "佛、道、儒题材交融，造像与日常生活叙事关系密切。" },
-  { id: "yonghe", name: "雍和宫", place: "北京", x: 64, y: 31, period: "清", feature: "汉藏建筑和藏传佛教造像并置，体现清代宫廷宗教艺术。" },
+  { id: "mogao", name: "莫高窟", place: "甘肃敦煌", x: 42, y: 45, period: "十六国-元", feature: "丝绸之路上的壁画、彩塑与洞窟寺综合体系。" },
+  { id: "maijishan", name: "麦积山石窟", place: "甘肃天水", x: 56, y: 54, period: "十六国-明清", feature: "以泥塑见长，造像亲切温润，体现西北与中原交流。" },
+  { id: "yungang", name: "云冈石窟", place: "山西大同", x: 69, y: 31, period: "北魏", feature: "早期雄健庄严，融合中亚、印度与北魏皇权图式。" },
+  { id: "longmen", name: "龙门石窟", place: "河南洛阳", x: 67, y: 45, period: "北魏-唐", feature: "从秀骨清像发展到唐代圆融丰腴，奉先寺为高峰。" },
+  { id: "lingyin", name: "灵隐寺与飞来峰", place: "浙江杭州", x: 79, y: 59, period: "五代-元", feature: "寺院与摩崖造像结合，呈现江南佛教的世俗化与地域风格。" },
+  { id: "dazu", name: "大足石刻", place: "重庆大足", x: 62, y: 62, period: "唐末-宋", feature: "佛、道、儒题材交融，造像与日常生活叙事关系密切。" },
+  { id: "yonghe", name: "雍和宫", place: "北京", x: 77, y: 29, period: "清", feature: "汉藏建筑和藏传佛教造像并置，体现清代宫廷宗教艺术。" },
 ];
 
 const state = {
@@ -1406,13 +1406,7 @@ function renderBuddhistSites() {
   layout.className = "buddhist-sites-layout";
   const map = document.createElement("div");
   map.className = "buddhist-site-map";
-  map.innerHTML = `
-    <svg viewBox="0 0 100 80" aria-hidden="true">
-      <path class="temple-map-land" d="M25 15 L47 8 L69 18 L79 39 L70 65 L52 75 L31 67 L19 48 Z"></path>
-      <path class="temple-map-river" d="M21 43 C37 37 47 44 61 38 C70 34 78 38 88 31"></path>
-      <path class="temple-map-river" d="M27 62 C42 56 53 64 70 57 C78 54 85 58 91 52"></path>
-    </svg>
-  `;
+  map.innerHTML = '<img class="buddhist-map-base" src="./assets/buddhist-sites-handpainted-map.png" alt="手绘风格中国地形与河流地图" />';
   buddhistSites.forEach((site) => {
     const button = document.createElement("button");
     button.type = "button";
