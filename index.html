@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>中外艺术史时间轴</title>
-    <link rel="stylesheet" href="./styles.css?v=20260615-prehistory" />
+    <link rel="stylesheet" href="./styles.css?v=20260615-separate-views" />
   </head>
   <body>
     <header class="topbar">
@@ -14,6 +14,8 @@
       </div>
       <nav class="view-tabs" aria-label="视图切换">
         <button class="tab-button active" data-view="all" type="button">总览</button>
+        <button class="tab-button" data-view="timeline" type="button">时间轴</button>
+        <button class="tab-button" data-view="lenses" type="button">横向观察</button>
         <button class="tab-button" data-view="geo" type="button">地理位置</button>
         <button class="tab-button" data-view="compare" type="button">中外对照</button>
         <button class="tab-button" data-view="artists" type="button">艺术家</button>
@@ -22,7 +24,7 @@
     </header>
 
     <main>
-      <section class="hero-panel">
+      <section id="heroPanel" class="hero-panel">
         <div class="hero-copy">
           <div class="search-row">
             <label class="search-box">
@@ -36,35 +38,36 @@
               </select>
             </label>
           </div>
-          <div class="region-explorer">
-            <div class="region-explorer-head">
-              <div>
-                <span>地区观察</span>
-                <strong>从历史分期进入艺术现场</strong>
-              </div>
-              <div class="region-switch" role="group" aria-label="地区切换">
-                <button class="active" data-region-scope="china" type="button">中国地区</button>
-                <button data-region-scope="world" type="button">世界地区</button>
-              </div>
-            </div>
-            <div id="regionExplorerCanvas" class="region-explorer-canvas"></div>
-          </div>
         </div>
-      </section>
-
-      <section class="material-lenses" aria-labelledby="materialLensTitle">
-        <div class="section-title material-lens-title">
-          <div>
-            <p>横向观察</p>
-            <h2 id="materialLensTitle">同一种艺术，在时间里如何改变</h2>
-          </div>
-          <div id="materialLensTabs" class="material-lens-tabs" role="tablist" aria-label="艺术门类"></div>
-        </div>
-        <div id="materialLensCanvas" class="material-lens-canvas"></div>
       </section>
 
       <section class="layout">
         <section class="content-area">
+          <section id="timelinePanel" class="timeline-panel" hidden>
+            <div class="region-explorer">
+              <div class="region-explorer-head">
+                <div>
+                  <span>时间轴</span>
+                  <strong>从历史分期进入艺术现场</strong>
+                </div>
+                <div class="region-switch" role="group" aria-label="地区切换">
+                  <button class="active" data-region-scope="china" type="button">中国地区</button>
+                  <button data-region-scope="world" type="button">世界地区</button>
+                </div>
+              </div>
+              <div id="regionExplorerCanvas" class="region-explorer-canvas"></div>
+            </div>
+          </section>
+          <section id="lensesPanel" class="material-lenses" aria-labelledby="materialLensTitle" hidden>
+            <div class="section-title material-lens-title">
+              <div>
+                <p>横向观察</p>
+                <h2 id="materialLensTitle">同一种艺术，在时间里如何改变</h2>
+              </div>
+              <div id="materialLensTabs" class="material-lens-tabs" role="tablist" aria-label="艺术门类"></div>
+            </div>
+            <div id="materialLensCanvas" class="material-lens-canvas"></div>
+          </section>
           <div id="cardsGrid" class="cards-grid"></div>
           <section id="comparePanel" class="compare-panel" hidden>
             <div class="section-title">
@@ -133,6 +136,6 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aa7cfef2388c47c08c2b725b2efc7fac"}'></script>
     <!-- End Cloudflare Web Analytics -->
-    <script src="./script.js?v=20260615-prehistory"></script>
+    <script src="./script.js?v=20260615-separate-views"></script>
   </body>
 </html>

@@ -1017,6 +1017,9 @@ const state = {
 };
 
 const cardsGrid = document.querySelector("#cardsGrid");
+const heroPanel = document.querySelector("#heroPanel");
+const timelinePanel = document.querySelector("#timelinePanel");
+const lensesPanel = document.querySelector("#lensesPanel");
 const comparePanel = document.querySelector("#comparePanel");
 const compareGrid = document.querySelector("#compareGrid");
 const geoPanel = document.querySelector("#geoPanel");
@@ -1049,6 +1052,8 @@ function artworksForEra(era) {
 function matchesEra(era) {
   const viewMatch =
     state.view === "all" ||
+    state.view === "timeline" ||
+    state.view === "lenses" ||
     state.view === "compare" ||
     state.view === "geo" ||
     state.view === "artists" ||
@@ -1116,6 +1121,7 @@ function renderTimeline() {
 function selectMatchingEra(terms) {
   const match = eras.find((era) => terms.some((term) => `${era.period} ${era.years} ${era.geography}`.includes(term)));
   if (!match) return;
+  state.view = "all";
   state.period = match.period;
   periodSelect.value = match.period;
   document.querySelector(".layout")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1123,6 +1129,8 @@ function selectMatchingEra(terms) {
 }
 
 function renderRegionExplorer() {
+  timelinePanel.hidden = state.view !== "timeline";
+  if (timelinePanel.hidden) return;
   document.querySelectorAll("[data-region-scope]").forEach((button) => {
     button.classList.toggle("active", button.dataset.regionScope === state.regionScope);
   });
@@ -1331,6 +1339,8 @@ function renderPrehistoricExplorer() {
 }
 
 function renderMaterialLenses() {
+  lensesPanel.hidden = state.view !== "lenses";
+  if (lensesPanel.hidden) return;
   materialLensTabs.replaceChildren();
   Object.entries(materialLenses).forEach(([id, lens]) => {
     const button = document.createElement("button");
@@ -1597,7 +1607,7 @@ function renderEraCard(era) {
 }
 
 function renderCards() {
-  cardsGrid.hidden = state.view === "compare" || state.view === "geo" || state.view === "artists" || state.view === "network";
+  cardsGrid.hidden = state.view === "timeline" || state.view === "lenses" || state.view === "compare" || state.view === "geo" || state.view === "artists" || state.view === "network";
   if (cardsGrid.hidden) {
     cardsGrid.replaceChildren();
     return;
@@ -1911,6 +1921,7 @@ function renderTabs() {
 
 function render() {
   renderTabs();
+  heroPanel.hidden = state.view === "timeline" || state.view === "lenses";
   renderRegionExplorer();
   renderMaterialLenses();
   renderStats();
