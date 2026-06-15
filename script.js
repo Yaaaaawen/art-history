@@ -865,6 +865,52 @@ const chinaHistoryStages = [
   ["当代中国", "1978-至今", "多元媒介与全球交流"],
 ].map(([name, years, note]) => ({ name, years, note }));
 
+const prehistoricChina = {
+  overview: {
+    label: "远古总览",
+    intro: "从打制石器到礼制中心，远古中国不是单一文化连续演进，而是不同生态区长期交流、竞争与融合的结果。",
+    items: [
+      ["约170万年前-距今1万年", "旧石器时代", "古人类迁徙、用火、狩猎采集与石器技术发展，装饰品和墓葬开始显露审美与精神活动。"],
+      ["约距今1万年-7000年", "旧新石器过渡", "磨制石器、陶器、定居和植物利用逐渐出现，生活方式从流动采集转向多样化生业。"],
+      ["约距今7000年-5000年", "区域文化繁荣", "彩陶、玉器、漆木器、聚落与祭祀空间在各区域形成鲜明传统。"],
+      ["约距今5800年-3800年", "文明起源与早期国家", "社会分化、城址、宫殿、礼器和跨区域网络逐步形成，最终出现二里头等广域政治中心。"],
+    ],
+  },
+  paleolithic: {
+    label: "旧石器时代",
+    intro: "以打制石器为主要工具。艺术线索不只在“画像”，也存在于选材、器形、身体装饰、墓葬与空间行为中。",
+    items: [
+      ["早期", "约170万-20万年前", "元谋、蓝田、周口店北京人", "砍砸器、刮削器与用火遗迹；工具形态反映对石材和功能的持续认识。"],
+      ["中期", "约20万-5万年前", "大荔、丁村、许家窑", "石器组合更稳定，协作狩猎与资源利用扩大，区域技术传统逐渐清晰。"],
+      ["晚期", "约5万-1万年前", "水洞沟、山顶洞、虎头梁", "细石器、骨针、穿孔兽牙和贝壳饰品出现，身体装饰与埋葬行为成为重要艺术证据。"],
+      ["过渡阶段", "约1.2万-8000年前", "南庄头、上山、仙人洞", "陶器、磨制工具和植物管理增多，器物开始同时承担实用、身份和群体记忆。"],
+    ],
+  },
+  neolithic: {
+    label: "新石器时代",
+    intro: "农业、聚落和手工业推动区域文化兴起。可从彩陶、玉器、雕塑、建筑和墓葬看见不同地区的审美与社会组织。",
+    regions: [
+      ["liao", "辽河流域", "兴隆洼、赵宝沟、红山", "玉龙、女神像、祭坛与积石冢", "玉器和大型祭祀中心把祖先、动物与权力联系起来。"],
+      ["upper-yellow", "黄河上游", "大地湾、马家窑、齐家", "旋涡纹彩陶、舞蹈纹彩陶、早期铜器", "彩陶纹样高度发展，并连接河西走廊与东西交流网络。"],
+      ["middle-yellow", "黄河中游", "裴李岗、仰韶、庙底沟、陶寺", "骨笛、人面鱼纹盆、陶鹰鼎、彩绘陶器", "聚落、彩陶与礼仪从村落走向大型中心，图像传播范围广。"],
+      ["lower-yellow", "黄河下游", "后李、北辛、大汶口、山东龙山", "蛋壳黑陶、刻画符号、精致随葬品", "制陶技术与墓葬分化突出，显示专业化和社会等级增长。"],
+      ["middle-yangtze", "长江中游", "彭头山、大溪、屈家岭、石家河", "稻作遗存、彩陶、玉人像、城址", "稻作社会与环壕城址发展，玉器和祭祀器物呈现区域政治中心。"],
+      ["lower-yangtze", "长江下游", "上山、河姆渡、马家浜、崧泽、良渚", "稻作、骨耜、漆木器、玉琮玉璧", "湿地环境孕育木构、漆器和稻作技术，良渚形成高度礼制化的玉器系统。"],
+      ["south", "东南与华南", "仙人洞、玉蟾岩、石峡、昙石山", "早期陶器、稻作遗存、石器与海洋贝器", "山地、河谷与海岸生业并存，形成与中原不同的器物和交换传统。"],
+    ],
+  },
+  civilization: {
+    label: "文明起源",
+    intro: "这里采用中华文明探源研究常用的关键节点，观察多区域文化如何走向社会复杂化、文明形成与早期国家。",
+    items: [
+      ["距今约5800年", "文明起源加速", "庙底沟、红山等区域中心扩大，远距离图像、器物与观念交流明显增强。"],
+      ["距今约5300年", "区域文明形成", "良渚古城、水利系统和玉礼器显示权力、工程组织与统一信仰的结合。"],
+      ["距今约4300年", "中原与北方中心崛起", "陶寺、石峁等超大型聚落兴起，城墙、宫殿、礼仪空间与社会等级更加清晰。"],
+      ["距今约3800年", "早期国家发展", "二里头出现宫城、道路网、青铜礼器与跨区域资源控制，连接新石器文化与夏商文明。"],
+    ],
+  },
+};
+
 const worldContinents = [
   {
     id: "asia",
@@ -966,6 +1012,8 @@ const state = {
   activeChinaStage: "远古时期",
   activeContinent: "asia",
   materialLens: "buddhism",
+  prehistoricView: "overview",
+  prehistoricRegion: "liao",
 };
 
 const cardsGrid = document.querySelector("#cardsGrid");
@@ -1111,7 +1159,11 @@ function renderRegionExplorer() {
     const note = document.createElement("p");
     note.className = "region-source-note";
     note.textContent = "古代部分依据中国国家博物馆“古代中国”八段式框架，向近代、现代与当代延伸。";
-    regionExplorerCanvas.append(timeline, note);
+    regionExplorerCanvas.append(timeline);
+    if (state.activeChinaStage === "远古时期") {
+      regionExplorerCanvas.append(renderPrehistoricExplorer());
+    }
+    regionExplorerCanvas.append(note);
     return;
   }
 
@@ -1162,6 +1214,120 @@ function renderRegionExplorer() {
   });
   worldLayout.append(globe, detail);
   regionExplorerCanvas.append(worldLayout);
+}
+
+function renderPrehistoricExplorer() {
+  const section = document.createElement("section");
+  section.className = "prehistoric-explorer";
+  const heading = document.createElement("div");
+  heading.className = "prehistoric-heading";
+  heading.innerHTML = `
+    <div>
+      <p>展开专题</p>
+      <h3>中国旧石器、新石器与文明起源</h3>
+    </div>
+    <span>遗址 · 器物 · 艺术 · 社会</span>
+  `;
+  const tabs = document.createElement("div");
+  tabs.className = "prehistoric-tabs";
+  Object.entries(prehistoricChina).forEach(([id, group]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = id === state.prehistoricView ? "active" : "";
+    button.textContent = group.label;
+    button.addEventListener("click", () => {
+      state.prehistoricView = id;
+      renderRegionExplorer();
+    });
+    tabs.append(button);
+  });
+
+  const content = document.createElement("div");
+  content.className = "prehistoric-content";
+  const group = prehistoricChina[state.prehistoricView];
+  const intro = document.createElement("p");
+  intro.className = "prehistoric-intro";
+  intro.textContent = group.intro;
+  content.append(intro);
+
+  if (state.prehistoricView === "neolithic") {
+    const mapLayout = document.createElement("div");
+    mapLayout.className = "neolithic-map-layout";
+    const figure = document.createElement("figure");
+    figure.className = "reference-map";
+    figure.innerHTML = `
+      <button type="button" aria-label="放大查看中国新石器时代文化遗存分布图">
+        <img src="./assets/reference/china-neolithic-sites-map.jpeg" alt="中国新石器时代主要文化遗存分布参考图" />
+      </button>
+      <figcaption>中国新石器时代主要文化遗存分布参考图（用户提供资料）</figcaption>
+    `;
+    figure.querySelector("button").addEventListener("click", () => {
+      openImageDialog({
+        title: "中国新石器时代文化遗存分布图",
+        meta: "主要文化遗存与区域分布参考",
+        date: "新石器时代",
+        location: "用户提供资料",
+        image: "./assets/reference/china-neolithic-sites-map.jpeg",
+      });
+    });
+    const regionList = document.createElement("div");
+    regionList.className = "prehistoric-region-list";
+    group.regions.forEach(([id, name, cultures, arts, meaning]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = id === state.prehistoricRegion ? "active" : "";
+      button.innerHTML = `<strong>${name}</strong><span>${cultures}</span>`;
+      button.addEventListener("click", () => {
+        state.prehistoricRegion = id;
+        renderRegionExplorer();
+      });
+      regionList.append(button);
+    });
+    const active = group.regions.find(([id]) => id === state.prehistoricRegion) || group.regions[0];
+    const detail = document.createElement("article");
+    detail.className = "prehistoric-region-detail";
+    detail.innerHTML = `
+      <p>文化区观察</p>
+      <h4>${active[1]}</h4>
+      <dl>
+        <div><dt>代表文化</dt><dd>${active[2]}</dd></div>
+        <div><dt>典型艺术</dt><dd>${active[3]}</dd></div>
+        <div><dt>发展特点</dt><dd>${active[4]}</dd></div>
+      </dl>
+    `;
+    mapLayout.append(figure, regionList, detail);
+    content.append(mapLayout);
+  } else {
+    const grid = document.createElement("div");
+    grid.className = `prehistoric-card-grid ${state.prehistoricView}`;
+    group.items.forEach((item, index) => {
+      const card = document.createElement("article");
+      if (state.prehistoricView === "paleolithic") {
+        card.innerHTML = `
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <small>${item[1]}</small>
+          <h4>${item[0]}</h4>
+          <strong>${item[2]}</strong>
+          <p>${item[3]}</p>
+        `;
+      } else {
+        card.innerHTML = `
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <small>${item[0]}</small>
+          <h4>${item[1]}</h4>
+          <p>${item[2]}</p>
+        `;
+      }
+      grid.append(card);
+    });
+    content.append(grid);
+  }
+
+  const sources = document.createElement("p");
+  sources.className = "prehistoric-sources";
+  sources.textContent = "资料框架参考：中国国家博物馆“古代中国·远古时期”、中国考古博物馆“历史中国 鼎铸文明”及中华文明探源相关考古成果。";
+  section.append(heading, tabs, content, sources);
+  return section;
 }
 
 function renderMaterialLenses() {

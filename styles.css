@@ -288,6 +288,254 @@ main {
   font-size: 11px;
 }
 
+.prehistoric-explorer {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  border: 1px solid rgba(159, 63, 47, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.9);
+  padding: clamp(16px, 3vw, 24px);
+}
+
+.prehistoric-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.prehistoric-heading p {
+  margin-bottom: 4px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.prehistoric-heading h3 {
+  margin-bottom: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.prehistoric-heading > span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.prehistoric-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.prehistoric-tabs button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: var(--muted);
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.prehistoric-tabs button.active {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+.prehistoric-content {
+  display: grid;
+  gap: 14px;
+}
+
+.prehistoric-intro {
+  max-width: 960px;
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.prehistoric-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.prehistoric-card-grid article {
+  min-height: 190px;
+  border-top: 4px solid var(--gold);
+  background: var(--paper);
+  padding: 14px;
+}
+
+.prehistoric-card-grid.paleolithic article {
+  border-top-color: var(--red);
+}
+
+.prehistoric-card-grid.civilization article {
+  border-top-color: var(--jade);
+}
+
+.prehistoric-card-grid span {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.prehistoric-card-grid small {
+  display: block;
+  margin: 7px 0 4px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.prehistoric-card-grid h4 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.prehistoric-card-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--jade);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.prehistoric-card-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.neolithic-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(190px, 0.42fr) minmax(230px, 0.58fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.reference-map {
+  display: grid;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f2eee5;
+}
+
+.reference-map button {
+  min-height: 380px;
+  border: 0;
+  background: #f2eee5;
+  padding: 0;
+}
+
+.reference-map img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+.reference-map figcaption {
+  border-top: 1px solid var(--line);
+  padding: 9px 11px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.prehistoric-region-list {
+  display: grid;
+  gap: 7px;
+  align-content: start;
+}
+
+.prehistoric-region-list button {
+  display: grid;
+  gap: 3px;
+  min-height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: var(--ink);
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.prehistoric-region-list button span {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.prehistoric-region-list button.active {
+  border-color: var(--jade);
+  background: var(--jade);
+  color: #fff;
+}
+
+.prehistoric-region-list button.active span {
+  color: inherit;
+}
+
+.prehistoric-region-detail {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 16px;
+}
+
+.prehistoric-region-detail > p {
+  margin-bottom: 4px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.prehistoric-region-detail h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.prehistoric-region-detail dl,
+.prehistoric-region-detail dl div {
+  display: grid;
+  gap: 5px;
+}
+
+.prehistoric-region-detail dl {
+  gap: 14px;
+  margin: 0;
+}
+
+.prehistoric-region-detail dt {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.prehistoric-region-detail dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.prehistoric-sources {
+  margin-bottom: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
 .world-region-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
@@ -1934,6 +2182,14 @@ h3 {
   .network-topology {
     min-height: 680px;
   }
+
+  .neolithic-map-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 0.4fr);
+  }
+
+  .prehistoric-region-detail {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1951,6 +2207,10 @@ h3 {
 
   .world-region-layout {
     grid-template-columns: 1fr;
+  }
+
+  .prehistoric-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .timeline-shell {
@@ -1973,13 +2233,27 @@ h3 {
   }
 
   .region-explorer-head,
-  .material-lens-title {
+  .material-lens-title,
+  .prehistoric-heading {
     display: grid;
     align-items: start;
   }
 
   .atlas-globe {
     min-height: 300px;
+  }
+
+  .prehistoric-card-grid,
+  .neolithic-map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .prehistoric-region-detail {
+    grid-column: auto;
+  }
+
+  .reference-map button {
+    min-height: 260px;
   }
 
   .view-tabs,
