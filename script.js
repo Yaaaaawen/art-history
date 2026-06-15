@@ -863,18 +863,30 @@ const artistMeta = {
 };
 
 const chinaHistoryStages = [
-  ["远古时期", "约170万年前-前21世纪", "旧石器、新石器与早期文明"],
-  ["夏商西周", "约前21世纪-前771", "青铜礼制与早期国家"],
-  ["春秋战国", "前770-前221", "礼崩乐坏与诸子时代"],
-  ["秦汉", "前221-220", "大一统帝国与墓葬宇宙"],
-  ["三国两晋南北朝", "220-589", "民族交融与佛教艺术"],
-  ["隋唐五代", "581-960", "开放帝国与国际化艺术"],
-  ["辽宋夏金元", "916-1368", "多政权并立与文人艺术"],
-  ["明清", "1368-1840", "宫廷、城市与工艺高峰"],
-  ["近代中国", "1840-1949", "西学输入与艺术转型"],
-  ["现代中国", "1949-1978", "国家叙事与现代美术体系"],
-  ["当代中国", "1978-至今", "多元媒介与全球交流"],
-].map(([name, years, note]) => ({ name, years, note }));
+  { name: "旧石器时代", years: "约170万年前-前10000", note: "打制石器、用火、身体装饰与早期精神活动", cultures: "元谋、蓝田、周口店、山顶洞", group: "史前与文明起源", terms: ["旧石器"] },
+  { name: "新石器时代早期", years: "约前10000-前5000", note: "陶器、磨制石器、农业与定居聚落出现", cultures: "上山、仙人洞、裴李岗、兴隆洼", group: "史前与文明起源", terms: ["新石器", "仰韶"] },
+  { name: "新石器时代中期", years: "约前5000-前3000", note: "区域文化繁荣，彩陶、玉器和祭祀空间发展", cultures: "仰韶、大溪、马家浜、赵宝沟、大汶口", group: "史前与文明起源", terms: ["仰韶", "红山"] },
+  { name: "新石器时代晚期", years: "约前3000-前2000", note: "城址、礼器和社会分化更加明显", cultures: "龙山、良渚、石家河、马家窑、齐家", group: "史前与文明起源", terms: ["良渚", "新石器"] },
+  { name: "文明形成阶段", years: "约前2300-前2070", note: "大型中心与跨区域政治网络走向早期国家", cultures: "陶寺、石峁、二里头早期", group: "史前与文明起源", terms: ["良渚", "商周"] },
+  { name: "夏", years: "约前2070-前1600", note: "宫殿、礼器与早期王朝秩序", group: "早期王朝", terms: ["商周", "青铜礼制"] },
+  { name: "商", years: "约前1600-前1046", note: "青铜礼器、甲骨文与祖先祭祀", group: "早期王朝", terms: ["商周", "青铜礼制"] },
+  { name: "西周", years: "前1046-前771", note: "宗法礼制、铭文与礼乐艺术", group: "早期王朝", terms: ["商周", "青铜礼制"] },
+  { name: "春秋战国", years: "前770-前221", note: "区域风格、漆器、玉器与诸子文化", group: "变革与帝国", terms: ["战国", "春秋"] },
+  { name: "秦", years: "前221-前206", note: "统一制度与写实陶塑军阵", group: "变革与帝国", terms: ["秦汉", "兵马俑"] },
+  { name: "汉", years: "前202-220", note: "墓葬宇宙、帛画、画像石与丝路交流", group: "变革与帝国", terms: ["秦汉", "汉"] },
+  { name: "三国两晋南北朝", years: "220-589", note: "民族交融、士人艺术与佛教造像中国化", group: "分裂与重整", terms: ["魏晋", "南北朝", "云冈"] },
+  { name: "隋", years: "581-618", note: "南北艺术整合与唐代风格的前奏", group: "分裂与重整", terms: ["隋唐", "唐"] },
+  { name: "唐", years: "618-907", note: "开放帝国、人物画、石窟与国际化工艺", group: "成熟王朝", terms: ["隋唐", "唐"] },
+  { name: "五代十国", years: "907-960", note: "山水画成熟与地方宫廷艺术发展", group: "成熟王朝", terms: ["宋元", "宋代"] },
+  { name: "宋", years: "960-1279", note: "画院、文人画、山水与瓷器美学高峰", group: "成熟王朝", terms: ["宋元", "宋代"] },
+  { name: "辽夏金", years: "916-1234", note: "多政权并立与草原、佛教、汉地艺术交流", group: "成熟王朝", terms: ["宋元", "宋代"] },
+  { name: "元", years: "1271-1368", note: "文人画转型与欧亚交流网络", group: "成熟王朝", terms: ["宋元", "元代"] },
+  { name: "明", years: "1368-1644", note: "宫廷绘画、吴门画派与景德镇工艺", group: "明清时期", terms: ["明清", "明代"] },
+  { name: "清", years: "1636-1912", note: "宫廷艺术、金石趣味与中西交流", group: "明清时期", terms: ["明清", "清代"] },
+  { name: "近代中国", years: "1840-1949", note: "西学输入、学院教育与传统艺术转型", group: "近现代", terms: ["近现代中国"] },
+  { name: "现代中国", years: "1949-1978", note: "国家叙事、现实主义与现代美术体系", group: "近现代", terms: ["近现代中国"] },
+  { name: "当代中国", years: "1978-至今", note: "媒介实验、传统再造与全球交流", group: "近现代", terms: ["中国当代", "全球当代"] },
+];
 
 const prehistoricChina = {
   overview: {
@@ -909,6 +921,10 @@ const prehistoricChina = {
       ["lower-yangtze", "长江下游", "上山、河姆渡、马家浜、崧泽、良渚", "稻作、骨耜、漆木器、玉琮玉璧", "湿地环境孕育木构、漆器和稻作技术，良渚形成高度礼制化的玉器系统。"],
       ["south", "东南与华南", "仙人洞、玉蟾岩、石峡、昙石山", "早期陶器、稻作遗存、石器与海洋贝器", "山地、河谷与海岸生业并存，形成与中原不同的器物和交换传统。"],
     ],
+  },
+  cultureMap: {
+    label: "区域文化地图",
+    intro: "依据参考照片中的“年代 × 河流区域”表格，把同一时期并行发展的考古学文化放回中国地理空间中观察。",
   },
   civilization: {
     label: "文明起源",
@@ -978,10 +994,227 @@ const prehistoricRegionPoints = {
   "upper-yellow": [46, 47],
   "middle-yellow": [61, 48],
   "lower-yellow": [72, 48],
+  "upper-yangtze": [52, 66],
   "middle-yangtze": [63, 61],
   "lower-yangtze": [77, 62],
   south: [68, 76],
 };
+
+const stoneAgeCultureBands = [
+  {
+    id: "bc5000-4000",
+    years: "约前5000-前4000",
+    phase: "新石器时代中期",
+    cultures: [
+      ["upper-yangtze", "长江上游", "资料待核", "参考照片此格以“？”标注，暂不擅自补全。", true],
+      ["middle-yellow", "黄河中游", "仰韶文化早期", "彩陶、聚落与农业共同构成黄河中游的视觉传统。"],
+      ["lower-yellow", "黄河下游", "北辛文化", "陶器与磨制石器反映黄河下游早期定居生活。"],
+      ["middle-yangtze", "长江中游", "汤家岗文化", "稻作聚落与陶器传统形成长江中游的区域面貌。"],
+      ["lower-yangtze", "长江下游", "马家浜文化", "稻作、陶器与湿地聚落是长江下游早期文化特征。"],
+      ["liao", "西辽河", "赵宝沟文化", "动物纹陶器与独特器形表现北方区域图像传统。"],
+    ],
+  },
+  {
+    id: "bc4000-3300",
+    years: "约前4000-前3300",
+    phase: "新石器时代中期",
+    cultures: [
+      ["middle-yellow", "黄河中游", "仰韶文化庙底沟类型", "花卉式彩陶纹样广泛传播，形成跨区域视觉影响。"],
+      ["lower-yellow", "黄河下游", "大汶口文化早期", "彩陶、白陶与墓葬器物显示手工业和身份差异。"],
+      ["middle-yangtze", "长江中游", "大溪文化", "彩陶、稻作与聚落生活形成鲜明的长江艺术传统。"],
+      ["lower-yangtze", "长江下游", "崧泽文化", "陶器与玉器发展，为良渚文化的礼制艺术奠定基础。"],
+      ["liao", "西辽河", "红山文化", "玉龙、女神像、祭坛与积石冢把艺术和祭祀权力结合。"],
+    ],
+  },
+  {
+    id: "bc3300-2700",
+    years: "约前3300-前2700",
+    phase: "新石器时代晚期",
+    cultures: [
+      ["upper-yellow", "黄河上游", "马家窑文化", "旋涡纹和连续几何纹彩陶达到高度成熟。"],
+      ["middle-yellow", "黄河中游", "仰韶文化晚期／庙底沟二期", "彩陶传统转型，聚落规模与区域交流继续扩大。"],
+      ["lower-yellow", "黄河下游", "大汶口文化中晚期", "精致陶器、玉石器与墓葬等级表现社会分化。"],
+      ["middle-yangtze", "长江中游", "屈家岭—石家河文化", "城址、陶器与玉器显示大型区域中心形成。"],
+      ["lower-yangtze", "长江下游", "良渚文化", "玉琮、玉璧、神人兽面纹和古城构成礼制艺术体系。"],
+      ["liao", "西辽河", "小河沿文化", "陶器和聚落延续西辽河地区的文化转型。"],
+    ],
+  },
+  {
+    id: "bc2700-2300",
+    years: "约前2700-前2300",
+    phase: "新石器时代晚期",
+    cultures: [
+      ["upper-yellow", "黄河上游", "马家窑文化晚期", "彩陶体系继续发展，并与西北交流网络相连。"],
+      ["middle-yellow", "黄河中游", "庙底沟二期文化", "陶器与聚落形态反映中原进入龙山时代前的转型。"],
+      ["lower-yellow", "黄河下游", "大汶口文化晚期", "墓葬等级和精细手工业进一步强化。"],
+      ["middle-yangtze", "长江中游", "屈家岭—石家河文化", "大型城址、玉器与祭祀活动持续发展。"],
+      ["lower-yangtze", "长江下游", "良渚文化晚期", "古城、水利、玉礼器与社会等级达到高峰。"],
+      ["liao", "西辽河", "小河沿文化", "参考照片将其置于红山之后的西辽河文化序列。"],
+    ],
+  },
+  {
+    id: "bc2300-1800",
+    years: "约前2300-前1800",
+    phase: "文明形成与早期青铜时代",
+    cultures: [
+      ["upper-yangtze", "长江上游", "宝墩文化", "成都平原城址群体现区域中心与公共空间形成。"],
+      ["upper-yellow", "黄河上游", "齐家文化", "陶器、玉器和早期铜器显示西北技术与交流转型。"],
+      ["middle-yellow", "黄河中游", "中原龙山文化", "城址、黑陶与礼仪空间推动中原社会复杂化。"],
+      ["lower-yellow", "黄河下游", "山东龙山文化", "蛋壳黑陶体现高度专业化的制陶技术。"],
+      ["middle-yangtze", "长江中游", "后石家河文化", "小型玉器和区域交流延续石家河文化传统。"],
+      ["lower-yangtze", "长江下游", "钱山漾—广富林类型", "良渚之后的陶器传统反映长江下游文化重组。"],
+      ["liao", "西辽河", "雪山二期文化", "名称依据参考照片录入，具体艺术线索仍需进一步核对。", true],
+    ],
+  },
+  {
+    id: "bc1800-1500",
+    years: "约前1800-前1500",
+    phase: "早期王朝与青铜文化",
+    cultures: [
+      ["upper-yangtze", "长江上游", "宝墩之后／三星堆前期", "成都平原由城址文化逐步进入三星堆青铜文明阶段。"],
+      ["upper-yellow", "黄河上游", "齐家文化晚期", "铜器、玉器与陶器体现西北地区的复合文化面貌。"],
+      ["middle-yellow", "黄河中游", "二里头文化", "宫殿、青铜礼器和绿松石器物体现早期国家艺术。"],
+      ["lower-yellow", "黄河下游", "岳石文化", "陶器和聚落延续山东龙山之后的区域传统。"],
+      ["middle-yangtze", "长江中游", "资料待核", "参考照片此阶段信息不清晰，暂留待核。", true],
+      ["lower-yangtze", "长江下游", "马桥文化", "印纹硬陶等器物呈现长江下游青铜时代地方风格。"],
+      ["liao", "西辽河", "夏家店下层文化", "石城、彩绘陶器与聚落防御体系具有鲜明北方特色。"],
+    ],
+  },
+  {
+    id: "bc1500-1000",
+    years: "约前1500-前1000",
+    phase: "青铜时代区域文明",
+    cultures: [
+      ["upper-yangtze", "长江上游", "三星堆文化", "青铜面具、神树和金器构成独特的古蜀视觉体系。"],
+      ["upper-yellow", "黄河上游", "寺洼文化", "马鞍口双耳罐等陶器形成西北地区代表性器形。"],
+      ["middle-yellow", "黄河中游", "二里岗文化", "青铜礼器和城市布局推动商代视觉秩序扩展。"],
+      ["lower-yellow", "黄河下游", "岳石文化", "地方陶器传统与中原青铜文化并行发展。"],
+      ["middle-yangtze", "长江中游", "资料待核", "参考照片此格以“？”标注，暂不补写。", true],
+      ["lower-yangtze", "长江下游", "马桥文化", "印纹陶与地方器物传统延续至青铜时代。"],
+      ["liao", "西辽河", "夏家店下层文化", "石城、彩绘陶和复杂聚落展现北方青铜文化。"],
+    ],
+  },
+];
+
+const overviewChapters = [
+  {
+    id: "prehistoric",
+    label: "史前",
+    range: "距今约3万年-前3000年",
+    start: -30000,
+    end: -3000,
+    ticks: [
+      [-30000, "距今3万年"],
+      [-20000, "距今2万年"],
+      [-10000, "距今1万年"],
+      [-6000, "前6000"],
+      [-3000, "前3000"],
+    ],
+    lanes: [
+      ["china", "中国史前文化", "中国", -20000, -3000, "#b89a37"],
+      ["west-asia", "西亚与北非", "西亚·北非", -12000, -3000, "#c85c48"],
+      ["europe", "欧洲史前文化", "欧洲", -30000, -3000, "#477cc6"],
+      ["americas", "美洲早期文化", "美洲", -15000, -3000, "#57a66b"],
+    ],
+    events: [
+      { id: "shandingdong", lane: "china", year: -20000, title: "山顶洞人的装饰品", meta: "约距今2万年", note: "穿孔兽牙、贝壳与赤铁矿粉显示身体装饰和精神活动。", image: "", action: "stone" },
+      { id: "yangshao", lane: "china", year: -5000, title: "仰韶彩陶", meta: "约前5000-前3000年", note: "彩陶纹样、聚落与农业共同形成黄河中游的视觉传统。", image: filePath("Banpo bowl.jpg"), action: "stone" },
+      { id: "liangzhu", lane: "china", year: -3300, title: "良渚玉礼器", meta: "约前3300-前2300年", note: "玉琮、玉璧和神人兽面纹把信仰、权力与手工业连接起来。", image: filePath("Liangzhu Jade Bi Disc (10434502846).jpg"), action: "stone" },
+      { id: "gobekli", lane: "west-asia", year: -9600, title: "哥贝克力石阵", meta: "约前9600年", note: "大型石柱和动物浮雕说明纪念性仪式空间早于成熟农业社会。", image: "" },
+      { id: "lascaux", lane: "europe", year: -17000, title: "拉斯科洞穴壁画", meta: "约前17000年", note: "动物形象、洞穴空间与仪式经验构成欧洲旧石器艺术高峰。", image: filePath("Lascaux painting.jpg") },
+      { id: "stonehenge", lane: "europe", year: -3000, title: "巨石阵", meta: "约前3000-前2000年", note: "巨石建筑把群体协作、天象观察与公共仪式结合。", image: filePath("Stonehenge2007 07 30.jpg") },
+      { id: "clovis", lane: "americas", year: -11000, title: "美洲早期石器传统", meta: "约前11000年", note: "石器技术与迁徙路线共同记录人群进入美洲后的区域适应。", image: "" },
+    ],
+  },
+  {
+    id: "ancient",
+    label: "古代文明",
+    range: "前3000年-500年",
+    start: -3000,
+    end: 500,
+    ticks: [[-3000, "前3000"], [-2000, "前2000"], [-1000, "前1000"], [0, "公元元年"], [500, "500"]],
+    lanes: [
+      ["china", "中国王朝", "中国", -2070, 500, "#b89a37"],
+      ["egypt-west", "埃及与西亚", "埃及·西亚", -3000, 500, "#c85c48"],
+      ["mediterranean", "希腊与罗马", "地中海", -800, 476, "#477cc6"],
+      ["south-asia", "南亚文明", "南亚", -2600, 500, "#8a66b8"],
+    ],
+    events: [
+      { id: "shang-bronze", lane: "china", year: -1300, title: "商代青铜礼器", meta: "约前13世纪", note: "青铜器、纹样和铭文共同建立祖先祭祀与王权秩序。", image: filePath("Da Ke ding.jpg") },
+      { id: "han-banner", lane: "china", year: -168, title: "马王堆T形帛画", meta: "约前168年", note: "天界、人间和地下世界被组织为一幅完整的升仙图景。", image: filePath("Mawangdui silk banner from tomb no1.jpg") },
+      { id: "egypt-mask", lane: "egypt-west", year: -1323, title: "图坦卡蒙黄金面具", meta: "约前1323年", note: "黄金、宝石和程式化王者形象服务于来世与永恒秩序。", image: filePath("The famous Tutankhamun Mask front.jpg") },
+      { id: "parthenon", lane: "mediterranean", year: -447, title: "帕特农神庙", meta: "前447-前432年", note: "柱式、比例和雕塑共同表达古典城邦的公共理想。", image: filePath("The Parthenon in Athens.jpg") },
+      { id: "rome", lane: "mediterranean", year: 80, title: "罗马斗兽场", meta: "70-80年", note: "工程技术、公共娱乐和帝国秩序在城市建筑中汇合。", image: filePath("Colosseum in Rome, Italy - April 2007.jpg") },
+      { id: "indus", lane: "south-asia", year: -2500, title: "印度河城市文明", meta: "约前2600-前1900年", note: "城市规划、印章和精细工艺显示成熟的社会组织与图像系统。", image: "" },
+    ],
+  },
+  {
+    id: "medieval",
+    label: "中古",
+    range: "500-1500年",
+    start: 500,
+    end: 1500,
+    ticks: [[500, "500"], [750, "750"], [1000, "1000"], [1250, "1250"], [1500, "1500"]],
+    lanes: [
+      ["china", "隋唐宋元", "中国", 581, 1368, "#b89a37"],
+      ["europe", "欧洲中世纪", "欧洲", 500, 1500, "#477cc6"],
+      ["islamic", "伊斯兰世界", "西亚·北非", 622, 1500, "#49a38d"],
+      ["south-east", "南亚与东南亚", "亚洲", 500, 1500, "#8a66b8"],
+    ],
+    events: [
+      { id: "tang", lane: "china", year: 700, title: "唐代国际化艺术", meta: "7-8世纪", note: "人物画、石窟、金银器和三彩器体现帝国与丝路交流。", image: "" },
+      { id: "song", lane: "china", year: 1072, title: "北宋山水画", meta: "11世纪", note: "山水成为观察自然、政治秩序和士人精神的核心媒介。", image: filePath("Guo Xi - Early Spring.jpg") },
+      { id: "gothic", lane: "europe", year: 1248, title: "哥特式教堂", meta: "12-15世纪", note: "尖拱、肋架拱顶与彩色玻璃将建筑塑造成神圣光空间。", image: filePath("Sainte Chapelle Interior Stained Glass.jpg") },
+      { id: "byzantine", lane: "europe", year: 547, title: "拜占庭镶嵌画", meta: "6世纪", note: "金底、正面人物和仪式秩序强调超越现实的神圣在场。", image: filePath("Meister von San Vitale in Ravenna 004.jpg") },
+      { id: "islam", lane: "islamic", year: 750, title: "伊斯兰装饰体系", meta: "8世纪以后", note: "书法、几何纹和植物纹在建筑与器物中形成跨地域视觉语言。", image: "" },
+      { id: "angkor", lane: "south-east", year: 1150, title: "吴哥建筑与浮雕", meta: "12世纪", note: "印度宗教图式与东南亚王权、地理环境结合为大型寺庙城市。", image: "" },
+    ],
+  },
+  {
+    id: "early-modern",
+    label: "近世",
+    range: "1400-1800年",
+    start: 1400,
+    end: 1800,
+    ticks: [[1400, "1400"], [1500, "1500"], [1600, "1600"], [1700, "1700"], [1800, "1800"]],
+    lanes: [
+      ["china", "明清艺术", "中国", 1400, 1800, "#b89a37"],
+      ["europe", "文艺复兴至启蒙", "欧洲", 1400, 1800, "#477cc6"],
+      ["islamic", "奥斯曼·萨法维·莫卧儿", "伊斯兰世界", 1450, 1800, "#49a38d"],
+      ["americas", "美洲殖民与本土传统", "美洲", 1400, 1800, "#c85c48"],
+    ],
+    events: [
+      { id: "ming", lane: "china", year: 1425, title: "明代宫廷与文人画", meta: "15世纪", note: "宫廷画院与吴门画派并行，职业绘画和文人艺术各自发展。", image: "" },
+      { id: "qing", lane: "china", year: 1700, title: "清代宫廷中西交流", meta: "17-18世纪", note: "传统笔墨、金石趣味与欧洲透视、珐琅工艺发生交汇。", image: "" },
+      { id: "renaissance", lane: "europe", year: 1503, title: "文艺复兴", meta: "15-16世纪", note: "透视、人体研究和古典复兴重塑欧洲艺术的知识体系。", image: filePath("Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg") },
+      { id: "baroque", lane: "europe", year: 1600, title: "巴洛克艺术", meta: "17世纪", note: "强烈光影、运动和戏剧性服务于宗教、宫廷和城市空间。", image: filePath("The Calling of Saint Matthew-Caravaggo (1599-1600).jpg") },
+      { id: "mughal", lane: "islamic", year: 1630, title: "莫卧儿宫廷艺术", meta: "16-18世纪", note: "波斯细密画、南亚传统与欧洲图像在宫廷中交融。", image: "" },
+      { id: "colonial", lane: "americas", year: 1650, title: "拉丁美洲殖民艺术", meta: "16-18世纪", note: "欧洲宗教图像与美洲本土材料、工匠传统形成混合风格。", image: "" },
+    ],
+  },
+  {
+    id: "modern",
+    label: "近现代",
+    range: "1800年至今",
+    start: 1800,
+    end: 2026,
+    ticks: [[1800, "1800"], [1850, "1850"], [1900, "1900"], [1950, "1950"], [2000, "2000"], [2026, "今天"]],
+    lanes: [
+      ["china", "近现代中国", "中国", 1840, 2026, "#b89a37"],
+      ["europe", "欧洲现代艺术", "欧洲", 1800, 2026, "#477cc6"],
+      ["americas", "美洲现代与当代", "美洲", 1800, 2026, "#c85c48"],
+      ["global", "全球当代艺术", "全球", 1950, 2026, "#49a38d"],
+    ],
+    events: [
+      { id: "china-modern", lane: "china", year: 1919, title: "中国现代美术转型", meta: "20世纪上半叶", note: "美术教育、油画写实与传统笔墨革新共同改变艺术生产。", image: "" },
+      { id: "china-contemporary", lane: "china", year: 1985, title: "中国当代艺术实验", meta: "20世纪80年代以后", note: "观念、装置、影像与传统资源重组，进入全球艺术网络。", image: "" },
+      { id: "impressionism", lane: "europe", year: 1874, title: "印象主义", meta: "19世纪后半叶", note: "现代都市、户外写生和光色研究改变学院绘画体系。", image: filePath("Claude Monet, Impression, soleil levant.jpg") },
+      { id: "modernism", lane: "europe", year: 1907, title: "现代主义突破", meta: "20世纪初", note: "立体主义、表现主义和抽象艺术重新定义图像与现实。", image: filePath("Guernica.jpg") },
+      { id: "pop", lane: "americas", year: 1962, title: "波普艺术", meta: "20世纪60年代", note: "广告、复制和消费文化进入艺术，挑战原创与精英趣味。", image: "" },
+      { id: "global-contemporary", lane: "global", year: 2000, title: "全球当代艺术", meta: "20世纪末至今", note: "双年展、跨媒介实践与去中心化叙事让多地区艺术并置。", image: "" },
+    ],
+  },
+];
 
 const materialLenses = {
   buddhism: {
@@ -1040,11 +1273,15 @@ const state = {
   artistScope: "china",
   artistFilter: "all",
   regionScope: "china",
-  activeChinaStage: "远古时期",
+  activeChinaStage: "旧石器时代",
   activeContinent: "asia",
   materialLens: "buddhism",
   prehistoricView: "overview",
   prehistoricRegion: "liao",
+  activeStoneAgeBand: "bc5000-4000",
+  activeStoneCulture: "middle-yellow",
+  overviewChapter: "prehistoric",
+  overviewEvent: "yangshao",
   activeBuddhistSite: "yungang",
 };
 
@@ -1179,21 +1416,14 @@ function renderRegionExplorer() {
       button.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><strong>${stage.name}</strong><small>${stage.years}</small><em>${stage.note}</em>`;
       button.addEventListener("click", () => {
         state.activeChinaStage = stage.name;
+        if (stage.name === "旧石器时代") {
+          state.prehistoricView = "paleolithic";
+        } else if (stage.group === "史前与文明起源") {
+          state.prehistoricView = "cultureMap";
+          if (stage.name === "新石器时代晚期") state.activeStoneAgeBand = "bc3300-2700";
+          if (stage.name === "文明形成阶段") state.activeStoneAgeBand = "bc2300-1800";
+        }
         renderRegionExplorer();
-        const terms = {
-          "远古时期": ["新石器", "红山", "仰韶", "良渚"],
-          "夏商西周": ["商周", "青铜礼制"],
-          "春秋战国": ["战国", "春秋"],
-          "秦汉": ["秦汉", "汉"],
-          "三国两晋南北朝": ["魏晋", "南北朝", "云冈"],
-          "隋唐五代": ["隋唐", "唐"],
-          "辽宋夏金元": ["宋元", "宋代", "元代"],
-          "明清": ["明清", "明代", "清代"],
-          "近代中国": ["近现代中国"],
-          "现代中国": ["近现代中国"],
-          "当代中国": ["中国当代"],
-        }[stage.name] || [stage.name];
-        selectMatchingEra(terms);
       });
       timeline.append(button);
     });
@@ -1201,7 +1431,7 @@ function renderRegionExplorer() {
     note.className = "region-source-note";
     note.textContent = "古代部分依据中国国家博物馆“古代中国”八段式框架，向近代、现代与当代延伸。";
     regionExplorerCanvas.append(timeline);
-    if (state.activeChinaStage === "远古时期") {
+    if (chinaHistoryStages.find((stage) => stage.name === state.activeChinaStage)?.group === "史前与文明起源") {
       regionExplorerCanvas.append(renderPrehistoricExplorer());
     }
     regionExplorerCanvas.append(note);
@@ -1281,7 +1511,9 @@ function renderPrehistoricExplorer() {
   intro.textContent = group.intro;
   content.append(intro);
 
-  if (state.prehistoricView === "neolithic") {
+  if (state.prehistoricView === "cultureMap") {
+    content.append(renderStoneAgeCultureMap());
+  } else if (state.prehistoricView === "neolithic") {
     const mapLayout = document.createElement("div");
     mapLayout.className = "neolithic-map-layout";
     const figure = document.createElement("figure");
@@ -1362,6 +1594,81 @@ function renderPrehistoricExplorer() {
   sources.textContent = "资料框架参考：中国国家博物馆“古代中国·远古时期”、中国考古博物馆“历史中国 鼎铸文明”及中华文明探源相关考古成果。";
   section.append(heading, tabs, content, sources);
   return section;
+}
+
+function renderStoneAgeCultureMap() {
+  const wrapper = document.createElement("div");
+  wrapper.className = "stone-culture-map-shell";
+  const bandTabs = document.createElement("div");
+  bandTabs.className = "stone-age-band-tabs";
+  stoneAgeCultureBands.forEach((band) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = band.id === state.activeStoneAgeBand ? "active" : "";
+    button.innerHTML = `<strong>${band.years}</strong><span>${band.phase}</span>`;
+    button.addEventListener("click", () => {
+      state.activeStoneAgeBand = band.id;
+      state.activeStoneCulture = band.cultures.find((item) => !item[4])?.[0] || band.cultures[0][0];
+      renderRegionExplorer();
+    });
+    bandTabs.append(button);
+  });
+
+  const band = stoneAgeCultureBands.find((item) => item.id === state.activeStoneAgeBand) || stoneAgeCultureBands[0];
+  const activeCulture = band.cultures.find(([id]) => id === state.activeStoneCulture) || band.cultures[0];
+  const layout = document.createElement("div");
+  layout.className = "stone-culture-map-layout";
+  const figure = document.createElement("figure");
+  figure.className = "stone-culture-map";
+  figure.innerHTML = `
+    <img class="handpainted-map-base" src="./assets/buddhist-sites-handpainted-map.png" alt="中国史前文化区域手绘地图" />
+    <div class="stone-map-caption"><strong>${band.years}</strong><span>${band.phase}</span></div>
+  `;
+  band.cultures.forEach(([id, region, culture, note, pending]) => {
+    const point = prehistoricRegionPoints[id];
+    if (!point) return;
+    const marker = document.createElement("button");
+    marker.type = "button";
+    marker.className = `culture-map-marker ${id}${pending ? " pending" : ""}${id === activeCulture[0] ? " active" : ""}`;
+    marker.style.left = `${point[0]}%`;
+    marker.style.top = `${point[1]}%`;
+    marker.innerHTML = `<span>${region}</span><strong>${culture}</strong>`;
+    marker.title = `${region}：${culture}`;
+    marker.addEventListener("click", () => {
+      state.activeStoneCulture = id;
+      renderRegionExplorer();
+    });
+    figure.append(marker);
+  });
+
+  const side = document.createElement("div");
+  side.className = "stone-culture-side";
+  const cultureList = document.createElement("div");
+  cultureList.className = "culture-map-list";
+  band.cultures.forEach(([id, region, culture, note, pending]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `${id === activeCulture[0] ? "active" : ""}${pending ? " pending" : ""}`;
+    button.innerHTML = `<span>${region}</span><strong>${culture}</strong>`;
+    button.addEventListener("click", () => {
+      state.activeStoneCulture = id;
+      renderRegionExplorer();
+    });
+    cultureList.append(button);
+  });
+  const detail = document.createElement("article");
+  detail.className = `stone-culture-detail${activeCulture[4] ? " pending" : ""}`;
+  detail.innerHTML = `
+    <p>${activeCulture[1]} · ${band.years}</p>
+    <h4>${activeCulture[2]}</h4>
+    <span>${band.phase}</span>
+    <p>${activeCulture[3]}</p>
+    ${activeCulture[4] ? "<small>此项来自参考照片中的模糊或待定信息，后续需要用考古资料继续核对。</small>" : ""}
+  `;
+  side.append(cultureList, detail);
+  layout.append(figure, side);
+  wrapper.append(bandTabs, layout);
+  return wrapper;
 }
 
 function renderMaterialLenses() {
@@ -1712,23 +2019,134 @@ function renderCards() {
 }
 
 function renderOverviewTimeline(visible) {
-  cardsGrid.className = "overview-index";
-  [
-    ["china", "中国艺术"],
-    ["world", "世界艺术"],
-  ].forEach(([region, title]) => {
-    const regionEras = visible.filter((era) => era.region === region);
-    const column = document.createElement("section");
-    column.className = `overview-index-column ${region}`;
-    column.innerHTML = `<div class="overview-index-heading"><h2>${title}</h2><span>${regionEras.length} 个时期</span></div>`;
-    regionEras.forEach((era) => {
-      const item = document.createElement("article");
-      item.className = "overview-index-item";
-      item.innerHTML = `<time>${era.years}</time><div><h3>${era.period}</h3><p>${era.title}</p></div>`;
-      column.append(item);
+  if (state.period !== "all" || state.query) {
+    cardsGrid.className = "cards-grid";
+    cardsGrid.append(...visible.map(renderEraCard));
+    return;
+  }
+
+  cardsGrid.className = "overview-atlas";
+  const chapter = overviewChapters.find((item) => item.id === state.overviewChapter) || overviewChapters[0];
+  if (!chapter.events.some((event) => event.id === state.overviewEvent)) {
+    state.overviewEvent = chapter.events[0].id;
+  }
+  const activeEvent = chapter.events.find((event) => event.id === state.overviewEvent) || chapter.events[0];
+
+  const header = document.createElement("header");
+  header.className = "overview-atlas-head";
+  header.innerHTML = `
+    <div>
+      <p>中外艺术时间图谱</p>
+      <h2>在同一刻度上观察不同文明</h2>
+    </div>
+    <span>${chapter.range}</span>
+  `;
+  const tabs = document.createElement("div");
+  tabs.className = "overview-chapter-tabs";
+  overviewChapters.forEach((item) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = item.id === chapter.id ? "active" : "";
+    button.innerHTML = `<strong>${item.label}</strong><span>${item.range}</span>`;
+    button.addEventListener("click", () => {
+      state.overviewChapter = item.id;
+      state.overviewEvent = item.events[0].id;
+      renderCards();
     });
-    cardsGrid.append(column);
+    tabs.append(button);
   });
+
+  const feature = document.createElement("article");
+  feature.className = "overview-feature";
+  feature.innerHTML = `
+    ${activeEvent.image
+      ? `<img src="${activeEvent.image}" alt="${activeEvent.title}" />`
+      : `<div class="overview-feature-placeholder"><span>${chapter.lanes.find(([id]) => id === activeEvent.lane)?.[2] || "艺术史"}</span><strong>${activeEvent.meta}</strong></div>`}
+    <div>
+      <p>${activeEvent.meta}</p>
+      <h3>${activeEvent.title}</h3>
+      <span>${chapter.lanes.find(([id]) => id === activeEvent.lane)?.[2] || ""}</span>
+      <p>${activeEvent.note}</p>
+      ${activeEvent.action === "stone" ? '<button type="button">进入中国石器时代区域地图</button>' : ""}
+    </div>
+  `;
+  feature.querySelector("img")?.addEventListener("error", (event) => {
+    event.currentTarget.classList.add("image-error");
+  }, { once: true });
+  feature.querySelector("button")?.addEventListener("click", () => {
+    state.view = "timeline";
+    state.regionScope = "china";
+    state.activeChinaStage = activeEvent.id === "liangzhu" ? "新石器时代晚期" : "新石器时代中期";
+    state.prehistoricView = "cultureMap";
+    state.activeStoneAgeBand = activeEvent.id === "liangzhu" ? "bc3300-2700" : "bc5000-4000";
+    document.querySelectorAll(".tab-button").forEach((button) => button.classList.toggle("active", button.dataset.view === "timeline"));
+    render();
+    document.querySelector(".layout")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  const scroller = document.createElement("div");
+  scroller.className = "overview-board-scroller";
+  const board = document.createElement("div");
+  board.className = "overview-board";
+  const scale = document.createElement("div");
+  scale.className = "overview-scale";
+  const scaleLabel = document.createElement("strong");
+  scaleLabel.textContent = "统一年代";
+  scale.append(scaleLabel);
+  const scaleTrack = document.createElement("div");
+  scaleTrack.className = "overview-scale-track";
+  chapter.ticks.forEach(([year, label]) => {
+    const tick = document.createElement("span");
+    tick.style.left = `${overviewPosition(chapter, year)}%`;
+    tick.textContent = label;
+    scaleTrack.append(tick);
+  });
+  scale.append(scaleTrack);
+  board.append(scale);
+
+  chapter.lanes.forEach(([id, name, shortName, start, end, color]) => {
+    const lane = document.createElement("div");
+    lane.className = "overview-lane";
+    lane.style.setProperty("--lane-color", color);
+    lane.innerHTML = `<div class="overview-lane-label"><span>${shortName}</span><strong>${name}</strong></div>`;
+    const track = document.createElement("div");
+    track.className = "overview-lane-track";
+    const life = document.createElement("span");
+    life.className = "overview-life";
+    life.style.left = `${overviewPosition(chapter, start)}%`;
+    life.style.width = `${Math.max(1.5, overviewPosition(chapter, end) - overviewPosition(chapter, start))}%`;
+    track.append(life);
+    chapter.ticks.forEach(([year]) => {
+      const guide = document.createElement("i");
+      guide.style.left = `${overviewPosition(chapter, year)}%`;
+      track.append(guide);
+    });
+    chapter.events.filter((event) => event.lane === id).forEach((event) => {
+      const marker = document.createElement("button");
+      marker.type = "button";
+      marker.className = `overview-event${event.id === activeEvent.id ? " active" : ""}`;
+      marker.style.left = `${overviewPosition(chapter, event.year)}%`;
+      marker.setAttribute("aria-label", `${event.meta}，${event.title}`);
+      marker.innerHTML = `<span></span><strong>${event.title}</strong>`;
+      marker.addEventListener("click", () => {
+        state.overviewEvent = event.id;
+        renderCards();
+      });
+      track.append(marker);
+    });
+    lane.append(track);
+    board.append(lane);
+  });
+  scroller.append(board);
+
+  const hint = document.createElement("p");
+  hint.className = "overview-atlas-hint";
+  hint.textContent = "彩色带表示该文明或地区在本章中的大致时间范围；圆点是可点击的代表性艺术事件。横向滚动可查看完整刻度。";
+  cardsGrid.append(header, tabs, feature, scroller, hint);
+}
+
+function overviewPosition(chapter, year) {
+  return Math.max(0, Math.min(100, ((year - chapter.start) / (chapter.end - chapter.start)) * 100));
 }
 
 function renderCompare() {
