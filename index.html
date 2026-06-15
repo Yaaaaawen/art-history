@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>中外艺术史时间轴</title>
-    <link rel="stylesheet" href="./styles.css?v=20260603-geo-artists" />
+    <link rel="stylesheet" href="./styles.css?v=20260615-region-atlas" />
   </head>
   <body>
     <header class="topbar">
@@ -36,7 +36,31 @@
               </select>
             </label>
           </div>
+          <div class="region-explorer">
+            <div class="region-explorer-head">
+              <div>
+                <span>地区观察</span>
+                <strong>从历史分期进入艺术现场</strong>
+              </div>
+              <div class="region-switch" role="group" aria-label="地区切换">
+                <button class="active" data-region-scope="china" type="button">中国地区</button>
+                <button data-region-scope="world" type="button">世界地区</button>
+              </div>
+            </div>
+            <div id="regionExplorerCanvas" class="region-explorer-canvas"></div>
+          </div>
         </div>
+      </section>
+
+      <section class="material-lenses" aria-labelledby="materialLensTitle">
+        <div class="section-title material-lens-title">
+          <div>
+            <p>横向观察</p>
+            <h2 id="materialLensTitle">同一种艺术，在时间里如何改变</h2>
+          </div>
+          <div id="materialLensTabs" class="material-lens-tabs" role="tablist" aria-label="艺术门类"></div>
+        </div>
+        <div id="materialLensCanvas" class="material-lens-canvas"></div>
       </section>
 
       <section class="layout">
@@ -109,6 +133,6 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aa7cfef2388c47c08c2b725b2efc7fac"}'></script>
     <!-- End Cloudflare Web Analytics -->
-    <script src="./script.js?v=20260603-geo-artists"></script>
+    <script src="./script.js?v=20260615-region-atlas"></script>
   </body>
 </html>

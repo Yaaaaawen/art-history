@@ -851,6 +851,107 @@ const artistMeta = {
   "沃霍尔": { region: "world", country: "美国" },
 };
 
+const chinaHistoryStages = [
+  ["远古时期", "约170万年前-前21世纪", "旧石器、新石器与早期文明"],
+  ["夏商西周", "约前21世纪-前771", "青铜礼制与早期国家"],
+  ["春秋战国", "前770-前221", "礼崩乐坏与诸子时代"],
+  ["秦汉", "前221-220", "大一统帝国与墓葬宇宙"],
+  ["三国两晋南北朝", "220-589", "民族交融与佛教艺术"],
+  ["隋唐五代", "581-960", "开放帝国与国际化艺术"],
+  ["辽宋夏金元", "916-1368", "多政权并立与文人艺术"],
+  ["明清", "1368-1840", "宫廷、城市与工艺高峰"],
+  ["近代中国", "1840-1949", "西学输入与艺术转型"],
+  ["现代中国", "1949-1978", "国家叙事与现代美术体系"],
+  ["当代中国", "1978-至今", "多元媒介与全球交流"],
+].map(([name, years, note]) => ({ name, years, note }));
+
+const worldContinents = [
+  {
+    id: "asia",
+    name: "亚洲",
+    x: 70,
+    y: 37,
+    regions: ["东亚", "南亚", "东南亚", "西亚", "中亚"],
+    timeline: "史前文明 → 两河与印度河 → 佛教与丝路 → 伊斯兰艺术 → 殖民与现代性 → 当代亚洲",
+  },
+  {
+    id: "europe",
+    name: "欧洲",
+    x: 48,
+    y: 31,
+    regions: ["南欧", "西欧", "北欧", "东欧"],
+    timeline: "爱琴与古典 → 罗马 → 中世纪 → 文艺复兴 → 现代主义 → 当代欧洲",
+  },
+  {
+    id: "africa",
+    name: "非洲",
+    x: 50,
+    y: 57,
+    regions: ["北非", "西非", "东非", "中非", "南部非洲"],
+    timeline: "史前岩画 → 古埃及与努比亚 → 撒哈拉以南王国 → 殖民时期 → 现代与当代非洲",
+  },
+  {
+    id: "north-america",
+    name: "北美洲",
+    x: 22,
+    y: 34,
+    regions: ["北极地区", "北美原住民文化区", "美国", "加拿大", "墨西哥北部"],
+    timeline: "原住民艺术 → 殖民艺术 → 国家艺术 → 现代主义 → 战后与当代",
+  },
+  {
+    id: "south-america",
+    name: "南美洲",
+    x: 31,
+    y: 68,
+    regions: ["安第斯", "亚马孙", "巴西", "南锥体"],
+    timeline: "安第斯古文明 → 印加 → 殖民巴洛克 → 独立国家 → 拉美现代主义与当代",
+  },
+  {
+    id: "oceania",
+    name: "大洋洲",
+    x: 84,
+    y: 70,
+    regions: ["澳大利亚", "美拉尼西亚", "密克罗尼西亚", "波利尼西亚"],
+    timeline: "原住民与海洋文化 → 殖民接触 → 国家艺术 → 当代原住民复兴",
+  },
+];
+
+const materialLenses = {
+  buddhism: {
+    label: "中国佛像",
+    intro: "观察佛像如何从外来图式，逐渐转化为中国化、世俗化和地域化的视觉语言。",
+    stages: [
+      ["东汉-十六国", "初传与译介", "犍陀罗、秣菟罗样式经丝路进入，造像强调神圣性与异域特征。"],
+      ["北魏", "秀骨清像", "云冈由雄健厚重转向龙门式清瘦典雅，服饰线条趋于中国化。"],
+      ["隋唐", "圆融丰腴", "身体比例自然，衣纹流畅，菩萨形象兼具庄严与人间气息。"],
+      ["宋辽金", "世俗与地域", "木雕、彩塑发展，观音等形象更亲近生活，地域风格明显。"],
+      ["明清", "宫廷与民间", "藏传、汉传并行，鎏金铜造像和寺观彩塑形成多层体系。"],
+    ],
+  },
+  porcelain: {
+    label: "中国瓷器",
+    intro: "从青瓷成熟到全球贸易，瓷器把技术、审美、宫廷制度与世界交流连接起来。",
+    stages: [
+      ["商周-汉", "原始瓷", "高温釉陶逐渐成熟，为真正瓷器的烧成奠定技术基础。"],
+      ["六朝", "青瓷成熟", "越窑系统发展，器形与动物塑饰反映南方生活和墓葬文化。"],
+      ["隋唐", "南青北白", "越窑青瓷、邢窑白瓷并立，唐三彩与外来器形显示开放交流。"],
+      ["宋代", "窑口美学", "汝、官、哥、定、钧及民窑共同形成釉色、器形与触感的高峰。"],
+      ["元明清", "彩绘与全球化", "青花、斗彩、五彩、珐琅彩发展，景德镇连接宫廷与海外市场。"],
+    ],
+  },
+  jade: {
+    label: "中国玉器",
+    intro: "玉器从巫礼媒介变为礼制、身份、丧葬与文人趣味的共同载体。",
+    stages: [
+      ["新石器时代", "神权与礼仪", "红山玉龙、良渚玉琮体现祭祀、宇宙观与社会等级。"],
+      ["商周", "礼制与王权", "璧、琮、圭、璋进入礼制系统，动物纹与铭刻强化身份。"],
+      ["秦汉", "永生与护佑", "玉衣、玉璧、玉剑饰进入墓葬体系，连接身体与不朽观念。"],
+      ["唐宋", "生活与雅玩", "人物、花鸟和实用器增多，玉器从礼制走向日常审美。"],
+      ["明清", "宫廷工艺", "大型陈设玉、仿古玉与文房玉器并行，乾隆时期工艺尤盛。"],
+    ],
+  },
+};
+
 const state = {
   view: "all",
   period: "all",
@@ -861,6 +962,10 @@ const state = {
   activeGeoEvent: "",
   artistScope: "china",
   artistFilter: "all",
+  regionScope: "china",
+  activeChinaStage: "远古时期",
+  activeContinent: "asia",
+  materialLens: "buddhism",
 };
 
 const cardsGrid = document.querySelector("#cardsGrid");
@@ -875,6 +980,9 @@ const networkCanvas = document.querySelector("#networkCanvas");
 const timelineNav = document.querySelector("#timelineNav");
 const searchInput = document.querySelector("#searchInput");
 const periodSelect = document.querySelector("#periodSelect");
+const regionExplorerCanvas = document.querySelector("#regionExplorerCanvas");
+const materialLensTabs = document.querySelector("#materialLensTabs");
+const materialLensCanvas = document.querySelector("#materialLensCanvas");
 const resetButton = document.querySelector("#resetButton");
 const imageDialog = document.querySelector("#imageDialog");
 const dialogImage = document.querySelector("#dialogImage");
@@ -955,6 +1063,132 @@ function renderTimeline() {
     });
     timelineNav.append(button);
   }
+}
+
+function selectMatchingEra(terms) {
+  const match = eras.find((era) => terms.some((term) => `${era.period} ${era.years} ${era.geography}`.includes(term)));
+  if (!match) return;
+  state.period = match.period;
+  periodSelect.value = match.period;
+  document.querySelector(".layout")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  render();
+}
+
+function renderRegionExplorer() {
+  document.querySelectorAll("[data-region-scope]").forEach((button) => {
+    button.classList.toggle("active", button.dataset.regionScope === state.regionScope);
+  });
+  regionExplorerCanvas.replaceChildren();
+
+  if (state.regionScope === "china") {
+    const timeline = document.createElement("div");
+    timeline.className = "china-stage-track";
+    chinaHistoryStages.forEach((stage, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `china-stage${stage.name === state.activeChinaStage ? " active" : ""}`;
+      button.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><strong>${stage.name}</strong><small>${stage.years}</small><em>${stage.note}</em>`;
+      button.addEventListener("click", () => {
+        state.activeChinaStage = stage.name;
+        renderRegionExplorer();
+        const terms = {
+          "远古时期": ["新石器", "红山", "仰韶", "良渚"],
+          "夏商西周": ["商周", "青铜礼制"],
+          "春秋战国": ["战国", "春秋"],
+          "秦汉": ["秦汉", "汉"],
+          "三国两晋南北朝": ["魏晋", "南北朝", "云冈"],
+          "隋唐五代": ["隋唐", "唐"],
+          "辽宋夏金元": ["宋元", "宋代", "元代"],
+          "明清": ["明清", "明代", "清代"],
+          "近代中国": ["近现代中国"],
+          "现代中国": ["近现代中国"],
+          "当代中国": ["中国当代"],
+        }[stage.name] || [stage.name];
+        selectMatchingEra(terms);
+      });
+      timeline.append(button);
+    });
+    const note = document.createElement("p");
+    note.className = "region-source-note";
+    note.textContent = "古代部分依据中国国家博物馆“古代中国”八段式框架，向近代、现代与当代延伸。";
+    regionExplorerCanvas.append(timeline, note);
+    return;
+  }
+
+  const active = worldContinents.find((continent) => continent.id === state.activeContinent) || worldContinents[0];
+  const worldLayout = document.createElement("div");
+  worldLayout.className = "world-region-layout";
+  const globe = document.createElement("div");
+  globe.className = "atlas-globe";
+  globe.innerHTML = `
+    <svg viewBox="0 0 100 72" aria-hidden="true">
+      <ellipse class="globe-ocean" cx="50" cy="36" rx="47" ry="32"></ellipse>
+      <path class="globe-grid" d="M4 36 H96 M50 4 V68 M14 18 C32 27 68 27 86 18 M14 54 C32 45 68 45 86 54"></path>
+      <path class="globe-land" d="M9 24 L18 13 L32 12 L40 21 L35 31 L25 34 L20 46 L13 38 Z"></path>
+      <path class="globe-land" d="M29 44 L39 47 L42 58 L35 68 L28 59 Z"></path>
+      <path class="globe-land" d="M43 18 L54 12 L68 15 L79 23 L91 25 L86 37 L72 40 L64 34 L57 42 L47 35 Z"></path>
+      <path class="globe-land" d="M49 38 L61 39 L65 55 L56 66 L47 54 Z"></path>
+      <path class="globe-land" d="M78 53 L90 55 L94 64 L84 68 L76 62 Z"></path>
+    </svg>
+  `;
+  worldContinents.forEach((continent) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `continent-marker${continent.id === active.id ? " active" : ""}`;
+    button.style.left = `${continent.x}%`;
+    button.style.top = `${continent.y}%`;
+    button.textContent = continent.name;
+    button.addEventListener("click", () => {
+      state.activeContinent = continent.id;
+      renderRegionExplorer();
+    });
+    globe.append(button);
+  });
+  const detail = document.createElement("article");
+  detail.className = "continent-detail";
+  detail.innerHTML = `
+    <p>世界地区</p>
+    <h3>${active.name}</h3>
+    <div class="continent-region-list">${active.regions.map((region) => `<span>${region}</span>`).join("")}</div>
+    <strong>时间线框架</strong>
+    <p>${active.timeline}</p>
+    <button type="button">查看现有相关内容</button>
+  `;
+  detail.querySelector("button").addEventListener("click", () => {
+    state.view = "geo";
+    state.geoScope = "world";
+    render();
+    document.querySelector(".layout")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  worldLayout.append(globe, detail);
+  regionExplorerCanvas.append(worldLayout);
+}
+
+function renderMaterialLenses() {
+  materialLensTabs.replaceChildren();
+  Object.entries(materialLenses).forEach(([id, lens]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = id === state.materialLens ? "active" : "";
+    button.textContent = lens.label;
+    button.addEventListener("click", () => {
+      state.materialLens = id;
+      renderMaterialLenses();
+    });
+    materialLensTabs.append(button);
+  });
+  const lens = materialLenses[state.materialLens];
+  const intro = document.createElement("p");
+  intro.className = "material-lens-intro";
+  intro.textContent = lens.intro;
+  const track = document.createElement("div");
+  track.className = "material-evolution-track";
+  lens.stages.forEach(([period, title, detail], index) => {
+    const item = document.createElement("article");
+    item.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><small>${period}</small><h3>${title}</h3><p>${detail}</p>`;
+    track.append(item);
+  });
+  materialLensCanvas.replaceChildren(intro, track);
 }
 
 function fallbackSvg(artwork) {
@@ -1511,6 +1745,8 @@ function renderTabs() {
 
 function render() {
   renderTabs();
+  renderRegionExplorer();
+  renderMaterialLenses();
   renderStats();
   renderTimeline();
   renderCards();
@@ -1524,6 +1760,13 @@ document.querySelectorAll(".tab-button").forEach((button) => {
   button.addEventListener("click", () => {
     state.view = button.dataset.view;
     render();
+  });
+});
+
+document.querySelectorAll("[data-region-scope]").forEach((button) => {
+  button.addEventListener("click", () => {
+    state.regionScope = button.dataset.regionScope;
+    renderRegionExplorer();
   });
 });
 
